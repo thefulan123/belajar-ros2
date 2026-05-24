@@ -137,6 +137,23 @@ Kamu akan lihat puluhan package bawaan ROS2. Semua itu ada di folder:
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie pake **library Arduino** dari Library Manager. ROS2 punya **package**.
+
+| Aspek | ROS2 Package | Arduino Library |
+|-------|-------------|-----------------|
+| Lokasi | `src/nama_package/` | `~/Arduino/libraries/` |
+| Isi | `package.xml`, `setup.py`, `src/` | `.h` + `.cpp` + `library.properties` |
+| Fungsi | Bungkus node + msg + service + action | Bungkus fungsi hardware (LCD, sensor) |
+| Cara pasang | `ros2 pkg create` | Tools → Manage Libraries |
+| Dependensi | Tulis di `package.xml` | `#include <...>` aja |
+| Milik siapa | Bikin sendiri + package bawaan ROS2 | Dibuat komunitas Arduino |
+
+**Intinya:** Package ROS2 = library Arduino versi dewasa — lebih terstruktur dan bisa berisi banyak komponen (node, topic, service, action) sekaligus.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini menjelajahi package bawaan ROS2 dan melihat strukturnya.

@@ -148,6 +148,23 @@ Cukup jalankan `colcon build` lagi setiap kali ada perubahan kode.
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie klik **Verify** (Ctrl+R) di Arduino IDE. Di ROS2, build beda.
+
+| Aspek | ROS2 (colcon build) | Arduino (Verify) |
+|-------|---------------------|------------------|
+| Perintah | `colcon build` di terminal | Klik tombol ✓ atau Ctrl+R |
+| Output | Folder `build/`, `install/`, `log/` | File `.hex` siap upload |
+| Yang dibuild | Semua package di `src/` | 1 file `.ino` |
+| Waktu | Bisa 5-60 detik (tergantung package) | 1-3 detik (sketch kecil) |
+| Error | Tampil di terminal + log file | Tampil di console Arduino IDE |
+| Kalau error | Build gagal total — perbaiki, build ulang | Compile error — perbaiki, compile ulang |
+
+**Intinya:** `colcon build` kayak "Verify all" — build semua package sekaligus. Cocok kalau projectmu punya 10+ file, bandingkan dengan Arduino yang cuma 1 file.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini **membangun (build) package** ROS2 dengan colcon.

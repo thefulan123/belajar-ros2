@@ -237,6 +237,47 @@ ros2 topic pub /chatter std_msgs/msg/String "data: 'Test dari CLI'" --once
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie kirim data pake `Serial.print()` dan baca pake `Serial.read()`. Di ROS2, ada **Topic**.
+
+### Arduino (Serial):
+```cpp
+// Publisher (manual)
+Serial.println(analogRead(A0));  // Kirim angka ke serial
+
+// Subscriber (manual)  
+if (Serial.available()) {
+  int cmd = Serial.parseInt();   // Baca perintah dari serial
+}
+```
+**Masalah:** Serial cuma 1 channel. Kalau ada 3 sensor, kamu harus bikin protokol parsing sendiri (contoh: "S:27.5,L:450,..."). Ribet dan gampang error.
+
+### ROS2 (Topic):
+```python
+# Publisher — kirim ke topic /suhu
+pub = self.create_publisher(Float32, '/suhu', 10)
+pub.publish(msg)
+
+# Subscriber — terima dari topic /suhu
+sub = self.create_subscription(Float32, '/suhu', callback, 10)
+```
+Setiap sensor punya **topic sendiri**, tipe data sudah standar. Nggak perlu bikin protokol manual.
+
+| Aspek | ROS2 Topic | Arduino Serial |
+|-------|-----------|----------------|
+| Channel | Banyak topic: `/suhu`, `/jarak`, `/kecepatan` | 1 Serial — semua data campur |
+| Tipe data | Standar: String, Int32, Float32, Bool | Semua jadi teks — harus di-parse |
+| Discovery | `ros2 topic list` — lihat semua topic | Nggak ada — kamu harus tahu formatnya |
+| Penerima | Bisa banyak subscriber sekaligus | 1 Serial Monitor — 1 pembaca |
+| Decoupled | Publisher ga kenal subscriber | Harus sinkron sender/receiver |
+| Debug | `ros2 topic echo /suhu` | Serial Monitor — lihat semua |
+| Cocok | Banyak sensor/aktuator yang perlu koordinasi | 1-2 sensor, cek sesekali |
+
+**Intinya:** Serial Arduino itu kayak telepon rumah — 1 jalur, 1 lawan bicara. Topic ROS2 kayak WhatsApp grup — banyak channel, banyak peserta, dan pesan nggak hilang.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini menjalankan **Publisher dan Subscriber** ROS2 dari folder explore.

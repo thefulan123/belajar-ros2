@@ -156,6 +156,22 @@ ros2 pkg list | grep ros2_belajar
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie tinggal **colok USB + upload**. Di ROS2, setelah build harus **source ulang**.
+
+| Aspek | ROS2 | Arduino Biasa |
+|-------|------|---------------|
+| Setelah build | `source install/setup.bash` | Langsung upload ke board |
+| Kenapa? | Biar terminal tau package barumu | IDE udah tau file .hex buat board |
+| Lupa source? | `ros2 pkg list` tidak muncul package-mu | Nggak relevan — upload langsung kerja |
+| Setiap terminal? | Wajib source ulang di tiap terminal baru | IDE otomatis — buka aja langsung compile |
+| Repot? | Iya, tapi bisa diakali dengan `.bashrc` | Nol repot |
+
+**Intinya:** Source workspace = bilang ke sistem "Pakai package buatanku juga ya!" Tanpa source, packagemu ada tapi ga dikenal sistem. Ini langkah yang paling sering dilupakan pemula.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini mensimulasikan **sourcing workspace** setelah `colcon build`.

@@ -136,6 +136,22 @@ Setelah Modul 05 (Build Package), folder `build/`, `install/`, `log/` akan muncu
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie cukup punya **1 folder** berisi file `.ino`. Di ROS2, workspace punya struktur baku.
+
+| Aspek | ROS2 | Arduino Biasa |
+|-------|------|---------------|
+| Struktur | `workspace/src/` → build → install/ | 1 folder, 1 file `.ino` |
+| Organisasi | Package → node → topic/service | `#include` + `setup()` + `loop()` |
+| Scalability | Puluhan node dalam 1 workspace | 1 program = 1 file (ribet kalau besar) |
+| Build | `colcon build` → compile semua package | Ctrl+R → compile 1 file |
+| Analogi | Seperti proyek VS Code dengan banyak folder | Seperti notepad — simpel tapi terbatas |
+
+**Intinya:** Workspace ROS2 agak ribet di awal, tapi begitu proyekmu punya 5+ sensor dan 3+ aktuator, struktur ini menyelamatkanmu dari kekacauan.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini membuat **ROS2 workspace** pertama kamu.

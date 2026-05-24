@@ -224,6 +224,65 @@ Semakin besar order, semakin lama proses (lihat feedback).
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie yang mau ngerjain tugas lama (misal: robot jalan 1 meter) harus bikin **state machine manual** pake loop + variable. Di ROS2, ada **Action**.
+
+### Arduino (manual state machine):
+```cpp
+enum State {IDLE, MOVING, DONE};
+State state = IDLE;
+int progress = 0;
+
+void loop() {
+  switch(state) {
+    case IDLE:
+      if (Serial.available()) startMoving();
+      break;
+    case MOVING:
+      // Jalan dikit, update progress
+      progress++;
+      Serial.print("Progress: "); Serial.println(progress);
+      if (progress >= 10) state = DONE;
+      break;
+    case DONE:
+      Serial.println("Selesai!");
+      state = IDLE;
+      break;
+  }
+}
+```
+**Masalah:** Kamu harus bikin state machine sendiri, ngirim feedback manual, handle cancel manual. Ribet.
+
+### ROS2 (Action):
+```python
+# Action Server — otomatis handle goal, feedback, cancel
+def execute_callback(self, goal_handle):
+    for i in range(goal_handle.request.order):
+        # Hitung, kirim feedback
+        feedback_msg.sequence = sequence
+        goal_handle.publish_feedback(feedback_msg)
+        # Cek cancel
+        if goal_handle.is_canceling():
+            return Canceled()
+    goal_handle.succeed()
+    return result
+```
+Action udah punya **sistem goal-feedback-result-cancel** built-in. Kamu tinggal isi logic-nya.
+
+| Aspek | ROS2 Action | Arduino Manual |
+|-------|-------------|----------------|
+| Goal | `send_goal(order)` — kirim tujuan | Variable global + switch case |
+| Feedback | `publish_feedback()` — otomatis ke client | `Serial.print("Progress...")` — manual |
+| Cancel | `goal_handle.is_canceling()` — deteksi otomatis | Flag variable — kamu atur sendiri |
+| Result | `succeed()` + return | State machine manual |
+| Multi-client | Bisa banyak client 1 server | Nggak bisa — 1 program, 1 state |
+| Debug | `ros2 action list`, `ros2 action send_goal` | Serial Monitor — harus parsing sendiri |
+
+**Intinya:** Action itu kayak **Gojek** — kamu pesan (goal), driver lapor posisi (feedback), sampe tujuan (result), bisa dibatalin (cancel). Arduino manual itu kayak **jalan kaki** — semua kamu atur sendiri: tujuan, progress, kapan berhenti.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini menjalankan **Action Server dan Client** ROS2 dari folder explore.

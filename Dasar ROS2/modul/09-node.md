@@ -189,6 +189,50 @@ Jalankan ulang, cek `ros2 node list`.
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie nulis kode di `setup()` + `loop()`. Di ROS2, kita buat **Node**.
+
+### Arduino (setup + loop):
+```cpp
+void setup() {
+  pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(LED, HIGH);
+  delay(1000);
+  digitalWrite(LED, LOW);
+  delay(1000);
+}
+```
+Program Arduino cuma punya 2 fungsi — semua kode masuk situ. Kalau makin besar, `loop()` jadi panjang dan campur aduk.
+
+### ROS2 (Node):
+```python
+class LedNode(Node):
+    def __init__(self):
+        super().__init__('led_node')   # Nama node UNIK
+        self.pub = self.create_publisher(...)
+        self.sub = self.create_subscription(...)
+        self.timer = self.create_timer(...)
+```
+Setiap "program" di ROS2 adalah **Node** dengan nama unik. Node bisa punya publisher, subscriber, timer, service — semua terorganisir rapi dalam 1 class.
+
+| Aspek | ROS2 Node | Arduino setup() + loop() |
+|-------|-----------|-------------------------|
+| Struktur | Class Python/C++ — method terpisah | 2 fungsi: setup(), loop() |
+| Identitas | Nama unik (contoh: `/led_node`) | Nggak ada — semua anonymous |
+| Banyak program | 1 terminal = 1 node; bisa banyak | 1 Arduino = 1 program |
+| Komunikasi | Node bisa "ngobrol" via topic/service | Serial.print() — manual, satu arah |
+| Lifecycle | init → spin → shutdown | setup → loop → loop → ... |
+| Cocok | Banyak komponen yang perlu koordinasi | Projekt tunggal, 1 board |
+
+**Intinya:** Kalau Arduino `loop()` itu kayak buku catatan isinya campur aduk, ROS2 Node itu kayak rak buku terorganisir — setiap bagian punya tempat sendiri dan bisa ditemuin dengan mudah.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini menjalankan **node ROS2** dan melihatnya di daftar node.

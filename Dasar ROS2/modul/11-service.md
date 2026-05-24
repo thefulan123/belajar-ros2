@@ -204,6 +204,45 @@ ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 99, b: 1}
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie pake `Serial.read()` buat dapetin perintah dan `Serial.print()` buat jawab. Di ROS2, ada **Service**.
+
+### Arduino (Serial request-response manual):
+```cpp
+if (Serial.available()) {
+  int a = Serial.parseInt();   // Baca angka pertama
+  int b = Serial.parseInt();   // Baca angka kedua
+  int sum = a + b;
+  Serial.println(sum);         // Kirim hasil
+}
+```
+**Masalah:** Kamu harus nentuin protokol sendiri — kapan mulai baca, kapan selesai, gimana kalau datanya rusak. Beda program pake format beda.
+
+### ROS2 (Service):
+```python
+# Server — daftar 1 service /add_two_ints
+self.srv = self.create_service(AddTwoInts, '/add_two_ints', callback)
+
+# Client — panggil dengan request, dapet response
+future = self.cli.call_async(AddTwoInts.Request(a=5, b=3))
+```
+Service punya **kontrak baku** — request dan response sudah didefinisikan. Client tinggal panggil, server tinggal jawab.
+
+| Aspek | ROS2 Service | Arduino Serial Manual |
+|-------|-------------|----------------------|
+| Protokol | Standar bawaan ROS2 | Kamu bikin sendiri |
+| Request type | `AddTwoInts.Request` (a, b) | String — harus di-parse |
+| Response type | `AddTwoInts.Response` (sum) | String — harus di-parse lagi |
+| Error handling | Bawaan — timeout, connection | Manual — kalau format salah? |
+| Discovery | `ros2 service list` | — |
+| Scalabilitas | 1 service = 1 file definisi, bisa dipake banyak node | 1 protokol = 1 format, beda program = beda format |
+| Type safety | Compile-time type checking | Runtime — error baru ketahuan pas jalan |
+
+**Intinya:** Service ROS2 itu kayak **API yang terdokumentasi** — ada kontrak jelas (request apa, response apa). Serial manual kayak berbisik — kamu harus tau sendiri formatnya, kalau salah ya error.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini menjalankan **Service Server dan Client** ROS2 dari folder explore.

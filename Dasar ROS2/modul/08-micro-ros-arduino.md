@@ -340,6 +340,43 @@ Arduino UNO bisa menjalankan micro-ROS, tapi dengan keterbatasan:
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie pake Arduino **standalone** — sensor baca, LED nyala, selesai. Dengan **micro-ROS**, Arduino jadi bagian dari sistem ROS2.
+
+### Arduino Biasa (tanpa ROS2):
+```
+Sensor → Arduino → Serial Monitor (PC)
+                    ↑
+            Kamu baca angkanya manual
+```
+- Data coba dilihat di Serial Monitor
+- Nggak bisa komunikasi dengan program lain
+- Kalau mau kontrol dari PC, harus bikin protokol sendiri
+
+### Arduino + micro-ROS:
+```
+Sensor → Arduino → topic /suhu → PC (ROS2)
+                                   ↓
+                            Bisa dipake node lain,
+                            direkam, dianalisis
+```
+- Data otomatis masuk ke ROS2
+- Bisa digabung dengan sensor lain
+- Bisa dikendalikan dari PC lewat topic
+
+| Aspek | Arduino + micro-ROS | Arduino Standalone |
+|-------|--------------------|--------------------|
+| Komunikasi | Topic ROS2 (standard, decoupled) | Serial.print() / Serial.read() |
+| Integrasi | Langsung nyambung ke node ROS2 lain | Sendiri — paling bisa ke Serial Monitor |
+| Skalabilitas | 10 Arduino + 1 PC = 1 sistem | 10 Arduino = 10 sistem terpisah |
+| Kompleksitas | Butuh agent, setup ROS2, sourcing | Cukup kabel USB + Arduino IDE |
+| Cocok | Robot yang butuh koordinasi multi-sensor | Projekt sederhana 1 sensor |
+
+**Intinya:** micro-ROS ngubah Arduino dari "mainan standalone" jadi "bagian dari robot intelligence". Kalau cuma butuh baca sensor doang di Serial Monitor, Arduino biasa cukup. Tapi kalau sensormu harus ngomong sama motor, kamera, dan navigasi — kamu butuh micro-ROS.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini menjalankan **micro-ROS** dengan Arduino UNO dari folder explore.

@@ -217,6 +217,40 @@ Coba jalankan tanpa `rclpy.spin()` — node akan langsung mati tanpa output.
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie biasanya pake `delay()` untuk ngatur waktu. Di ROS2, ada **timer callback**.
+
+### Arduino (tanpa ROS2):
+```cpp
+void loop() {
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(1000);           // ← BERHENTI. Nggak bisa ngapa-ngapain.
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(1000);           // ← BERHENTI lagi.
+}
+```
+**Masalah:** Selama `delay()`, Arduino **buta** — nggak bisa baca sensor, nggak bisa terima data.
+
+### ROS2 (dengan timer callback):
+```python
+self.timer = self.create_timer(1.0, self.callback)
+# ← Nggak bloking! Node tetep bisa nerima data dari topic lain.
+```
+**Kelebihan:** Node tetep "dengar" sambil nunggu timer — event-driven, bukan blocking.
+
+| Aspek | ROS2 Timer Callback | Arduino delay() |
+|-------|---------------------|-----------------|
+| Bloking? | ❌ Tidak — callback jalan di background | ✅ Ya — program berhenti total |
+| Multi-tasking | Bisa timer + subscriber + service barengan | Hanya 1 hal dalam 1 waktu |
+| Fleksibilitas | Interval bisa float (0.5 detik, 0.01 detik) | delay(milliseconds) — integer |
+| Berhenti kapan? | Program jalan sampai Ctrl+C | delay() selesai — lanjut ke baris berikut |
+| Cara pikir | "Reaktif" — fungsi dipanggil kalau waktunya tiba | "Linear" — aku tidur dulu, bangun, lanjut |
+
+**Intinya:** `delay()` itu kayak orang meditasi — nggak sadar sekitar. Timer callback kayak orang multitasking — ngerjain sesuatu sambil nunggu alarm.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini menjalankan node ROS2 dengan **timer callback** dari folder explore.

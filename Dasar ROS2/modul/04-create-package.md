@@ -127,6 +127,22 @@ ls package_coba/
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie cukup **File > New** di Arduino IDE. Di ROS2 ada command khusus.
+
+| Aspek | ROS2 | Arduino Biasa |
+|-------|------|---------------|
+| Cara buat | `ros2 pkg create --build-type ament_python nama_pkg` | File → New → Save As |
+| Hasil | Folder dengan `package.xml`, `setup.py`, dll | File `.ino` doang |
+| Templating | Otomatis generate struktur package | Blank sketch |
+| Konfigurasi | Edit `package.xml` + `setup.py` | Nggak ada — langsung tulis kode |
+| Node registration | Daftar di `entry_points` di `setup.py` | Fungsi `setup()` + `loop()` aja |
+
+**Intinya:** ROS2 butuh package karena node bisa banyak dan harus terorganisir. Arduino simpel karena cuma 1 program untuk 1 board.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini membuat **package ROS2 Python** pertama kamu.

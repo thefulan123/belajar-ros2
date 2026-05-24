@@ -162,6 +162,22 @@ Perhatikan baris `/opt/ros/humble/bin` yang muncul setelah source.
 
 ---
 
+## 🔄 ROS2 vs Arduino Biasa
+
+Anak robotik newbie biasanya **cuma buka Arduino IDE** langsung upload. Di ROS2, ada langkah ekstra: **source**.
+
+| Aspek | ROS2 | Arduino Biasa (tanpa ROS2) |
+|-------|------|---------------------------|
+| Sebelum coding | `source /opt/ros/humble/setup.bash` | Buka Arduino IDE, langsung tulis kode |
+| Cara kerja | Terminal cari command `ros2` di PATH | IDE udah tau letak compiler AVR |
+| Complexitas | Integrasi banyak node, PC + multi-board | 1 board, 1 program, 1 serial monitor |
+| Cocok untuk | Robot kompleks (SLAM, navigasi, multi-sensor) | Blinking LED, baca sensor tunggal |
+| Kesulitan | Perlu paham PATH, environment variable, shell | Nol konfigurasi — "buka, tulis, upload" |
+
+**Intinya:** Sourcing adalah "harga masuk" ROS2. Sekali paham, kamu bisa integrasi Arduino + PC + sensor + motor dalam satu sistem.
+
+---
+
 ## 📁 PRAKTIK
 
 Praktik ini menunjukkan cara **sourcing ROS2** di terminal dan memverifikasinya.
