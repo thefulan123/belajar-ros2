@@ -5,40 +5,44 @@ Gunakan format di bawah ini.
 
 ---
 
-## [2026-05-25 00:00 UTC]
+## [2026-05-25]
 
 **Agent:** opencode
 
 **Task:**
-- Inisialisasi struktur proyek (Fase 0)
+- Fase 0: Inisialisasi struktur proyek + Git init + konfigurasi
 
 **Files Changed:**
-- AGENTS.md — dibuat
-- README.md — dibuat (dual language)
-- .gitignore — dibuat
-- scripts/source_ros.sh — dibuat
-- docs/ERRORS.md — dibuat
-- logs/agent-log.md — dibuat
-- explore/01-minimal-node/ — folder disiapkan
-- explore/02-pub-sub/ — folder disiapkan
-- dst...
+- AGENTS.md — dibuat (aturan agent multi-agent)
+- README.md — dibuat (dual language, overview proyek)
+- .gitignore — dibuat (Python, ROS2 build, log, dll)
+- scripts/source_ros.sh — dibuat (helper source ROS2)
+- docs/ERRORS.md — dibuat (panduan error pemula, dual language)
+- logs/agent-log.md — dibuat (template + log ini)
+- .gitkeep files — dibuat di 12 folder
+- Dasar ROS2/Materi.txt — file existing, dipertahankan
 
 **Reason:**
 - Proyek baru, perlu struktur yang rapi dan sesuai framework multi-agent.
+- Dual-track: explore/ (standalone Python) + src/ (colcon workspace).
+- Dual language supaya pembelajar Indonesia bisa belajar istilah Inggris.
 
 **Implementation Details:**
-- Struktur dual-track: explore/ (standalone) + src/ (colcon workspace)
-- Dual language: Indonesia + Inggris di README dan docs
-- ROS2 workspace di src/ (belum ada package, hanya folder)
-- .gitignore mencakup Python cache, ROS2 build artifacts, log
+- Struktur dual-track: explore/ (6 subfolder untuk 6 konsep) + src/ (colcon workspace kosong)
+- Dual language: Indonesia + Inggris inline per paragraf di README dan docs
+- ROS2 Humble terverifikasi: ros2 command OK, rclpy import OK
+- Git local config: user.email dan user.name di-set untuk repo ini
+- Branch: main
 
 **Result:** success
 
 **Testing:**
-- Struktur folder diverifikasi
-- `scripts/source_ros.sh` berhasil source ROS2 Humble
-- `ros2 --version` menghasilkan output valid
-- Git init + commit pertama berhasil
+- `bash -c 'source /opt/ros/humble/setup.bash && echo $ROS_DISTRO'` → humble
+- `python3 -c "import rclpy; print('OK')"` → OK
+- `which ros2` → /opt/ros/humble/bin/ros2
+- `git status` → clean
+- `git log --oneline` → 1 commit
 
 **Next Recommendation:**
 - Lanjut ke Fase 1: Node Dasar + Publisher/Subscriber di explore/01-minimal-node/
+- Setup GitHub remote (butuh URL repo dari user)
