@@ -1,0 +1,23 @@
+# params.yaml — File konfigurasi parameter
+#
+# Bisa digunakan dengan launch file:
+#   dari command line:
+#     --params-file config/params.yaml
+#
+# Format: node_name: ros__parameters:
+
+robot_node:
+  ros__parameters:
+    node_name: "robot_node"
+    publish_rate: 1.5
+    message: "Robot bergerak maju..."
+    verbose: true
+    max_count: 8
+
+sensor_node:
+  ros__parameters:
+    node_name: "sensor_node"
+    publish_rate: 3.0
+    message: "Membaca suhu dan kelembaban..."
+    verbose: false
+    max_count: 4

@@ -191,3 +191,27 @@ Gunakan format di bawah ini.
 
 **Next Recommendation:**
 - Fase 3: explore/05-custom-msg + 06-launch-params
+
+---
+
+## [2026-05-25]
+
+**Agent:** opencode
+
+**Task:**
+- Fase 3: explore/05-custom-msg + explore/06-launch-params
+
+**Files Changed:**
+- explore/05-custom-msg/my_custom_msg.py — dataclass custom message
+- explore/05-custom-msg/pub_custom.py — publisher custom msg
+- explore/05-custom-msg/sub_custom.py — subscriber custom msg
+- explore/05-custom-msg/SensorData.msg — definisi .msg (referensi)
+- explore/06-launch-params/param_node.py — node dengan parameter
+- explore/06-launch-params/launch/param_demo.launch.py — launch file
+- explore/06-launch-params/config/params.yaml — config YAML
+- README.md — update progres
+
+**Result:** success
+
+**Next Recommendation:**
+- Fase 4: src/ integrasi colcon (workspace package)
