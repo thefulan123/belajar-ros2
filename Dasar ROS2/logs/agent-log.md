@@ -215,3 +215,44 @@ Gunakan format di bawah ini.
 
 **Next Recommendation:**
 - Fase 4: src/ integrasi colcon (workspace package)
+
+---
+
+## [2026-05-25]
+
+**Agent:** opencode
+
+**Task:**
+- Fase 4: src/ integrasi colcon — package ros2_basics
+
+**Files Changed:**
+- Dasar ROS2/src/ros2_basics/ — package ROS2 lengkap
+  - package.xml, setup.py, setup.cfg
+  - talker_node.py, listener_node.py
+  - service_server_node.py, service_client_node.py
+  - action_server_node.py, action_client_node.py
+  - param_node.py
+  - custom_msg_types.py, custom_pub_node.py, custom_sub_node.py
+  - launch/all_nodes.launch.py
+- README.md — update progres
+
+**Reason:**
+- Integrasi penuh semua node dari explore/ ke dalam package colcon
+- Bisa dijalankan dengan ros2 launch
+
+**Implementation Details:**
+- 11 node dalam satu package ros2_basics
+- Launch file menjalankan 7 node sekaligus (talker, listener, service server, action server, custom pub/sub, param)
+
+**Result:** success
+
+**Testing:**
+- `colcon build` — berhasil (1 package finished)
+- `ros2 pkg list | grep ros2_basics` — package terdeteksi
+- `ros2 launch ros2_basics all_nodes.launch.py` — semua 7 node berjalan
+- Talker → /chatter → listener ✅
+- Custom pub → /sensor_data → custom sub ✅
+- Service server + action server siap ✅
+
+**Next Recommendation:**
+- Proyek Dasar ROS2 selesai. Lanjut ke Menengah ROS2 kapan saja.
