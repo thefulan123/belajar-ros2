@@ -77,9 +77,9 @@ Why 2 tracks? So you can **focus on learning concepts first** without worrying a
 
 ```
 Fase 0: Inisialisasi proyek ✅
-Fase 1: Node Dasar + Publisher/Subscriber ✅ (kamu di sini / you are here)
-Fase 2: Service & Client
-Fase 3: Action
+Fase 1: Node Dasar + Publisher/Subscriber ✅
+Fase 2: Service & Client ✅
+Fase 3: Action ✅ (kamu di sini / you are here)
 Fase 4: Custom Interface (.msg / .srv)
 Fase 5: Launch File & Parameter
 Fase 6: Integrasi penuh di workspace
@@ -275,8 +275,8 @@ rqt_graph
 |-------------|-----------------|--------|
 | 0 | Inisialisasi proyek / Project initialization | ✅ Selesai |
 | 1 | Node Dasar + Publisher/Subscriber | ✅ Selesai |
-| 2 | Service & Client | ⏳ Belum |
-| 3 | Action | ⏳ Belum |
+| 2 | Service & Client | ✅ Selesai |
+| 3 | Action | ✅ Selesai |
 | 4 | Custom Interface (.msg / .srv) | ⏳ Belum |
 | 5 | Launch File & Parameter | ⏳ Belum |
 | 6 | Integrasi penuh di workspace | ⏳ Belum |

@@ -162,3 +162,32 @@ Gunakan format di bawah ini.
 
 **Next Recommendation:**
 - Lanjut Fase 2: explore/03-service (service server + client)
+
+---
+
+## [2026-05-25]
+
+**Agent:** opencode
+
+**Task:**
+- Fase 2: explore/03-service + explore/04-action
+
+**Files Changed:**
+- Dasar ROS2/explore/03-service/service_server.py — dibuat
+- Dasar ROS2/explore/03-service/service_client.py — dibuat
+- Dasar ROS2/explore/03-service/README.md — dibuat
+- Dasar ROS2/explore/03-service/run-demo.sh — dibuat
+- Dasar ROS2/explore/04-action/action_server.py — dibuat
+- Dasar ROS2/explore/04-action/action_client.py — dibuat
+- Dasar ROS2/explore/04-action/README.md — dibuat
+- Dasar ROS2/explore/04-action/run-demo.sh — dibuat
+- README.md — update progres
+
+**Reason:**
+- Service: request-response pattern
+- Action: goal-feedback-result pattern (tugas panjang)
+
+**Result:** success
+
+**Next Recommendation:**
+- Fase 3: explore/05-custom-msg + 06-launch-params
