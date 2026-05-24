@@ -292,3 +292,35 @@ Gunakan format di bawah ini.
 **Next Recommendation:**
 - Jika Arduino tersedia, ikuti panduan instalasi di modul 08
 - Setelah itu upload sketch dan coba komunikasi ROS2
+
+---
+
+## [2026-05-25]
+
+**Agent:** opencode
+
+**Task:**
+- Tambah 4 modul inti ROS2 (node, topic, service, action)
+
+**Files Changed:**
+- Dasar ROS2/modul/09-node.md — dibuat (konsep node ROS2)
+- Dasar ROS2/modul/10-topic-pub-sub.md — dibuat (topic, publisher, subscriber)
+- Dasar ROS2/modul/11-service.md — dibuat (request-response)
+- Dasar ROS2/modul/12-action.md — dibuat (goal-feedback-result)
+- Dasar ROS2/Materi.txt — update, mapping ke modul
+- README.md — update daftar modul
+- AGENTS.md — update struktur
+
+**Reason:**
+- User noticed modul/ tidak punya modul untuk konsep inti ROS2
+- Sekarang semua 6 konsep dari Materi.txt punya modul masing-masing
+
+**Result:** success
+
+**Testing:**
+- Modul 09-12 dibaca, format konsisten dengan modul sebelumnya
+- Materi.txt sekarang mapping: node→09, topic→10, publisher→10, subscriber→10, service→11, action→12
+
+**Next Recommendation:**
+- Semua modul (01-12) + explore (01-07) + integrasi workspace selesai.
+- Lanjut ke Menengah ROS2 kapan saja.

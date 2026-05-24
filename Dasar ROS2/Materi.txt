@@ -1,6 +1,6 @@
-node
-topic
-publisher
-subscriber
-service
-action
+node         → modul 09, explore/01-minimal-node
+topic        → modul 10, explore/02-pub-sub
+publisher    → modul 10, explore/02-pub-sub
+subscriber   → modul 10, explore/02-pub-sub
+service      → modul 11, explore/03-service
+action       → modul 12, explore/04-action

@@ -32,7 +32,11 @@ Learn ROS2 from Scratch/
 │   │   ├── 05-build-package.md
 │   │   ├── 06-source-workspace.md
 │   │   ├── 07-callback-event-timer.md
-│   │   └── 08-micro-ros-arduino.md
+│   │   ├── 08-micro-ros-arduino.md
+│   │   ├── 09-node.md
+│   │   ├── 10-topic-pub-sub.md
+│   │   ├── 11-service.md
+│   │   └── 12-action.md
 │   ├── explore/           #   TRACK 1: Standalone Python files
 │   │   ├── 01-minimal-node/   # Run: python3 filename.py
 │   │   ├── 02-pub-sub/

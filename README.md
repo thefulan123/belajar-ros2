@@ -102,12 +102,18 @@ Fase 4: Integrasi penuh di workspace ✅ (kamu di sini / you are here) ✅
 | 06 | [Source Workspace](Dasar%20ROS2/modul/06-source-workspace.md) | Kenapa harus source ulang setelah build |
 | 07 | [Callback & Timer](Dasar%20ROS2/modul/07-callback-event-timer.md) | Event-driven programming di ROS2 |
 | 08 | [micro-ROS Arduino](Dasar%20ROS2/modul/08-micro-ros-arduino.md) | ROS2 di Arduino UNO |
+| 09 | [Node](Dasar%20ROS2/modul/09-node.md) | Unit terkecil dalam ROS2 |
+| 10 | [Topic, Pub, Sub](Dasar%20ROS2/modul/10-topic-pub-sub.md) | Komunikasi antar node |
+| 11 | [Service](Dasar%20ROS2/modul/11-service.md) | Request-response pattern |
+| 12 | [Action](Dasar%20ROS2/modul/12-action.md) | Long-running task dengan feedback |
 
 **Hubungan modul dengan praktek:**
 ```
-Modul 01-06 → teori infrastruktur (baca dulu)
-Modul 07    → baca bersamaan dengan explore/01-minimal-node
-Modul 08    → baca sebelum explore/07-arduino-uno
+Modul 01-08 → teori infrastruktur (baca dulu)
+Modul 09    → baca bersamaan dengan explore/01-minimal-node
+Modul 10    → baca sebelum explore/02-pub-sub
+Modul 11    → baca sebelum explore/03-service
+Modul 12    → baca sebelum explore/04-action
 ```
 
 ---
@@ -131,7 +137,11 @@ Learn ROS2 from Scratch/
 │   │   ├── 05-build-package.md
 │   │   ├── 06-source-workspace.md
 │   │   ├── 07-callback-event-timer.md
-│   │   └── 08-micro-ros-arduino.md
+│   │   ├── 08-micro-ros-arduino.md
+│   │   ├── 09-node.md
+│   │   ├── 10-topic-pub-sub.md
+│   │   ├── 11-service.md
+│   │   └── 12-action.md
 │   ├── explore/           #   TRACK 1: Standalone Python files
 │   │   ├── 01-minimal-node/   # Run: python3 filename.py
 │   │   ├── 02-pub-sub/
