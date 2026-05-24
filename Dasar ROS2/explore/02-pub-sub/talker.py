@@ -11,6 +11,40 @@
 # (Buka terminal terpisah untuk subscriber)
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek ROS2 yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 Python. Wajib untuk semua program.
+#    - rclpy.init() = inisialisasi koneksi ke ROS2.
+#    - rclpy.spin() = loop utama yang menjaga node tetap aktif.
+#
+# 2. Node
+#    - Kelas dasar untuk membuat node ROS2.
+#    - Seperti "program" dalam sistem ROS2 — punya nama unik.
+#    - Bisa memiliki publisher, subscriber, service, timer, dll.
+#
+# 3. Publisher (dibuat dengan create_publisher())
+#    - Objek untuk MENGIRIM data ke topic ROS2.
+#    - Parameter: tipe pesan, nama topic, queue size.
+#    - Method: publish(msg) — kirim pesan ke semua subscriber.
+#    - Sifat: decoupled — publisher tidak tahu siapa subscriber-nya.
+#
+# 4. std_msgs.msg.String
+#    - Tipe pesan standar ROS2 untuk teks.
+#    - Struktur: msg.data (bertipe string).
+#    - ROS2 punya banyak tipe bawaan: Int32, Float32, Bool, Header, dll.
+#
+# 5. Timer (create_timer())
+#    - Memanggil callback secara periodik.
+#    - Parameter: interval_detik, callback_function.
+#    - Digunakan di sini untuk publish data setiap 1 detik.
+#
+# ═══════════════════════════════════════════════════════════════
+
 import rclpy  # (1) Library utama ROS2 Python. Wajib untuk semua node.
 from rclpy.node import Node  # (2) Kelas dasar Node untuk membuat node ROS2.
 

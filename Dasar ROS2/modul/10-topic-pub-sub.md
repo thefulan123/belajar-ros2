@@ -234,3 +234,80 @@ ros2 topic pub /chatter std_msgs/msg/String "data: 'Test dari CLI'" --once
 - **Sebelumnya: Modul 09** — Node (node adalah pelaku pub/sub)
 - **Lanjut ke Modul 11** — Service (request-response)
 - **Praktek: explore/02-pub-sub** — implementasi pub/sub
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini menjalankan **Publisher dan Subscriber** ROS2 dari folder explore.
+
+### Langkah 1: Buka folder explore
+```
+cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/02-pub-sub/
+```
+
+Folder ini berisi dua file:
+- `talker.py` — node yang **mempublish** pesan ke topic `/chatter`
+- `listener.py` — node yang **subscribe** ke topic `/chatter`
+
+### Langkah 2: Terminal 1 — Jalankan publisher (talker)
+```bash
+source /opt/ros/humble/setup.bash
+python3 talker.py
+```
+
+**Output yang diharapkan:**
+```
+[INFO] [....] [talker_node]: Publishing: "Hello World: 0"
+[INFO] [....] [talker_node]: Publishing: "Hello World: 1"
+[INFO] [....] [talker_node]: Publishing: "Hello World: 2"
+...
+```
+
+### Langkah 3: Terminal 2 — Jalankan subscriber (listener)
+```bash
+source /opt/ros/humble/setup.bash
+python3 listener.py
+```
+
+**Output yang diharapkan:**
+```
+[INFO] [....] [listener_node]: I heard: "Hello World: 0"
+[INFO] [....] [listener_node]: I heard: "Hello World: 1"
+[INFO] [....] [listener_node]: I heard: "Hello World: 2"
+...
+```
+
+### Langkah 4: Terminal 3 — Cek topic
+```bash
+source /opt/ros/humble/setup.bash
+ros2 topic list
+```
+
+**Output yang diharapkan:**
+```
+/chatter
+/parameter_events
+/rosout
+```
+
+### Langkah 5: Terminal 3 — Echo topic langsung
+```bash
+ros2 topic echo /chatter
+```
+
+**Output yang diharapkan:**
+```
+data: 'Hello World: 0'
+---
+data: 'Hello World: 1'
+---
+...
+```
+
+### Langkah 6: Terminal 3 — Kirim data dari CLI
+```bash
+ros2 topic pub /chatter std_msgs/msg/String "data: 'Test dari CLI'" --once
+```
+
+**Kesimpulan:** Publisher mengirim data ke topic, subscriber menerima data dari topic yang sama. Topic bersifat **decoupled** — publisher dan subscriber tidak saling kenal.

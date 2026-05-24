@@ -133,3 +133,50 @@ Setelah Modul 05 (Build Package), folder `build/`, `install/`, `log/` akan muncu
 - **Lanjut ke Modul 03** — Package: apa yang ada di dalam `src/`
 - **Lanjut ke Modul 05** — Build: cara mengubah `src/` menjadi `install/`
 - **Lanjut ke Modul 06** — Source Workspace: kenapa harus source ulang
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini membuat **ROS2 workspace** pertama kamu.
+
+### Langkah 1: Buka terminal
+Buka terminal baru.
+
+### Langkah 2: Source ROS2
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+### Langkah 3: Buat folder workspace
+```bash
+mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws
+```
+
+### Langkah 4: Lihat struktur workspace
+```bash
+ls -la
+```
+
+**Output yang diharapkan:**
+```
+total ...
+drwxr-xr-x ... .
+drwxr-xr-x ... ..
+drwxr-xr-x ... src
+```
+
+Folder `src/` adalah tempat semua package ROS2 akan disimpan.
+
+### Langkah 5: Cek path absolut workspace
+```bash
+pwd
+```
+
+**Output yang diharapkan:**
+```
+/home/nama_user/ros2_ws
+```
+
+**Kesimpulan:** Workspace `~/ros2_ws/src/` sudah siap diisi dengan package ROS2.

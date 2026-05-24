@@ -20,6 +20,35 @@
 #   6. import dari package_name.msg import SensorData
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek yang dipakai di file ini:
+#
+# 1. Python dataclass
+#    - Bukan bagian ROS2, tapi Python standar.
+#    - @dataclass otomatis membuat __init__, __repr__, __eq__.
+#    - Berguna untuk mensimulasikan custom ROS2 message.
+#
+# 2. ROS2 Custom Message (konsep)
+#    - Definisi: file .msg di folder msg/ package.
+#    - Format: type nama_field (contoh: float32 temperature).
+#    - Dibuild dengan colcon → jadi module Python.
+#    - Di sini kita simulasi dengan dataclass untuk pembelajaran.
+#
+# 3. typing.List
+#    - Python type hint untuk array/list.
+#    - Di ROS2 .msg: type[] nama_field.
+#    - Contoh: float32[] data_points.
+#
+# 4. Cara bikin custom message beneran:
+#    - Buat folder msg/ di package ROS2.
+#    - Buat file .msg dengan field definitions.
+#    - Update CMakeLists.txt + package.xml.
+#    - colcon build → bisa import dari package.msg.
+# ═══════════════════════════════════════════════════════════════
+
 # (1) Python dataclass — mensimulasikan custom message ROS2.
 # Di ROS2 sesungguhnya, kita pakai file .msg + colcon build.
 # Tapi untuk pembelajaran, dataclass lebih sederhana.

@@ -145,3 +145,58 @@ Cukup jalankan `colcon build` lagi setiap kali ada perubahan kode.
 
 - **Sebelumnya: Modul 04** — Create Package: package yang sudah dibuat perlu di-build
 - **Lanjut ke Modul 06** — Source Workspace: setelah build, harus source ulang
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini **membangun (build) package** ROS2 dengan colcon.
+
+### Langkah 1: Buka terminal
+Buka terminal baru.
+
+### Langkah 2: Source ROS2
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+### Langkah 3: Masuk ke workspace
+```bash
+cd ~/ros2_ws
+```
+
+### Langkah 4: Build semua package
+```bash
+colcon build
+```
+
+**Output yang diharapkan:**
+```
+Summary: 1 package finished [X.Xs]
+  1 package had a warning (optional)
+  0 packages had errors
+```
+
+Pastikan tidak ada **error** (hanya warning boleh ada).
+
+### Langkah 5: Cek folder hasil build
+```bash
+ls -la
+```
+
+**Output yang diharapkan:**
+```
+drwxr-xr-x ... build/
+drwxr-xr-x ... install/
+drwxr-xr-x ... log/
+drwxr-xr-x ... src/
+```
+
+`build/` = file sementara, `install/` = hasil jadi, `log/` = catatan build.
+
+### Langkah 6: Build package tertentu saja (lebih cepat)
+```bash
+colcon build --packages-select package_belajar
+```
+
+**Kesimpulan:** `colcon build` mengubah kode di `src/` menjadi executable di `install/`. Setelah build, jalankan `source install/setup.bash` agar node bisa dipanggil.

@@ -19,6 +19,47 @@
 #
 # Lalu di terminal lain:
 #   python3 action_client.py
+
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek ROS2 yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 Python. Wajib untuk semua program.
+#    - rclpy.init() = inisialisasi, rclpy.spin() = loop utama.
+#
+# 2. Node
+#    - Kelas dasar node ROS2. Setiap node punya nama unik.
+#    - Bisa memiliki action server, publisher, subscriber, dll.
+#
+# 3. ActionServer (dibuat dengan create_action_server())
+#    - Menyediakan action yang bisa dipanggil client.
+#    - Action = Service + Feedback + Cancel.
+#    - Cocok untuk tugas lama: navigasi, gerakan robot, dll.
+#
+# 4. example_interfaces.action.Fibonacci
+#    - Tipe action untuk deret Fibonacci.
+#    - Struktur 3 bagian:
+#      Goal:     int32 order
+#      Feedback: int32[] sequence
+#      Result:   int32[] sequence
+#
+# 5. Execute Callback (async execute_callback)
+#    - Fungsi async untuk eksekusi goal di background.
+#    - async/await = tidak memblokir node lain.
+#    - Bisa mendeteksi cancel request dari client.
+#
+# 6. GoalHandle
+#    - Objek yang mengontrol status goal.
+#    - Method: is_canceling(), publish_feedback(), succeed().
+#
+# 7. Feedback
+#    - Dikirim selama eksekusi (fitur eksklusif Action).
+#    - Memberi tahu client progres saat ini.
+#
+# ═══════════════════════════════════════════════════════════════
 # ============================================================
 
 import rclpy  # (1) Library utama ROS2 Python. Wajib untuk semua node.

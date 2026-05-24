@@ -159,3 +159,65 @@ Perhatikan baris `/opt/ros/humble/bin` yang muncul setelah source.
 
 - **Lanjut ke Modul 02** — Workspace: sourcing juga dipakai untuk workspace lokal
 - **Lanjut ke Modul 06** — Source Workspace: kenapa harus source ulang setelah build
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini menunjukkan cara **sourcing ROS2** di terminal dan memverifikasinya.
+
+### Langkah 1: Buka terminal
+Buka terminal baru di sistem operasi kamu.
+
+### Langkah 2: Coba `ros2` tanpa source
+```bash
+ros2 --version
+```
+
+**Output yang diharapkan:**
+```
+bash: ros2: command not found
+```
+
+### Langkah 3: Source ROS2 Humble
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+Tidak ada output jika berhasil.
+
+### Langkah 4: Verifikasi `ros2`
+```bash
+ros2 --version
+```
+
+**Output yang diharapkan:**
+```
+ros2 humble ...
+```
+
+Sekarang command `ros2` sudah dikenali oleh terminal.
+
+### Langkah 5: Cek perubahan PATH
+```bash
+echo $PATH
+```
+
+**Output yang diharapkan:**
+```
+/opt/ros/humble/bin:...
+```
+
+Perhatikan `/opt/ros/humble/bin` ada di awal PATH.
+
+### Langkah 6: Cek distro
+```bash
+echo $ROS_DISTRO
+```
+
+**Output yang diharapkan:**
+```
+humble
+```
+
+**Kesimpulan:** Setelah `source /opt/ros/humble/setup.bash`, terminal kamu bisa menemukan semua command dan library ROS2. Setiap terminal BARU harus di-source ulang.

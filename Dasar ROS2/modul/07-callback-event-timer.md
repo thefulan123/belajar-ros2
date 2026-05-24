@@ -214,3 +214,43 @@ Coba jalankan tanpa `rclpy.spin()` — node akan langsung mati tanpa output.
 - **Praktek: explore/02-pub-sub** — subscriber callback (dari data topic)
 - **Praktek: explore/03-service** — service callback (dari request client)
 - **Lanjut ke explore/01** setelah modul ini
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini menjalankan node ROS2 dengan **timer callback** dari folder explore.
+
+### Langkah 1: Buka folder explore
+```
+cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/01-minimal-node/
+```
+
+### Langkah 2: Buka file kode
+Buka file `minimal_node.py` untuk melihat isinya.
+
+### Langkah 3: Buka terminal — jalankan node
+```bash
+source /opt/ros/humble/setup.bash
+python3 minimal_node.py
+```
+
+### Output yang diharapkan:
+```
+[INFO] [....] [minimal_node]: Halo dari node ROS2 minimal_node
+[INFO] [....] [minimal_node]: Halo dari node ROS2 minimal_node
+[INFO] [....] [minimal_node]: Halo dari node ROS2 minimal_node
+...
+```
+
+Pesan `Halo dari node ROS2 minimal_node` muncul **setiap 2 detik** — ini adalah hasil dari **timer callback**.
+
+### Cara kerja:
+1. `create_timer(2.0, callback)` membuat timer dengan interval 2 detik
+2. Setiap 2 detik, fungsi `callback` dipanggil **otomatis**
+3. `rclpy.spin(node)` menjaga program tetap berjalan dan menunggu event
+
+### Berhenti:
+Tekan **Ctrl+C** untuk menghentikan program.
+
+**Kesimpulan:** Timer callback memungkinkan fungsi berjalan periodik tanpa bloking. Ini adalah fondasi event-driven programming di ROS2.

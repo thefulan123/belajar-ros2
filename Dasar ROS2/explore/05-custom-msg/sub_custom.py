@@ -6,6 +6,35 @@
 # Parse JSON string kembali ke objek SensorData.
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 Python. Wajib untuk semua node.
+#
+# 2. Node
+#    - Kelas dasar node ROS2. Setiap node punya nama unik.
+#
+# 3. Subscription (create_subscription())
+#    - Menerima data dari topic ROS2.
+#    - Callback dipanggil otomatis saat ada data masuk.
+#
+# 4. std_msgs.msg.String
+#    - Tipe pesan standar ROS2 untuk teks.
+#    - Data JSON diterima sebagai String, lalu di-parse.
+#
+# 5. json (Python standard library)
+#    - json.loads() = ubah string JSON ke Python dict.
+#    - Dipakai untuk decode data dari publisher.
+#
+# 6. SensorData (dataclass)
+#    - Custom message simulasi dari my_custom_msg.py.
+#    - Field: temperature, humidity, pressure.
+# ═══════════════════════════════════════════════════════════════
+
 import json  # (1) Library JSON — untuk parsing string JSON ke Python dict.
 import rclpy  # (2) Library utama ROS2 Python. Wajib untuk semua node.
 from rclpy.node import Node  # (3) Kelas dasar Node untuk membuat node ROS2.

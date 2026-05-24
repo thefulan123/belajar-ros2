@@ -10,6 +10,45 @@
 #   python3 service_client.py
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek ROS2 yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 Python. Wajib untuk semua node.
+#    - rclpy.init() = inisialisasi, rclpy.spin_once() = loop manual.
+#
+# 2. Node
+#    - Kelas dasar node ROS2. Setiap node punya nama unik.
+#    - Bisa memiliki client, publisher, subscriber, timer, dll.
+#
+# 3. Client (dibuat dengan create_client())
+#    - Objek untuk MEMANGGIL service server.
+#    - Parameter: tipe service, nama service (topic).
+#    - WAJIB wait_for_service() sebelum call.
+#    - Method: call_async(request) — panggil server secara async.
+#
+# 4. example_interfaces.srv.AddTwoInts
+#    - Tipe service untuk penjumlahan dua angka.
+#    - Request:  int64 a, int64 b
+#    - Response: int64 sum
+#    - Definisi harus sama persis di server dan client.
+#
+# 5. Future (dari call_async())
+#    - Objek yang merepresentasikan response yang akan datang.
+#    - Belum ada data saat dipanggil — data akan ada NANTI.
+#    - Cek selesai: future.done(), ambil data: future.result().
+#    - Pola "asynchronous" — tidak memblokir program.
+#
+# 6. Timer polling (spin_once + check_response)
+#    - Timer memanggil check_response() tiap 0.1 detik.
+#    - Di check_response(), cek apakah future.done() == True.
+#    - Jika selesai, ambil hasil dan exit.
+#
+# ═══════════════════════════════════════════════════════════════
+
 import rclpy  # (1) Library utama ROS2 Python. Wajib untuk semua node.
 from rclpy.node import Node  # (2) Kelas dasar Node untuk membuat node ROS2.
 from example_interfaces.srv import AddTwoInts  # (3) Tipe service AddTwoInts — sama dengan server.

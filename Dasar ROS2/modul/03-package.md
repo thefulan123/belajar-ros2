@@ -134,3 +134,60 @@ Kamu akan lihat puluhan package bawaan ROS2. Semua itu ada di folder:
 - **Sebelumnya: Modul 02** — Workspace: package ada di dalam `src/`
 - **Lanjut ke Modul 04** — Create Package: cara membuat package sendiri
 - **Lanjut ke Modul 05** — Build Package: cara build package
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini menjelajahi package bawaan ROS2 dan melihat strukturnya.
+
+### Langkah 1: Buka terminal
+Buka terminal baru.
+
+### Langkah 2: Source ROS2
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+### Langkah 3: Lihat semua package terinstall
+```bash
+ros2 pkg list
+```
+
+**Output yang diharapkan:**
+```
+ackermann_msgs
+action_msgs
+action_tutorials_interfaces
+...
+```
+Puluhan package bawaan ROS2 akan muncul.
+
+### Langkah 4: Lihat 10 package pertama
+```bash
+ros2 pkg list | head -10
+```
+
+### Langkah 5: Cek lokasi file package
+```bash
+ls /opt/ros/humble/share/
+```
+
+**Output yang diharapkan:**
+```
+action_msgs          action_tutorials_interfaces  ...
+...
+```
+Semua package ROS2 tersimpan di `/opt/ros/humble/share/`.
+
+### Langkah 6: Lihat isi satu package
+```bash
+ls /opt/ros/humble/share/std_msgs/
+```
+
+**Output yang diharapkan:**
+```
+cmake  msg  package.xml
+```
+
+**Kesimpulan:** Setiap package ROS2 berisi `package.xml`, folder `msg/`, `srv/`, `action/`, dan kode sumber.

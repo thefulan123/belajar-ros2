@@ -16,6 +16,40 @@
 #   python3 service_client.py
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek ROS2 yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 Python. Wajib untuk semua program.
+#    - rclpy.init() = inisialisasi, rclpy.spin() = loop utama.
+#
+# 2. Node
+#    - Kelas dasar node ROS2. Setiap node punya nama unik.
+#    - Bisa memiliki service, publisher, subscriber, timer, dll.
+#
+# 3. Service Server (dibuat dengan create_service())
+#    - Menyediakan layanan yang bisa dipanggil oleh client.
+#    - Parameter: tipe service, nama service (topic), callback.
+#    - Berbeda dengan Topic: Topic = satu arah, Service = request-response.
+#    - Sifat: client WAJIB menunggu response dari server.
+#
+# 4. example_interfaces.srv.AddTwoInts
+#    - Tipe service bawaan ROS2 untuk penjumlahan dua angka.
+#    - Struktur:
+#      Request:  int64 a, int64 b    (input: dua angka)
+#      Response: int64 sum           (output: hasil jumlah)
+#    - Service selalu punya Request + Response dalam satu definisi.
+#
+# 5. Service Callback (fungsi tambah_callback)
+#    - Dipanggil OTOMATIS saat ada client yang memanggil service ini.
+#    - Parameter: request (berisi data dari client), response (akan dikembalikan).
+#    - Wajib mengisi response sebelum return.
+#
+# ═══════════════════════════════════════════════════════════════
+
 import rclpy  # (1) Library utama ROS2 Python. Wajib untuk semua program.
 from rclpy.node import Node  # (2) Kelas dasar Node untuk membuat node ROS2.
 

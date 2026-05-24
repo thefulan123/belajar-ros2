@@ -18,6 +18,35 @@
 #   ros2 launch launch/param_demo.launch.py
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 Python. Wajib untuk semua node.
+#
+# 2. Node
+#    - Kelas dasar node ROS2. Setiap node punya nama unik.
+#    - Bisa memiliki parameter, publisher, subscriber, timer.
+#
+# 3. Parameter (declare_parameter() / get_parameter())
+#    - Pengaturan node yang bisa diubah tanpa edit kode.
+#    - declare_parameter(nama, default) = daftarkan parameter.
+#    - get_parameter(nama) = baca nilai parameter saat ini.
+#    - Nilai bisa diubah via: launch file, CLI, atau YAML.
+#
+# 4. rclpy.Parameter (type)
+#    - Tipe data parameter ROS2.
+#    - Jenis: PARAMETER_STRING, INTEGER, DOUBLE, BOOL, ARRAY.
+#    - Digunakan saat SET parameter dari luar.
+#
+# 5. Timer (create_timer())
+#    - Eksekusi callback periodik.
+#    - Di sini: baca parameter tiap 2 detik dan log.
+# ═══════════════════════════════════════════════════════════════
+
 import rclpy  # (1) Library utama ROS2 Python. Wajib untuk semua node.
 from rclpy.node import Node  # (2) Kelas dasar Node untuk membuat node ROS2.
 

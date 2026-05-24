@@ -201,3 +201,72 @@ ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 99, b: 1}
 - **Sebelumnya: Modul 10** — Topic (beda dengan service)
 - **Lanjut ke Modul 12** — Action (service + feedback)
 - **Praktek: explore/03-service** — implementasi service
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini menjalankan **Service Server dan Client** ROS2 dari folder explore.
+
+### Langkah 1: Buka folder explore
+```
+cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/03-service/
+```
+
+Folder ini berisi dua file:
+- `service_server.py` — node yang **melayani** request penjumlahan
+- `service_client.py` — node yang **memanggil** service untuk menjumlah angka
+
+### Langkah 2: Terminal 1 — Jalankan service server
+```bash
+source /opt/ros/humble/setup.bash
+python3 service_server.py
+```
+
+**Output yang diharapkan:**
+```
+[INFO] [....] [service_server_node]: Service server siap di /add_two_ints
+```
+
+### Langkah 3: Terminal 2 — Jalankan service client
+```bash
+source /opt/ros/humble/setup.bash
+python3 service_client.py
+```
+
+**Output yang diharapkan (client):**
+```
+[INFO] [....] [service_client_node]: Hasil penjumlahan: 5 + 3 = 8
+```
+
+**Output yang diharapkan (server):**
+```
+[INFO] [....] [service_server_node]: Request: 5 + 3 = 8
+```
+
+### Langkah 4: Terminal 3 — Cek daftar service
+```bash
+source /opt/ros/humble/setup.bash
+ros2 service list
+```
+
+**Output yang diharapkan:**
+```
+/add_two_ints
+```
+
+### Langkah 5: Terminal 3 — Panggil service dari CLI
+```bash
+ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 10, b: 20}"
+```
+
+**Output yang diharapkan:**
+```
+waiting for service to become available...
+requester: making request: example_interfaces.srv.AddTwoInts_Request(a=10, b=20)
+
+response:
+example_interfaces.srv.AddTwoInts_Response(sum=30)
+```
+
+**Kesimpulan:** Service adalah komunikasi **request-response** — client mengirim request, server mengirim response. Cocok untuk tugas yang sekali jalan.

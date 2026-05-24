@@ -153,3 +153,67 @@ ros2 pkg list | grep ros2_belajar
 - **Sebelumnya: Modul 05** — Build Package: kenapa harus source ulang setelah build
 - **Praktek: explore/01 hingga 06** — tidak perlu source workspace karena standalone Python
 - **Praktek: src/** — WAJIB source workspace
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini mensimulasikan **sourcing workspace** setelah `colcon build`.
+
+### Langkah 1: Buka terminal
+Buka terminal baru.
+
+### Langkah 2: Source ROS2 dulu (WAJIB)
+```bash
+source /opt/ros/humble/setup.bash
+```
+
+### Langkah 3: Masuk ke workspace
+```bash
+cd ~/ros2_ws
+```
+
+### Langkah 4: Source workspace
+```bash
+source install/setup.bash
+```
+
+Tidak ada output jika berhasil.
+
+### Langkah 5: Verifikasi — cari package workspace
+```bash
+ros2 pkg list | grep package_belajar
+```
+
+**Output yang diharapkan:**
+```
+package_belajar
+```
+
+Package buatanmu sekarang terdeteksi oleh ROS2.
+
+### Langkah 6: Cek variabel environment
+```bash
+echo $AMENT_PREFIX_PATH
+```
+
+**Output yang diharapkan:**
+```
+/home/nama_user/ros2_ws/install/package_belajar:/opt/ros/humble
+```
+
+### Langkah 7: Coba tanpa source workspace
+Buka **terminal baru**, source ROS2 saja:
+```bash
+source /opt/ros/humble/setup.bash
+ros2 pkg list | grep package_belajar
+```
+
+**Output yang diharapkan:**
+```
+(tidak muncul apa-apa)
+```
+
+**Kesimpulan:** Setiap terminal baru harus menjalankan BOTH:
+1. `source /opt/ros/humble/setup.bash`
+2. `source ~/ros2_ws/install/setup.bash`

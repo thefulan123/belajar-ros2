@@ -14,6 +14,32 @@
 #   ros2 launch launch/param_demo.launch.py
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek yang dipakai di file ini:
+#
+# 1. LaunchDescription (dari launch)
+#    - Kelas utama launch file ROS2.
+#    - Wadah yang berisi daftar node/action yang akan dijalankan.
+#    - Fungsi generate_launch_description() WAJIB return ini.
+#
+# 2. ExecuteProcess (dari launch.actions)
+#    - Action untuk menjalankan program eksternal.
+#    - Parameter: cmd (perintah), name (nama proses), output (screen/log).
+#    - Cocok untuk menjalankan node standalone Python (python3 file.py).
+#
+# 3. LaunchConfiguration (opsional, tidak dipakai di sini)
+#    - Parameter launch yang bisa di-set dari CLI.
+#    - Contoh: ros2 launch file.launch.py param:=value.
+#
+# 4. ROS2 Parameter (--ros-args -p)
+#    - Bukan class, tapi cara mengirim parameter via CLI.
+#    - Format: -p nama:=nilai.
+#    - Node membaca dengan declare_parameter() + get_parameter().
+# ═══════════════════════════════════════════════════════════════
+
 # (1) Import class LaunchDescription — wadah untuk semua action/node.
 from launch import LaunchDescription
 # (2) Import ExecuteProcess — action untuk menjalankan proses eksternal (misal python3).

@@ -18,6 +18,38 @@
  * Library: micro_ros_arduino (install via Arduino IDE)
  */
 
+// ═══════════════════════════════════════════════════════════════
+// PENJELASAN DATA STRUCTURE — micro-ROS
+// ═══════════════════════════════════════════════════════════════
+//
+// Berikut adalah data structure inti micro-ROS yang dipakai:
+//
+// 1. rcl_node_t
+//    - Struktur node ROS2 di C. Setiap node punya nama unik.
+//    - Semua komunikasi ROS2 terikat pada node.
+//
+// 2. rcl_publisher_t
+//    - Struktur untuk MENGIRIM data ke topic ROS2.
+//    - rclc_publisher_init_default() + rcl_publish().
+//
+// 3. rclc_executor_t
+//    - Mengatur eksekusi callback — "jantung" program.
+//    - rclc_executor_spin_some() = proses event yang pending.
+//
+// 4. rclc_support_t
+//    - Inisialisasi micro-ROS. Wajib dipanggil PERTAMA di setup().
+//
+// 5. rcl_allocator_t
+//    - Alokator memori. rcl_get_default_allocator().
+//
+// 6. rcl_timer_t
+//    - Timer periodik. Callback dipanggil setiap interval.
+//
+// 7. std_msgs__msg__Float32
+//    - Tipe pesan ROS2 untuk float 32-bit.
+//    - Field: float data.
+// ═══════════════════════════════════════════════════════════════
+
 #include <micro_ros_arduino.h>  // (1) Library micro-ROS untuk Arduino — menghubungkan Arduino ke ROS2.
 #include <rcl/rcl.h>            // (2) Library inti ROS2 C (rcl) — menyediakan node, publisher, dll.
 #include <rclc/rclc.h>          // (3) Library rclc — wrapper yang lebih sederhana untuk rcl.

@@ -186,3 +186,58 @@ Jalankan ulang, cek `ros2 node list`.
 - **Sebelumnya: Modul 01-08** — infrastruktur ROS2
 - **Lanjut ke Modul 10** — Topic, Publisher, Subscriber (node ngobrol)
 - **Praktek: explore/01-minimal-node** — node pertamamu
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini menjalankan **node ROS2** dan melihatnya di daftar node.
+
+### Langkah 1: Buka folder explore
+```
+cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/01-minimal-node/
+```
+
+### Langkah 2: Buka file `minimal_node.py`
+```python
+class MinimalNode(Node):
+    def __init__(self):
+        super().__init__('minimal_node')   # ← nama node
+        self.timer = self.create_timer(2.0, self.callback)
+```
+
+Nama node adalah `minimal_node` — ini yang akan muncul di `ros2 node list`.
+
+### Langkah 3: Terminal 1 — Jalankan node
+```bash
+source /opt/ros/humble/setup.bash
+python3 minimal_node.py
+```
+
+### Langkah 4: Terminal 2 — Cek daftar node
+```bash
+source /opt/ros/humble/setup.bash
+ros2 node list
+```
+
+**Output yang diharapkan:**
+```
+/minimal_node
+```
+
+### Langkah 5: Terminal 2 — Info node
+```bash
+ros2 node info /minimal_node
+```
+
+**Output yang diharapkan:**
+```
+/minimal_node
+  Subscribers: []
+  Publishers: []
+  Services: []
+  Action Servers: []
+  Action Clients: []
+```
+
+**Kesimpulan:** Node `minimal_node` terdaftar di ROS2 graph dan bisa dideteksi dengan `ros2 node list`.

@@ -383,3 +383,137 @@ Gunakan format di bawah ini.
 
 **Next Recommendation:**
 - Lanjut ke Menengah ROS2 kapan saja.
+
+---
+
+## 2026-05-25 — Revisi Modul: Tambah Bagian PRAKTIK Step-by-Step
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+Setiap modul (01-12) ditambahi bagian "📁 PRAKTIK" di akhir file yang berisi:
+1. Direktori folder yang harus dibuka (full path)
+2. Langkah-langkah terminal step-by-step (buka terminal → cd → source → run)
+3. Output yang diharapkan di setiap langkah
+
+**Files Changed:**
+- `Dasar ROS2/modul/01-sourcing.md` — Praktik: source setup.bash + verifikasi PATH & ros2
+- `Dasar ROS2/modul/02-workspace.md` — Praktik: buat workspace ~/ros2_ws/src
+- `Dasar ROS2/modul/03-package.md` — Praktik: ros2 pkg list + eksplorasi package
+- `Dasar ROS2/modul/04-create-package.md` — Praktik: ros2 pkg create package_belajar
+- `Dasar ROS2/modul/05-build-package.md` — Praktik: colcon build + cek folder hasil
+- `Dasar ROS2/modul/06-source-workspace.md` — Praktik: source install/setup.bash + verifikasi
+- `Dasar ROS2/modul/07-callback-event-timer.md` — Praktik: jalankan explore/01-minimal-node/minimal_node.py
+- `Dasar ROS2/modul/08-micro-ros-arduino.md` — Praktik: upload & jalankan explore/07-arduino-uno/
+- `Dasar ROS2/modul/09-node.md` — Praktik: jalankan node + ros2 node list
+- `Dasar ROS2/modul/10-topic-pub-sub.md` — Praktik: talker + listener + ros2 topic echo
+- `Dasar ROS2/modul/11-service.md` — Praktik: service_server + service_client + ros2 service call
+- `Dasar ROS2/modul/12-action.md` — Praktik: action_server + action_client + ros2 action send_goal
+
+**Reason:**
+Pembelajar pemula perlu panduan langkah-demi-langkah yang eksplisit — folder mana dibuka, terminal apa diketik, output apa yang diharapkan. Sebelumnya modul hanya berisi teori dan eksperimen umum tanpa panduan praktik terstruktur.
+
+**Implementation Details:**
+- Setiap modul mendapat bagian "📁 PRAKTIK" setelah "HUBUNGAN DENGAN MODUL LAIN"
+- Modul 01-06 link ke praktik terminal (sourcing, workspace, package, build)
+- Modul 07-12 link ke folder `explore/` dengan full path `/mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/`
+- Setiap langkah berisi: perintah bash + output yang diharapkan
+- Jika butuh 2+ terminal, ditulis eksplisit "Terminal 1", "Terminal 2", dst
+- Bahasa Indonesia, format konsisten
+
+**Result:** success
+
+**Testing:**
+- 12 file diverifikasi: bagian PRAKTIK muncul di akhir setiap modul
+- Output contoh diverifikasi cocok dengan kode di explore/ dan ekspektasi ROS2
+
+**Next Recommendation:**
+- Buat video/screenshot untuk setiap langkah praktik
+- Tambah modul 13 tentang tf2 (transformasi koordinat)
+
+---
+
+## 2026-05-25 — Setup LSP (Pyright) untuk ROS2 Python
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+Setup Language Server Protocol (LSP) agar AI agent bisa mendeteksi error/diagnostic Python ROS2 secara otomatis.
+
+**Files Changed:**
+- `opencode.json` (baru) — enable LSP + konfigurasi pyright-langserver
+- `pyrightconfig.json` (baru) — extraPaths ke ROS2 Python packages
+
+**Reason:**
+Tanpa LSP, agent tidak bisa mendeteksi error import, type mismatch, dll. Dengan LSP, agent mendapat diagnostic real-time dari pyright.
+
+**Implementation Details:**
+- Install `pyright` via `npm install -g pyright` (v1.1.409)
+- opencode.json: konfigurasi LSP server dengan full path binary `/home/soke/.npm-global/bin/pyright-langserver`
+- pyrightconfig.json: extraPaths menunjuk ke `/opt/ros/humble/local/lib/python3.10/dist-packages/` (lokasi rclpy, std_msgs, dll)
+- Verifikasi: pyright report 0 error pada semua file explore/
+
+**Result:** success
+
+**Testing:**
+- `pyright Dasar\ ROS2/explore/02-pub-sub/talker.py` → 0 errors (sebelumnya 3 errors unresolved import)
+- `pyright Dasar\ ROS2/explore/03-service/service_server.py` → 0 errors
+- `pyright Dasar\ ROS2/explore/04-action/action_server.py` → 0 errors
+- `pyright Dasar\ ROS2/explore/01-minimal-node/minimal_node.py` → 0 errors
+
+**Next Recommendation:**
+- Restart opencode agar konfigurasi LSP aktif
+- Jika ada error LSP, cek `pyright --version` dan pastikan pyright di PATH
+
+---
+
+## 2026-05-25 — DOCX Update + PENJELASAN DATA STRUCTURE
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+1. Update file .docx di `Dasar ROS2/modul/` agar punya bagian PRAKTIK (sama seperti .md)
+2. Tambah "PENJELASAN DATA STRUCTURE" ke semua file .py dan .ino yang belum punya
+
+**Files Changed (DOCX):**
+- 12 file .docx di `Dasar ROS2/modul/` — ditambahi PRAKTIK section (via python-docx)
+
+**Files Changed (PENJELASAN DATA STRUCTURE — Dasar ROS2):**
+- `explore/01-minimal-node/minimal_node.py` — PENJELASAN: rclpy, Node, Timer, Callback, spin()
+- `explore/02-pub-sub/talker.py` — PENJELASAN: rclpy, Node, Publisher, String, Timer
+- `explore/02-pub-sub/listener.py` — PENJELASAN: rclpy, Node, Subscription, Callback, String
+- `explore/03-service/service_server.py` — PENJELASAN: rclpy, Node, Service Server, AddTwoInts
+- `explore/03-service/service_client.py` — PENJELASAN: rclpy, Node, Client, Future, Timer polling
+- `explore/04-action/action_server.py` — PENJELASAN: rclpy, Node, ActionServer, Fibonacci, async
+- `explore/04-action/action_client.py` — PENJELASAN: rclpy, Node, ActionClient, Feedback, Future
+- `explore/05-custom-msg/my_custom_msg.py` — PENJELASAN: dataclass, custom msg concept, .msg files
+- `explore/05-custom-msg/pub_custom.py` — PENJELASAN: rclpy, Publisher, JSON, SensorData
+- `explore/05-custom-msg/sub_custom.py` — PENJELASAN: rclpy, Subscription, JSON, SensorData
+- `explore/06-launch-params/param_node.py` — PENJELASAN: rclpy, Node, Parameter, declare_parameter
+- `explore/06-launch-params/launch/param_demo.launch.py` — PENJELASAN: LaunchDescription, ExecuteProcess
+- `explore/07-arduino-uno/publisher_suhu/publisher_suhu.ino` — PENJELASAN: micro-ROS C structures
+- `explore/07-arduino-uno/subscriber_led/subscriber_led.ino` — PENJELASAN: micro-ROS C structures
+
+**Files Changed (PENJELASAN DATA STRUCTURE — Penerapan ROS2):**
+- 36 file .ino — semua sketch Arduino diberi PENJELASAN micro-ROS (rcl_node_t, rcl_publisher_t, rcl_subscription_t, rclc_executor_t, rclc_support_t, rcl_allocator_t, rcl_timer_t, std_msgs types)
+- 21 file .py — semua Python node diberi PENJELASAN rclpy (rclpy, Node, Publisher, Subscription, Timer, Callback, tipe pesan standar)
+
+**Reason:**
+Pembelajar perlu memahami data structure apa saja yang dipakai di setiap file dan fungsinya masing-masing. DOCX perlu konsisten dengan MD.
+
+**Implementation Details:**
+- DOCX: Python script dengan python-docx, parse PRAKTIK dari .md lalu insert ke .docx sebagai formatted paragraphs
+- .ino: PENJELASAN ditambahkan setelah header comment `/* */`, sebelum #include
+- .py: PENJELASAN ditambahkan setelah docstring/banner, sebelum import
+- Script Python untuk batch processing 57 file Penerapan ROS2
+
+**Result:** success
+
+**Testing:**
+- 12 file .docx diverifikasi: PRAKTIK section muncul di akhir
+- 71 file code diverifikasi: PENJELASAN DATA STRUCTURE muncul di setiap .py dan .ino
+- Semua file yang sudah punya PENJELASAN sebelumnya tidak di-double
+
+**Next Recommendation:**
+- Cek konsistensi penjelasan di Penerapan ROS2/referensi/ files
+- Buat modul ringkasan data structure ROS2

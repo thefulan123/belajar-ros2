@@ -221,3 +221,82 @@ Semakin besar order, semakin lama proses (lihat feedback).
 - **Sebelumnya: Modul 11** — Service (action = service + feedback + cancel)
 - **Semua modul sebelumnya** — action memakai konsep node, callback, timer
 - **Praktek: explore/04-action** — implementasi action
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini menjalankan **Action Server dan Client** ROS2 dari folder explore.
+
+### Langkah 1: Buka folder explore
+```
+cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/04-action/
+```
+
+Folder ini berisi dua file:
+- `action_server.py` — node yang menjalankan **Fibonacci** secara bertahap
+- `action_client.py` — node yang meminta Fibonacci dan menerima **feedback**
+
+### Langkah 2: Terminal 1 — Jalankan action server
+```bash
+source /opt/ros/humble/setup.bash
+python3 action_server.py
+```
+
+**Output yang diharapkan:**
+```
+[INFO] [....] [action_server_node]: Action server siap di /fibonacci
+```
+
+### Langkah 3: Terminal 2 — Jalankan action client
+```bash
+source /opt/ros/humble/setup.bash
+python3 action_client.py
+```
+
+**Output yang diharapkan (client):**
+```
+[INFO] [....] [action_client_node]: Goal diterima
+[INFO] [....] [action_client_node]: Feedback: 1/10
+[INFO] [....] [action_client_node]: Feedback: 2/10
+[INFO] [....] [action_client_node]: Feedback: 3/10
+...
+[INFO] [....] [action_client_node]: Result: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+```
+
+**Output yang diharapkan (server):**
+```
+[INFO] [....] [action_server_node]: Menerima goal order=10
+[INFO] [....] [action_server_node]: Mengeksekusi... 1/10
+[INFO] [....] [action_server_node]: Mengeksekusi... 2/10
+...
+[INFO] [....] [action_server_node]: Selesai
+```
+
+### Langkah 4: Terminal 3 — Cek daftar action
+```bash
+source /opt/ros/humble/setup.bash
+ros2 action list
+```
+
+**Output yang diharapkan:**
+```
+/fibonacci
+```
+
+### Langkah 5: Terminal 3 — Kirim goal dari CLI
+```bash
+ros2 action send_goal /fibonacci example_interfaces/action/Fibonacci "{order: 5}"
+```
+
+**Output yang diharapkan:**
+```
+Waiting for an action server...
+Goal accepted with ID: xxx
+Feedback:
+    sequence: [0, 1, 1, 2, 3]
+Result:
+    sequence: [0, 1, 1, 2, 3, 5]
+```
+
+**Kesimpulan:** Action adalah komunikasi **goal-feedback-result** — cocok untuk tugas yang butuh waktu lama dan perlu feedback selama proses.

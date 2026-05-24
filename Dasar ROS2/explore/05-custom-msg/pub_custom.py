@@ -7,6 +7,36 @@
 # (Di ROS2 sungguhan, kita pakai .msg yang dibuild)
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 Python. Wajib untuk semua node.
+#
+# 2. Node
+#    - Kelas dasar node ROS2. Setiap node punya nama unik.
+#
+# 3. Publisher (create_publisher())
+#    - Mengirim data ke topic ROS2 secara periodik.
+#    - Di sini: publish String yang berisi JSON.
+#
+# 4. std_msgs.msg.String
+#    - Tipe pesan standar ROS2 untuk teks.
+#    - Digunakan sebagai "wrapper" untuk data JSON.
+#
+# 5. json (Python standard library)
+#    - Bukan ROS2 — library Python untuk serialisasi data.
+#    - json.dumps() = ubah dict/dataclass ke string JSON.
+#    - Sementara custom message belum di-build via colcon.
+#
+# 6. SensorData (dataclass)
+#    - Custom message simulasi dari my_custom_msg.py.
+#    - Field: temperature, humidity, pressure.
+# ═══════════════════════════════════════════════════════════════
+
 import json  # (1) Library JSON — untuk serialisasi data ke format teks.
 import rclpy  # (2) Library utama ROS2 Python. Wajib untuk semua node.
 from rclpy.node import Node  # (3) Kelas dasar Node untuk membuat node ROS2.

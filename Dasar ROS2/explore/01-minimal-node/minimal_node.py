@@ -13,6 +13,39 @@
 # (Tidak perlu colcon build — langsung jalan)
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek ROS2 yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 untuk Bahasa Python.
+#    - Wajib dipanggil di setiap program ROS2 Python.
+#    - Fungsi utama: rclpy.init() untuk inisialisasi, rclpy.spin() untuk loop.
+#
+# 2. Node (dari rclpy.node)
+#    - Kelas dasar untuk membuat node ROS2.
+#    - Semua node HARUS mewarisi (inherit) class ini.
+#    - Method penting: create_timer(), get_logger(), destroy_node().
+#
+# 3. Timer
+#    - Bukan class terpisah, tapi objek hasil create_timer(interval, callback).
+#    - Memanggil fungsi callback secara periodik setiap interval detik.
+#    - Berguna untuk tugas berulang: publish data, baca sensor, dll.
+#
+# 4. Callback
+#    - Fungsi yang dipanggil OTOMATIS oleh ROS2 saat event terjadi.
+#    - Contoh: timer callback, subscriber callback, service callback.
+#    - Tidak dipanggil langsung oleh kode kita, tapi oleh rclpy.spin().
+#
+# 5. rclpy.spin(node)
+#    - Fungsi utama yang menjaga program tetap berjalan.
+#    - Mendengarkan event (timer, topic, service) dan memanggil callback.
+#    - Tanpa spin(), program akan selesai langsung setelah inisialisasi.
+#
+# ═══════════════════════════════════════════════════════════════
+
 import rclpy  # (1) Import library utama ROS2 untuk Python. WAJIB untuk semua program ROS2.
 from rclpy.node import Node  # (2) Import class Node — kelas dasar untuk membuat node ROS2.
 

@@ -13,6 +13,22 @@
  * Library: micro_ros_arduino
  */
 
+// ═══════════════════════════════════════════════════════════════
+// PENJELASAN DATA STRUCTURE — micro-ROS
+// ═══════════════════════════════════════════════════════════════
+//
+// Berikut adalah data structure inti micro-ROS yang dipakai:
+//
+// 1. rcl_node_t — struktur node ROS2 di C.
+// 2. rcl_subscription_t — struktur untuk MENERIMA data dari topic.
+// 3. rclc_executor_t — mengatur eksekusi callback.
+// 4. rclc_support_t — inisialisasi micro-ROS.
+// 5. rcl_allocator_t — alokator memori.
+// 6. std_msgs__msg__Bool — tipe pesan Bool (bool data).
+//
+// Detail: lihat PENJELASAN di publisher_suhu.ino
+// ═══════════════════════════════════════════════════════════════
+
 #include <micro_ros_arduino.h>  // (1) Library micro-ROS untuk Arduino.
 #include <rcl/rcl.h>            // (2) Library inti ROS2 C.
 #include <rclc/rclc.h>          // (3) Wrapper rclc yang lebih sederhana.

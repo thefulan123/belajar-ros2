@@ -337,3 +337,67 @@ Arduino UNO bisa menjalankan micro-ROS, tapi dengan keterbatasan:
 | Banyak topic | ⚠️ Maks 3-4 topic |
 
 **Rekomendasi:** Untuk proyek serius, gunakan ESP32 atau STM32 yang punya RAM lebih besar dan WiFi bawaan.
+
+---
+
+## 📁 PRAKTIK
+
+Praktik ini menjalankan **micro-ROS** dengan Arduino UNO dari folder explore.
+
+### Langkah 1: Buka folder explore
+```
+cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/07-arduino-uno/
+```
+
+### Langkah 2: Buka folder kode Arduino
+Folder ini berisi dua program:
+- `publisher_suhu/` — Arduino mengirim data suhu ke topic `/suhu`
+- `subscriber_led/` — Arduino menerima perintah dari topic `/led`
+
+### Langkah 3: Upload ke Arduino
+1. Buka file `.ino` di Arduino IDE
+2. Pilih Board: **Arduino UNO**
+3. Pilih Port: `/dev/ttyACM0` atau `/dev/ttyUSB0`
+4. Klik **Upload**
+
+### Langkah 4: Terminal 1 — Jalankan micro-ROS Agent
+```bash
+source ~/microros_ws/install/setup.bash
+ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0
+```
+
+### Langkah 5: Terminal 2 — Cek topic dari Arduino
+```bash
+source /opt/ros/humble/setup.bash
+ros2 topic list
+```
+
+**Output yang diharapkan:**
+```
+/suhu
+/parameter_events
+/rosout
+```
+
+### Langkah 6: Terminal 2 — Lihat data suhu
+```bash
+ros2 topic echo /suhu
+```
+
+**Output yang diharapkan:**
+```
+data: 27.5
+---
+data: 27.6
+---
+...
+```
+
+### Langkah 7: Terminal 3 — Kirim perintah LED
+```bash
+ros2 topic pub /led std_msgs/msg/Bool "data: true" --once
+```
+
+LED di Arduino akan menyala.
+
+**Kesimpulan:** Dengan micro-ROS, Arduino UNO bisa menjadi node ROS2 yang mempublish sensor dan menerima perintah.

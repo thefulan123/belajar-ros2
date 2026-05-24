@@ -10,6 +10,46 @@
 #   python3 action_client.py
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek ROS2 yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 Python. Wajib untuk semua node.
+#    - rclpy.init() = inisialisasi, rclpy.spin_once() = loop manual.
+#
+# 2. Node
+#    - Kelas dasar node ROS2. Setiap node punya nama unik.
+#    - Bisa memiliki action client, publisher, subscriber, timer.
+#
+# 3. ActionClient (dibuat dengan create_action_client())
+#    - Objek untuk MENGIRIM goal ke action server.
+#    - Parameter: tipe action, nama action.
+#    - WAJIB wait_for_server() sebelum send_goal.
+#    - Method: send_goal_async(goal, feedback_callback).
+#
+# 4. example_interfaces.action.Fibonacci
+#    - Tipe action untuk deret Fibonacci.
+#    - Goal: int32 order, Feedback: int32[] sequence, Result: int32[] sequence.
+#
+# 5. GoalHandle (dari send_goal_async())
+#    - Mewakili goal yang sudah dikirim.
+#    - Method: get_result_async() — minta hasil akhir.
+#    - Server bisa accept atau reject goal.
+#
+# 6. Feedback Callback
+#    - Fungsi dipanggil SETIAP KALI server kirim feedback.
+#    - Fitur UNIK Action — tidak ada di Topic/Service.
+#    - Berguna untuk: progress bar, estimasi waktu.
+#
+# 7. Future
+#    - Sama dengan service client: call_async() → future.
+#    - Timer polling cek tiap 0.1 detik.
+#
+# ═══════════════════════════════════════════════════════════════
+
 import rclpy  # (1) Library utama ROS2 Python. Wajib untuk semua node.
 from rclpy.node import Node  # (2) Kelas dasar Node untuk membuat node ROS2.
 from rclpy.action import ActionClient  # (3) Class untuk membuat Action Client ROS2.

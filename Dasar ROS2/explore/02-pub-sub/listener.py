@@ -11,6 +11,38 @@
 # (Jalankan BERSAMAAN dengan talker.py di terminal lain)
 # ============================================================
 
+# ═══════════════════════════════════════════════════════════════
+# PENJELASAN DATA STRUCTURE
+# ═══════════════════════════════════════════════════════════════
+#
+# Berikut adalah data structure / objek ROS2 yang dipakai di file ini:
+#
+# 1. rclpy
+#    - Library utama ROS2 Python. Wajib untuk semua node.
+#    - rclpy.init() = inisialisasi, rclpy.spin() = loop utama.
+#
+# 2. Node
+#    - Kelas dasar node ROS2.
+#    - Setiap node punya nama unik (di sini: "listener_node").
+#    - Bisa memiliki subscriber, publisher, timer, service, dll.
+#
+# 3. Subscription (dibuat dengan create_subscription())
+#    - Objek untuk MENERIMA data dari topic ROS2.
+#    - Parameter: tipe pesan, nama topic, callback, qos.
+#    - Callback dipanggil OTOMATIS setiap ada data masuk.
+#    - Sifat: decoupled — subscriber tidak tahu siapa publisher-nya.
+#
+# 4. Callback (fungsi listener_callback)
+#    - Dipanggil otomatis oleh ROS2 saat ada pesan baru.
+#    - Parameter: msg — object pesan berisi data.
+#    - Di sini: membaca msg.data dan menampilkan ke layar.
+#
+# 5. std_msgs.msg.String
+#    - Tipe pesan standar ROS2 untuk teks.
+#    - Struktur: msg.data (string) — field tunggal berisi teks.
+#
+# ═══════════════════════════════════════════════════════════════
+
 import rclpy  # (1) Library utama ROS2 Python. Wajib untuk semua node.
 from rclpy.node import Node  # (2) Kelas dasar Node untuk membuat node ROS2.
 from std_msgs.msg import String  # (3) Tipe pesan standar String — sama dengan yang digunakan talker.
