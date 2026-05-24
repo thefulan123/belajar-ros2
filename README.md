@@ -76,8 +76,8 @@ Why 2 tracks? So you can **focus on learning concepts first** without worrying a
 **Alur belajar / Learning flow:**
 
 ```
-Fase 0: Inisialisasi proyek ✅ (kamu di sini / you are here)
-Fase 1: Node Dasar + Publisher/Subscriber
+Fase 0: Inisialisasi proyek ✅
+Fase 1: Node Dasar + Publisher/Subscriber ✅ (kamu di sini / you are here)
 Fase 2: Service & Client
 Fase 3: Action
 Fase 4: Custom Interface (.msg / .srv)
@@ -274,7 +274,7 @@ rqt_graph
 | Fase / Phase | Konsep / Concept | Status |
 |-------------|-----------------|--------|
 | 0 | Inisialisasi proyek / Project initialization | ✅ Selesai |
-| 1 | Node Dasar + Publisher/Subscriber | ⏳ Belum |
+| 1 | Node Dasar + Publisher/Subscriber | ✅ Selesai |
 | 2 | Service & Client | ⏳ Belum |
 | 3 | Action | ⏳ Belum |
 | 4 | Custom Interface (.msg / .srv) | ⏳ Belum |

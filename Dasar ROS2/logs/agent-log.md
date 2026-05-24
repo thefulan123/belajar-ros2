@@ -121,3 +121,44 @@ Gunakan format di bawah ini.
 **Next Recommendation:**
 - Fase 1: explore/01-minimal-node (node pertama 10 baris)
 - Fase 1: explore/02-pub-sub (publisher + subscriber dasar)
+
+---
+
+## [2026-05-25]
+
+**Agent:** opencode
+
+**Task:**
+- Fase 1: explore/01-minimal-node + explore/02-pub-sub
+
+**Files Changed:**
+- Dasar ROS2/explore/01-minimal-node/minimal_node.py — dibuat
+- Dasar ROS2/explore/01-minimal-node/run.sh — dibuat
+- Dasar ROS2/explore/01-minimal-node/README.md — dibuat
+- Dasar ROS2/explore/02-pub-sub/talker.py — dibuat
+- Dasar ROS2/explore/02-pub-sub/listener.py — dibuat
+- Dasar ROS2/explore/02-pub-sub/run-demo.sh — dibuat
+- Dasar ROS2/explore/02-pub-sub/README.md — dibuat
+- README.md — update progres Fase 1
+
+**Reason:**
+- Praktek pertama: bikin node, paham callback/timer, pub/sub
+- Modul 07 (callback/event/timer) langsung diterapkan di sini
+
+**Implementation Details:**
+- minimal_node.py: node 10 baris dengan timer callback
+- talker.py: publisher ke topic /chatter tiap 1 detik
+- listener.py: subscriber dari topic /chatter
+- Setiap file bisa di-run langsung dengan python3 (standalone)
+- Tidak perlu colcon build
+
+**Result:** success
+
+**Testing:**
+- `python3 minimal_node.py` — berhasil, output tiap 1 detik
+- `ros2 node list` — menampilkan `minimal_node`
+- `ros2 topic list` — menampilkan `/chatter`
+- Publisher + subscriber berkomunikasi via topic
+
+**Next Recommendation:**
+- Lanjut Fase 2: explore/03-service (service server + client)
