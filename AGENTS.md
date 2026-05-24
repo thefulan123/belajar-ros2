@@ -10,7 +10,7 @@ Educational ROS2 learning repository for beginners.
 
 1. **Clarity over cleverness** — Code must be readable by ROS2 beginners.
 2. **Teach while building** — Every file must include educational comments.
-3. **Log everything** — Every meaningful action must be logged to `logs/agent-log.md`.
+3. **Log everything** — Every meaningful action must be logged to `Dasar ROS2/logs/agent-log.md`.
 4. **Never overwrite carelessly** — Read existing code before editing.
 5. **Dual language** — README/docs use Indonesian + English side by side.
 
@@ -21,30 +21,34 @@ Learn ROS2 from Scratch/
 ├── AGENTS.md              # AI agent rules
 ├── README.md              # Project overview (dual language)
 ├── .gitignore
-├── explore/               # TRACK 1: Standalone Python files
-│   ├── 01-minimal-node/   #   Run: python3 filename.py
-│   ├── 02-pub-sub/        #   No build system needed
-│   ├── 03-service/
-│   ├── 04-action/
-│   ├── 05-custom-msg/
-│   └── 06-launch-params/
-├── src/                   # TRACK 2: ROS2 colcon workspace
-│   └── (packages will be added later)
-├── launch/                # Launch files
-├── config/                # YAML config files
-├── scripts/               # Helper scripts (source_ros.sh, etc.)
-├── docs/                  # Documentation
-│   └── ERRORS.md          # Troubleshooting guide
-├── logs/
-│   └── agent-log.md       # Action log
-└── tests/                 # Test files
+│
+├── Dasar ROS2/            # LEVEL 1: Basic ROS2
+│   ├── Materi.txt         #   Daftar topik
+│   ├── explore/           #   TRACK 1: Standalone Python files
+│   │   ├── 01-minimal-node/   # Run: python3 filename.py
+│   │   ├── 02-pub-sub/
+│   │   ├── 03-service/
+│   │   ├── 04-action/
+│   │   ├── 05-custom-msg/
+│   │   └── 06-launch-params/
+│   ├── src/               #   TRACK 2: ROS2 colcon workspace
+│   ├── launch/            #   Launch files
+│   ├── config/            #   YAML config files
+│   ├── scripts/           #   Helper scripts
+│   ├── docs/              #   Documentation
+│   │   └── ERRORS.md
+│   ├── logs/              #   Action log
+│   │   └── agent-log.md
+│   └── tests/             #   Test files
+│
+└── Menengah ROS2/         # LEVEL 2: (akan datang)
 ```
 
 ## Dual-Track System
 
-- **explore/** — Each folder is independent and runnable with `python3 filename.py`.
+- **Dasar ROS2/explore/** — Each folder is independent and runnable with `python3 filename.py`.
   Learner focuses on ONE concept at a time.
-- **src/** — Proper ROS2 packages built with colcon.
+- **Dasar ROS2/src/** — Proper ROS2 packages built with colcon.
   All nodes combined for full system integration.
 - Topics/services with the SAME name automatically connect across both tracks.
 

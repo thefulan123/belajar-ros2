@@ -42,21 +42,35 @@ This repo is built to learn ROS2 from **absolute zero**. Goals:
 
 ## Cara Belajar / How to Learn
 
-**ID:** Proyek ini punya **2 jalur belajar (dual-track)**:
+**ID:** Proyek ini punya **level** yang naik bertahap. Setiap level isinya:
+
+| Level | Folder | Isi |
+|-------|--------|-----|
+| **Dasar ROS2** | `Dasar ROS2/` | Node, Topic, Publisher, Subscriber, Service, Action |
+| **Menengah ROS2** | `Menengah ROS2/` | (akan datang) |
+
+Setiap level punya **2 jalur belajar (dual-track)**:
 
 | Track | Folder | Cara Pakai | Untuk Apa? |
 |-------|--------|------------|------------|
-| **Track 1 — Explore** | `explore/` | `python3 file.py` | Belajar 1 konsep, langsung lihat hasil |
-| **Track 2 — Workspace** | `src/` | `colcon build + ros2 run` | Integrasi semua node jadi satu sistem |
+| **Track 1 — Explore** | `Dasar ROS2/explore/` | `python3 file.py` | Belajar 1 konsep, langsung lihat hasil |
+| **Track 2 — Workspace** | `Dasar ROS2/src/` | `colcon build + ros2 run` | Integrasi semua node jadi satu sistem |
 
 Kenapa 2 track? Biar kamu bisa **fokus belajar konsep dulu** tanpa pusing soal build system. Setelah paham, baru masuk ke cara "beneran" ROS2.
 
-**EN:** This project has **2 learning tracks**:
+**EN:** This project has **levels** that increase step by step:
+
+| Level | Folder | Content |
+|-------|--------|---------|
+| **Basic ROS2** | `Dasar ROS2/` | Node, Topic, Publisher, Subscriber, Service, Action |
+| **Intermediate ROS2** | `Menengah ROS2/` | (coming soon) |
+
+Each level has **2 learning tracks**:
 
 | Track | Folder | Usage | Purpose |
 |-------|--------|-------|---------|
-| **Track 1 — Explore** | `explore/` | `python3 file.py` | Learn 1 concept, see results immediately |
-| **Track 2 — Workspace** | `src/` | `colcon build + ros2 run` | Integrate all nodes into one system |
+| **Track 1 — Explore** | `Dasar ROS2/explore/` | `python3 file.py` | Learn 1 concept, see results immediately |
+| **Track 2 — Workspace** | `Dasar ROS2/src/` | `colcon build + ros2 run` | Integrate all nodes into one system |
 
 Why 2 tracks? So you can **focus on learning concepts first** without worrying about the build system. Once understood, move to the "real" ROS2 workflow.
 
@@ -79,29 +93,30 @@ Fase 6: Integrasi penuh di workspace
 ```
 Learn ROS2 from Scratch/
 │
-├── AGENTS.md              ← Aturan untuk AI agent / AI agent rules
-├── README.md              ← File ini / This file
+├── AGENTS.md              # AI agent rules
+├── README.md              # File ini / This file
 ├── .gitignore
 │
-├── explore/               ← TRACK 1: Belajar per konsep
-│   ├── 01-minimal-node/   → Node ROS2 paling sederhana
-│   ├── 02-pub-sub/        → Publisher + Subscriber
-│   ├── 03-service/        → Service Server + Client
-│   ├── 04-action/         → Action Server + Client
-│   ├── 05-custom-msg/     → Custom message types
-│   └── 06-launch-params/  → Launch file + parameter
+├── Dasar ROS2/            # LEVEL 1: Basic ROS2
+│   ├── Materi.txt         #   Daftar topik
+│   ├── explore/           #   TRACK 1: Standalone Python files
+│   │   ├── 01-minimal-node/   # Run: python3 filename.py
+│   │   ├── 02-pub-sub/
+│   │   ├── 03-service/
+│   │   ├── 04-action/
+│   │   ├── 05-custom-msg/
+│   │   └── 06-launch-params/
+│   ├── src/               #   TRACK 2: ROS2 colcon workspace
+│   ├── launch/            #   Launch files
+│   ├── config/            #   YAML config files
+│   ├── scripts/           #   Helper scripts
+│   ├── docs/              #   Documentation
+│   │   └── ERRORS.md
+│   ├── logs/              #   Action log
+│   │   └── agent-log.md
+│   └── tests/             #   Test files
 │
-├── src/                   ← TRACK 2: ROS2 colcon workspace
-│   └── (akan diisi package nanti / packages added later)
-│
-├── launch/                ← File launch (.launch.py)
-├── config/                ← File konfigurasi YAML
-├── scripts/               ← Script bantuan (source_ros.sh, dll)
-├── docs/                  ← Dokumentasi tambahan
-│   └── ERRORS.md          → Panduan troubleshooting error
-├── logs/                  ← Catatan perubahan / Change logs
-│   └── agent-log.md
-└── tests/                 ← File test
+└── Menengah ROS2/         # LEVEL 2: (akan datang)
 ```
 
 ---
@@ -146,7 +161,7 @@ cd <repo>
 # 2. Source ROS2 (WAJIB setiap buka terminal baru)
 source /opt/ros/humble/setup.bash
 # Atau pakai script yang sudah disediakan:
-source scripts/source_ros.sh
+source Dasar\ ROS2/scripts/source_ros.sh
 
 # 3. Install colcon (kalau belum ada)
 sudo apt install python3-colcon-common-extensions
@@ -165,7 +180,7 @@ ros2 --version
 
 ```bash
 # Step 1: Source ROS2 dulu (Always source ROS2 first!)
-source scripts/source_ros.sh
+source "Dasar ROS2/scripts/source_ros.sh"
 
 # Step 2: Cek versi ROS2 (Check ROS2 version)
 ros2 --version
@@ -181,10 +196,10 @@ ros2 node list
 
 ```bash
 # Track 1 — Langsung pakai Python
-python3 explore/01-minimal-node/minimal_node.py
+python3 "Dasar ROS2/explore/01-minimal-node/minimal_node.py"
 
 # Track 2 — Pakai ROS2 package (nanti / later)
-cd src
+cd "Dasar ROS2/src"
 colcon build
 source install/setup.bash
 ros2 run ros2_basics talker_node
@@ -207,14 +222,14 @@ rqt_graph
 
 ## Tips Debugging / Debugging Tips
 
-**ID:** Error umum dan solusinya ada di `docs/ERRORS.md`.
+**ID:** Error umum dan solusinya ada di `Dasar ROS2/docs/ERRORS.md`.
 
-**EN:** Common errors and solutions are in `docs/ERRORS.md`.
+**EN:** Common errors and solutions are in `Dasar ROS2/docs/ERRORS.md`.
 
 | Masalah / Issue | Penyebab / Cause | Solusi / Solution |
 |----------------|-------------------|-------------------|
-| `ros2: not found` | Belum source | `source scripts/source_ros.sh` |
-| `No module named 'rclpy'` | Belum source | `source scripts/source_ros.sh` |
+| `ros2: not found` | Belum source | `source "Dasar ROS2/scripts/source_ros.sh"` |
+| `No module named 'rclpy'` | Belum source | `source "Dasar ROS2/scripts/source_ros.sh"` |
 | `package not found` | Belum build / source | `colcon build` + `source install/setup.bash` |
 | Topic tidak muncul | Node belum publish / crash | Cek terminal, pastikan callback aktif |
 
@@ -228,12 +243,12 @@ rqt_graph
 
 | # | Konsep / Concept | Analogi / Analogy | Folder |
 |---|-----------------|-------------------|--------|
-| 1 | **Node** | Seorang pekerja di pabrik / A worker in a factory | `01-minimal-node` |
-| 2 | **Publisher** | Orang yang nempel pengumuman / Someone posting an announcement | `02-pub-sub` |
-| 3 | **Subscriber** | Orang yang baca pengumuman / Someone reading the announcement | `02-pub-sub` |
-| 4 | **Topic** | Papan pengumuman / A bulletin board | `02-pub-sub` |
-| 5 | **Service** | Minta tolong — "Tolong jumlahkan 2+3" / Asking for help — "Please add 2+3" | `03-service` |
-| 6 | **Action** | Minta tolong + laporan progres / Asking for help with progress updates | `04-action` |
+| 1 | **Node** | Seorang pekerja di pabrik / A worker in a factory | `Dasar ROS2/explore/01-minimal-node` |
+| 2 | **Publisher** | Orang yang nempel pengumuman / Someone posting an announcement | `Dasar ROS2/explore/02-pub-sub` |
+| 3 | **Subscriber** | Orang yang baca pengumuman / Someone reading the announcement | `Dasar ROS2/explore/02-pub-sub` |
+| 4 | **Topic** | Papan pengumuman / A bulletin board | `Dasar ROS2/explore/02-pub-sub` |
+| 5 | **Service** | Minta tolong — "Tolong jumlahkan 2+3" / Asking for help — "Please add 2+3" | `Dasar ROS2/explore/03-service` |
+| 6 | **Action** | Minta tolong + laporan progres / Asking for help with progress updates | `Dasar ROS2/explore/04-action` |
 
 ---
 

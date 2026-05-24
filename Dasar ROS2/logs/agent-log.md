@@ -46,3 +46,38 @@ Gunakan format di bawah ini.
 **Next Recommendation:**
 - Lanjut ke Fase 1: Node Dasar + Publisher/Subscriber di explore/01-minimal-node/
 - Setup GitHub remote (butuh URL repo dari user)
+
+---
+
+## [2026-05-25]
+
+**Agent:** opencode
+
+**Task:**
+- Restrukturisasi: pindahkan semua konten ke dalam Dasar ROS2/
+
+**Files Changed:**
+- README.md — update path references ke Dasar ROS2/
+- AGENTS.md — update directory structure
+- Dasar ROS2/scripts/source_ros.sh — update LOCAL_WS path
+- Dasar ROS2/logs/agent-log.md — tambah entry ini
+
+**Reason:**
+- User ingin struktur berlevel: Dasar ROS2, nanti Menengah ROS2, dst.
+- Semua file edukasi masuk ke dalam folder level masing-masing.
+- Root folder cukup berisi AGENTS.md, README.md, .gitignore.
+
+**Implementation Details:**
+- Semua folder (explore/, src/, launch/, config/, scripts/, docs/, logs/, tests/) dipindah ke Dasar ROS2/
+- File paths di README, AGENTS.md, dan source_ros.sh diupdate
+- Git history tetap terjaga (rename detected)
+
+**Result:** success
+
+**Testing:**
+- `git status` — clean
+- Struktur diverifikasi via `find .`
+- Push ke GitHub sukses
+
+**Next Recommendation:**
+- Lanjut ke Fase 1: Node Dasar di Dasar ROS2/explore/01-minimal-node/
