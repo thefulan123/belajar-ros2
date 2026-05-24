@@ -102,3 +102,43 @@ rqt_graph  # Lihat arsitektur
 - Semua topic terintegrasi secara otomatis via ROS2 — tidak peduli dari board mana asalnya
 - Arduino UNO: maks ~3-4 sensor per board (tergantung complexity)
 - ESP32: bisa 5-8 sensor per board
+
+
+---
+
+## 🔄 ROS2 vs Arduino Biasa
+
+Ini contoh **sistem terintegrasi** — multiple sensor + aktuator dalam 1 sistem.
+
+### Arduino Biasa (satu board):
+```cpp
+// Semua campur aduk dalam 1 sketch
+int sensor1 = analogRead(A0);
+int sensor2 = analogRead(A1);
+digitalWrite(LED, sensor1 > 500);
+if (sensor2 > 700) digitalWrite(BUZZER, HIGH);
+delay(100);
+```
+- Semua kode jadi 1 file raksasa
+- Kalau ada bug, susah dicari
+- Nambah komponen = nulis ulang sketch
+
+### ROS2 (multi-node):
+```
+[sensor node] → /suhu → [logic node] → /led
+[button node] → /button → [logic node] → /buzzer
+```
+- Tiap sensor = 1 node sendiri
+- Logic pisah — gampang debug
+- Nambah komponen = tinggal tambah node + topic
+
+### Perbandingan Langsung
+
+| Aspek | ROS2 Multi-Node | Arduino 1 Sketch |
+|-------|----------------|-----------------|
+| Organisasi | Tiap komponen = 1 node | Semua di 1 loop() |
+| Debug | `ros2 topic echo` per komponen | Serial.print campur aduk |
+| Expand | Tambah node + topic | Ubah sketch → risiko error |
+| Reusability | Node bisa dipake proyek lain | Copy-paste sketch |
+| Cocok | Robot kompleks (5+ komponen) | Projekt 1-2 komponen |
+

@@ -46,3 +46,38 @@ ros2 run rqt_image_view rqt_image_view
 2. **Object tracking:** Track benda berwarna, publish koordinat
 3. **Motion detection:** Jika ada perubahan frame, publish Bool ke /gerakan
 4. **Integrasi MPU6050 (explore/17):** Stabilisasi kamera dengan data gyro
+
+
+---
+
+## 🔄 ROS2 vs Arduino Biasa
+
+Webcam bisa dipake langsung dengan OpenCV + Python biasa. Tapi ROS2 ngasih lebih:
+
+### Python biasa (OpenCV):
+```python
+import cv2
+cap = cv2.VideoCapture(0)
+ret, frame = cap.read()
+cv2.imshow("Camera", frame)
+```
+- Gambar cuma bisa dilihat di laptop sendiri
+- Nggak bisa dikirim ke node lain
+
+### ROS2 (sensor_msgs/Image):
+```python
+self.pub = self.create_publisher(Image, '/camera/image', 10)
+self.pub.publish(msg)
+```
+- Gambar bisa dipake node lain (deteksi objek, log, streaming)
+- Bisa digabung data sensor lain
+
+### Perbandingan Langsung
+
+| Aspek | ROS2 | OpenCV Biasa |
+|-------|------|-------------|
+| Data sampai ke | Seluruh sistem ROS2 | Hanya window lokal |
+| Integrasi | Bisa digabung sensor, motor, dll | Standalone — sendiri |
+| Expandability | Tinggal subscribe di node lain | Copy frame manual |
+| Cocok | Robot vision, multi-sensor fusion | Tes kamera, face detection lokal |
+
