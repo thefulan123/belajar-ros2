@@ -517,3 +517,41 @@ Pembelajar perlu memahami data structure apa saja yang dipakai di setiap file da
 **Next Recommendation:**
 - Cek konsistensi penjelasan di Penerapan ROS2/referensi/ files
 - Buat modul ringkasan data structure ROS2
+
+---
+
+## 2026-05-25 — Perbandingan ROS2 vs Arduino Biasa (Dasar + Penerapan)
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+Tambah tabel perbandingan "ROS2 vs Arduino Biasa" di tiap modul pembelajaran dan tiap README komponen — menjelaskan apa bedanya kalau anak robotik newbie cuma praktek tanpa ROS2 (pake Arduino IDE aja).
+
+**Files Changed:**
+- 12 modul `Dasar ROS2/modul/` — tabel perbandingan per konsep (sourcing, workspace, package, build, callback, node, topic, service, action, dsb)
+- 38 README `Penerapan ROS2/explore/*/README.md` — perbandingan spesifik per komponen (LED, button, servo, dht, ultrasonic, dsb)
+
+**Reason:**
+Pembelajar newbie sering bertanya: "Kenapa harus ribet pake ROS2? Arduino aja cukup." Bagian ini menjawab langsung dengan perbandingan konkret — kode Arduino vs kode ROS2, table perbedaan, dan kapan pake yang mana.
+
+**Implementation Details:**
+- Dasar modul: tiap modul dapet section sebelum PRAKTIK, fokus perbedaan KONSEP (callback vs delay, topic vs serial, service vs manual protocol, action vs state machine)
+- Penerapan: tiap README dapet section setelah konten existing, fokus perbedaan per KOMPONEN (subscriber vs digitalWrite, publisher vs analogRead)
+- Template publisher: "Sensor → publish → seluruh sistem ROS2 vs Serial Monitor doang"
+- Template subscriber: "Dikontrol dari mana aja via topic vs fixed di sketch"
+- Kategorisasi otomatis berdasarkan kode aktual (bukan komentar)
+- Special handling untuk 36-webcam (OpenCV vs sensor_msgs) dan 37-system-integration (multi-node vs 1 sketch)
+
+**Result:** success
+
+**Testing:**
+- 12 modul diverifikasi: perbandingan muncul sebelum PRAKTIK
+- 38 README diverifikasi: 23 publisher template, 13 subscriber template, 2 special
+- Publisher files: button, sensor, joystick, gps, dll → template sensor
+- Subscriber files: led, servo, motor, lcd, dll → template aktuator
+- Webcam → OpenCV comparison
+- System integration → multi-node comparison
+
+**Next Recommendation:**
+- Review referensi/ folder di Penerapan ROS2
+- Tambah modul praktikum untuk final project
