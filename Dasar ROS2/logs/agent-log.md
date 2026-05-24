@@ -81,3 +81,43 @@ Gunakan format di bawah ini.
 
 **Next Recommendation:**
 - Lanjut ke Fase 1: Node Dasar di Dasar ROS2/explore/01-minimal-node/
+
+---
+
+## [2026-05-25]
+
+**Agent:** opencode
+
+**Task:**
+- Buat 7 modul pembelajaran + disclaimer + update README
+
+**Files Changed:**
+- Dasar ROS2/modul/01-sourcing.md — dibuat
+- Dasar ROS2/modul/02-workspace.md — dibuat
+- Dasar ROS2/modul/03-package.md — dibuat
+- Dasar ROS2/modul/04-create-package.md — dibuat
+- Dasar ROS2/modul/05-build-package.md — dibuat
+- Dasar ROS2/modul/06-source-workspace.md — dibuat
+- Dasar ROS2/modul/07-callback-event-timer.md — dibuat
+- Dasar ROS2/docs/disclaimer.md — dibuat
+- README.md — tambah daftar modul, update struktur proyek
+- AGENTS.md — update struktur direktori
+
+**Reason:**
+- User ingin dokumentasi seperti datasheet/modul yang jelaskan WHY bukan cuma WHAT.
+- Setiap modul menjawab: kenapa ada, cara kerja, contoh, eksperimen, error umum.
+
+**Implementation Details:**
+- Format modul konsisten: APA ITU → KENAPA ADA → CARA KERJA → CONTOH → COBA INI → ERROR UMUM → HUBUNGAN
+- Bahasa Indonesia semua (kecuali README root dual language)
+- Modul 07 (callback/event/timer) menjadi jembatan ke praktek explore/01
+
+**Result:** success
+
+**Testing:**
+- Semua file terbaca dengan benar
+- Link dari README ke modul berfungsi (github path URL encoding)
+
+**Next Recommendation:**
+- Fase 1: explore/01-minimal-node (node pertama 10 baris)
+- Fase 1: explore/02-pub-sub (publisher + subscriber dasar)

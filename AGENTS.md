@@ -24,6 +24,14 @@ Learn ROS2 from Scratch/
 │
 ├── Dasar ROS2/            # LEVEL 1: Basic ROS2
 │   ├── Materi.txt         #   Daftar topik
+│   ├── modul/             #   Modul pembelajaran teori
+│   │   ├── 01-sourcing.md
+│   │   ├── 02-workspace.md
+│   │   ├── 03-package.md
+│   │   ├── 04-create-package.md
+│   │   ├── 05-build-package.md
+│   │   ├── 06-source-workspace.md
+│   │   └── 07-callback-event-timer.md
 │   ├── explore/           #   TRACK 1: Standalone Python files
 │   │   ├── 01-minimal-node/   # Run: python3 filename.py
 │   │   ├── 02-pub-sub/
@@ -36,6 +44,7 @@ Learn ROS2 from Scratch/
 │   ├── config/            #   YAML config files
 │   ├── scripts/           #   Helper scripts
 │   ├── docs/              #   Documentation
+│   │   ├── disclaimer.md
 │   │   └── ERRORS.md
 │   ├── logs/              #   Action log
 │   │   └── agent-log.md

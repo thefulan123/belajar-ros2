@@ -10,13 +10,12 @@
 
 - [Tujuan / Purpose](#tujuan--purpose)
 - [Cara Belajar / How to Learn](#cara-belajar--how-to-learn)
+- [Daftar Modul / Module List](#daftar-modul--module-list)
 - [Struktur Proyek / Project Structure](#struktur-proyek--project-structure)
 - [Persyaratan / Requirements](#persyaratan--requirements)
 - [Instalasi / Installation](#instalasi--installation)
 - [Cara Menjalankan / How to Run](#cara-menjalankan--how-to-run)
-- [ROS2 Graph Overview](#ros2-graph-overview)
 - [Tips Debugging / Debugging Tips](#tips-debugging--debugging-tips)
-- [Catatan Belajar / Learning Notes](#catatan-belajar--learning-notes)
 - [Progres / Progress](#progres--progress)
 - [Lisensi / License](#lisensi--license)
 
@@ -88,6 +87,30 @@ Fase 6: Integrasi penuh di workspace
 
 ---
 
+## Daftar Modul / Module List
+
+**ID:** Setiap modul menjelaskan **kenapa** sesuatu ada, bukan cuma **bagaimana** menggunakannya.
+
+**EN:** Each module explains **why** something exists, not just **how** to use it.
+
+| Modul | Topik | Deskripsi |
+|-------|-------|-----------|
+| 01 | [Sourcing](Dasar%20ROS2/modul/01-sourcing.md) | Kenapa harus source? Apa itu environment variable? |
+| 02 | [Workspace](Dasar%20ROS2/modul/02-workspace.md) | Struktur folder proyek ROS2 |
+| 03 | [Package](Dasar%20ROS2/modul/03-package.md) | Unit terkecil dalam ROS2 |
+| 04 | [Create Package](Dasar%20ROS2/modul/04-create-package.md) | Cara membuat package baru |
+| 05 | [Build Package](Dasar%20ROS2/modul/05-build-package.md) | colcon build dan apa yang terjadi |
+| 06 | [Source Workspace](Dasar%20ROS2/modul/06-source-workspace.md) | Kenapa harus source ulang setelah build |
+| 07 | [Callback & Timer](Dasar%20ROS2/modul/07-callback-event-timer.md) | Event-driven programming di ROS2 |
+
+**Hubungan modul dengan praktek:**
+```
+Modul 01-06 → teori infrastruktur (baca dulu)
+Modul 07    → baca bersamaan dengan explore/01-minimal-node
+```
+
+---
+
 ## Struktur Proyek / Project Structure
 
 ```
@@ -99,6 +122,14 @@ Learn ROS2 from Scratch/
 │
 ├── Dasar ROS2/            # LEVEL 1: Basic ROS2
 │   ├── Materi.txt         #   Daftar topik
+│   ├── modul/             #   Modul pembelajaran teori
+│   │   ├── 01-sourcing.md
+│   │   ├── 02-workspace.md
+│   │   ├── 03-package.md
+│   │   ├── 04-create-package.md
+│   │   ├── 05-build-package.md
+│   │   ├── 06-source-workspace.md
+│   │   └── 07-callback-event-timer.md
 │   ├── explore/           #   TRACK 1: Standalone Python files
 │   │   ├── 01-minimal-node/   # Run: python3 filename.py
 │   │   ├── 02-pub-sub/
@@ -111,6 +142,7 @@ Learn ROS2 from Scratch/
 │   ├── config/            #   YAML config files
 │   ├── scripts/           #   Helper scripts
 │   ├── docs/              #   Documentation
+│   │   ├── disclaimer.md
 │   │   └── ERRORS.md
 │   ├── logs/              #   Action log
 │   │   └── agent-log.md
@@ -234,21 +266,6 @@ rqt_graph
 | Topic tidak muncul | Node belum publish / crash | Cek terminal, pastikan callback aktif |
 
 ---
-
-## Catatan Belajar / Learning Notes
-
-**ID:** Berikut konsep ROS2 yang akan dipelajari di proyek ini:
-
-**EN:** Here are ROS2 concepts that will be learned in this project:
-
-| # | Konsep / Concept | Analogi / Analogy | Folder |
-|---|-----------------|-------------------|--------|
-| 1 | **Node** | Seorang pekerja di pabrik / A worker in a factory | `Dasar ROS2/explore/01-minimal-node` |
-| 2 | **Publisher** | Orang yang nempel pengumuman / Someone posting an announcement | `Dasar ROS2/explore/02-pub-sub` |
-| 3 | **Subscriber** | Orang yang baca pengumuman / Someone reading the announcement | `Dasar ROS2/explore/02-pub-sub` |
-| 4 | **Topic** | Papan pengumuman / A bulletin board | `Dasar ROS2/explore/02-pub-sub` |
-| 5 | **Service** | Minta tolong — "Tolong jumlahkan 2+3" / Asking for help — "Please add 2+3" | `Dasar ROS2/explore/03-service` |
-| 6 | **Action** | Minta tolong + laporan progres / Asking for help with progress updates | `Dasar ROS2/explore/04-action` |
 
 ---
 
