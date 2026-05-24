@@ -25,3 +25,6 @@ Thumbs.db
 # IDE
 .idea/
 *.iml
+
+# DOCX — hasil konversi dari .md/.txt (baca offline)
+*.docx
