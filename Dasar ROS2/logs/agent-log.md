@@ -324,3 +324,62 @@ Gunakan format di bawah ini.
 **Next Recommendation:**
 - Semua modul (01-12) + explore (01-07) + integrasi workspace selesai.
 - Lanjut ke Menengah ROS2 kapan saja.
+
+---
+
+## [2026-05-25]
+
+**Agent:** opencode
+
+**Task:**
+- Tambah komentar edukasi Bahasa Indonesia baris-per-baris ke semua file Python/Arduino (27 file)
+
+**Files Changed:**
+- `Dasar ROS2/explore/01-minimal-node/minimal_node.py` — komentar edukasi
+- `Dasar ROS2/explore/02-pub-sub/talker.py` — komentar edukasi
+- `Dasar ROS2/explore/02-pub-sub/listener.py` — komentar edukasi
+- `Dasar ROS2/explore/03-service/service_server.py` — komentar edukasi
+- `Dasar ROS2/explore/03-service/service_client.py` — komentar edukasi
+- `Dasar ROS2/explore/04-action/action_server.py` — komentar edukasi
+- `Dasar ROS2/explore/04-action/action_client.py` — komentar edukasi
+- `Dasar ROS2/explore/05-custom-msg/my_custom_msg.py` — komentar edukasi
+- `Dasar ROS2/explore/05-custom-msg/pub_custom.py` — komentar edukasi
+- `Dasar ROS2/explore/05-custom-msg/sub_custom.py` — komentar edukasi
+- `Dasar ROS2/explore/06-launch-params/param_node.py` — komentar edukasi
+- `Dasar ROS2/explore/06-launch-params/launch/param_demo.launch.py` — komentar edukasi
+- `Dasar ROS2/explore/07-arduino-uno/publisher_suhu/publisher_suhu.ino` — komentar edukasi
+- `Dasar ROS2/explore/07-arduino-uno/subscriber_led/subscriber_led.ino` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/talker_node.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/listener_node.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/service_server_node.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/service_client_node.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/action_server_node.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/action_client_node.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/param_node.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/custom_msg_types.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/custom_pub_node.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/ros2_basics/custom_sub_node.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/launch/all_nodes.launch.py` — komentar edukasi
+- `Dasar ROS2/src/ros2_basics/setup.py` — komentar edukasi
+
+**Reason:**
+- Semua file Python/Arduino perlu komentar edukasi Bahasa Indonesia baris-per-baris
+- Membantu pemula memahami API, sintaks, dan konsep ROS2
+- Setiap fungsi ROS2 utama diberi penjelasan: APA, MENGAPA, dan SINTAKS
+
+**Implementation Details:**
+- Format: `kode  # (nomor) Penjelasan Bahasa Indonesia`
+- Fungsi ROS2 yang dijelaskan: rclpy.init(), Node(), create_publisher(), create_subscription(), create_service(), create_client(), rclpy.spin(), get_logger(), declare_parameter(), rclpy.shutdown()
+- Komentar mencakup: (a) APA fungsi, (b) MENGAPA perlu, (c) SINTAKS ROS2
+- Arduino .ino files: penjelasan rclc_* functions dalam Bahasa Indonesia
+- Launch file & setup.py: penjelasan struktur packaging ROS2
+- Kode program TIDAK diubah, hanya ditambahi komentar
+
+**Result:** success
+
+**Testing:**
+- Semua file diverifikasi: kode asli tidak berubah, hanya komentar ditambah
+- Total: 27 file berhasil diedit
+
+**Next Recommendation:**
+- Lanjut ke Menengah ROS2 kapan saja.

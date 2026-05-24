@@ -1,0 +1,82 @@
+/*
+ * soil_moisture.ino — baca kelembapan tanah via ROS2
+ * 
+ * Publish ke topic /kelembapan_tanah (Int32)
+ * 0   = kering
+ * 100 = basah
+ * 
+ * Board: Arduino UNO / ESP32
+ * 
+ * Koneksi: lihat wiring.md
+ */
+
+#include <micro_ros_arduino.h>  // Library micro-ROS untuk Arduino — menghubungkan Arduino ke ROS2
+#include <rcl/rcl.h>            // Library ROS2 Client Library — API inti ROS2 di C
+#include <rclc/rclc.h>          // Library RCLC — helper untuk memudahkan inisialisasi ROS2
+#include <rclc/executor.h>      // Library executor RCLC — menjalankan callback secara periodik
+#include <std_msgs/msg/int32.h> // Tipe pesan Int32 (integer) — untuk kelembapan tanah 0-100
+
+#if defined(ESP32)             // Dual board support: cek apakah board adalah ESP32
+  #define SOIL_PIN 34          // Pin ADC (GPIO 34) untuk ESP32
+#else                           // Jika bukan ESP32, berarti Arduino UNO
+  #define SOIL_PIN A2          // Pin analog A2 untuk Arduino UNO
+#endif
+
+rcl_publisher_t publisher;       // Publisher — mengirim kelembapan tanah ke topic ROS2
+rclc_executor_t executor;        // Executor — mengelola eksekusi callback ROS2
+rclc_support_t support;          // Support structure — wadah inisialisasi ROS2
+rcl_allocator_t allocator;       // Allocator — pengelola memori ROS2
+rcl_node_t node;                 // Node — entitas utama ROS2 untuk komunikasi
+rcl_timer_t timer;               // Timer — memicu callback secara periodik
+
+std_msgs__msg__Int32 msg;        // Variabel pesan Int32 — 0 = kering, 100 = basah
+int last_value = -1;             // Nilai terakhir yang dipublish (untuk deteksi perubahan)
+
+void timer_callback(rcl_timer_t *timer, int64_t last_call_time) {  // Callback timer — dipanggil tiap 200ms
+  (void)last_call_time;                                            // Hindari warning parameter tidak dipakai
+  if (timer == NULL) return;                                       // Pastikan timer valid
+
+  int raw = analogRead(SOIL_PIN);                                  // Baca nilai analog dari sensor tanah
+  #if defined(ESP32)
+    int pct = map(raw, 0, 4095, 0, 100);                           // ESP32 ADC 12-bit
+  #else
+    int pct = map(raw, 0, 1023, 0, 100);                           // Arduino UNO ADC 10-bit
+  #endif
+  pct = constrain(pct, 0, 100);                                    // Batasi 0-100
+
+  if (abs(pct - last_value) >= 3) {                                // Hanya publish jika berubah >= 3%
+    last_value = pct;
+    msg.data = pct;
+    rcl_publish(&publisher, &msg, NULL);                           // Kirim ke topic "kelembapan_tanah"
+  }
+}
+
+void setup() {                                     // setup() — dijalankan sekali saat board menyala / reset
+  Serial.begin(115200);                            // Inisialisasi Serial USB dengan baud rate 115200
+  set_microros_serial_transports(Serial);          // Hubungkan micro-ROS ke Serial USB sebagai transport
+  delay(2000);                                     // Tunggu 2 detik agar micro-ROS siap
+
+  allocator = rcl_get_default_allocator();         // Dapatkan memory allocator default ROS2
+  rclc_support_init(&support, 0, NULL, &allocator);// Inisialisasi ROS2 support structure
+  rclc_node_init_default(&node, "soil_moisture_node", "", &support);  // Buat node ROS2
+
+  rclc_publisher_init_default(                    // Inisialisasi publisher untuk topic "kelembapan_tanah"
+    &publisher,
+    &node,
+    ROSIDL_GET_MSG_TYPE_SUPPORT(std_msgs, msg, Int32),  // Type support untuk Int32
+    "kelembapan_tanah"                             // Nama topic
+  );
+
+  rclc_timer_init_default(                        // Buat timer periodik 200ms (5 Hz)
+    &timer, &support, RCL_MS_TO_NS(200),
+    timer_callback                                 // Callback pembacaan sensor tanah
+  );
+
+  rclc_executor_init(&executor, &support, 1, &allocator);  // Buat executor dengan 1 callback
+  rclc_executor_add_timer(&executor, &timer);      // Daftarkan timer ke executor
+}
+
+void loop() {                                                       // loop() — dijalankan terus-menerus setelah setup()
+  rclc_executor_spin_some(&executor, RCL_MS_TO_NS(100));           // Proses callback ROS2 yang masuk (timeout 100ms)
+  delay(10);                                                        // Delay kecil agar CPU tidak 100%
+}

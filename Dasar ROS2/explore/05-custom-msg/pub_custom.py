@@ -7,40 +7,51 @@
 # (Di ROS2 sungguhan, kita pakai .msg yang dibuild)
 # ============================================================
 
-import json
-import rclpy
-from rclpy.node import Node
-from std_msgs.msg import String
-from my_custom_msg import SensorData
+import json  # (1) Library JSON — untuk serialisasi data ke format teks.
+import rclpy  # (2) Library utama ROS2 Python. Wajib untuk semua node.
+from rclpy.node import Node  # (3) Kelas dasar Node untuk membuat node ROS2.
+from std_msgs.msg import String  # (4) Tipe String standar — kita kirim JSON sebagai string.
+from my_custom_msg import SensorData  # (5) Custom message kita (dataclass).
 
 
 class CustomPubNode(Node):
+    # (6) Semua node ROS2 HARUS mewarisi class Node.
     def __init__(self):
+        # (7) Panggil constructor parent dengan nama node UNIK.
         super().__init__('custom_pub_node')
+        # (8) Publisher ke topic '/sensor_data' dengan tipe String (JSON).
         self.publisher = self.create_publisher(String, 'sensor_data', 10)
+        # (9) Timer — kirim data setiap 1 detik.
         self.timer = self.create_timer(1.0, self.timer_callback)
+        # (10) Log bahwa node siap.
         self.get_logger().info('Publisher custom message siap!')
 
     def timer_callback(self):
+        # (11) CALLBACK TIMER — dipanggil setiap 1 detik.
         # Buat data custom
-        import random
+        import random  # (12) Random — untuk simulasi data sensor bervariasi.
         sensor = SensorData(
-            temperature=round(random.uniform(20.0, 35.0), 1),
-            humidity=round(random.uniform(40.0, 80.0), 1),
-            pressure=round(random.uniform(1000.0, 1020.0), 1)
+            temperature=round(random.uniform(20.0, 35.0), 1),  # (13) Suhu acak 20-35°C.
+            humidity=round(random.uniform(40.0, 80.0), 1),     # (14) Kelembaban acak 40-80%.
+            pressure=round(random.uniform(1000.0, 1020.0), 1)  # (15) Tekanan acak 1000-1020 hPa.
         )
 
-        # Kirim sebagai JSON string
+        # (16) Kirim sebagai JSON string (karena kita belum punya .msg file).
+        # json.dumps() mengubah dictionary → string JSON.
         msg = String()
         msg.data = json.dumps(sensor.to_dict())
+        # (17) Publikasikan ke topic /sensor_data.
         self.publisher.publish(msg)
+        # (18) Log data yang dikirim.
         self.get_logger().info(f'Mengirim: {sensor}')
 
 
 def main():
+    # (19) rclpy.init() — inisialisasi ROS2 (WAJIB).
     rclpy.init()
     node = CustomPubNode()
     try:
+        # (20) rclpy.spin(node) — loop utama.
         rclpy.spin(node)
     except KeyboardInterrupt:
         print("\nPublisher dihentikan.")

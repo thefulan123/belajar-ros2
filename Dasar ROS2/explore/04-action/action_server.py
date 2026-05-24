@@ -21,18 +21,20 @@
 #   python3 action_client.py
 # ============================================================
 
-import rclpy
-from rclpy.node import Node
-from rclpy.action import ActionServer
+import rclpy  # (1) Library utama ROS2 Python. Wajib untuk semua node.
+from rclpy.node import Node  # (2) Kelas dasar Node untuk membuat node ROS2.
+from rclpy.action import ActionServer  # (3) Class untuk membuat Action Server ROS2.
 
-# Fibonacci adalah tipe action bawaan ROS2
-# Goal: int32 order
-# Feedback: int32[] sequence (sebagian)
-# Result: int32[] sequence (lengkap)
+# (4) Fibonacci — tipe action bawaan ROS2 dari package example_interfaces.
+# Action memiliki 3 komponen:
+#   Goal: int32 order          — input dari client (urutan ke berapa)
+#   Feedback: int32[] sequence — progress selama proses (dikirim berkala)
+#   Result: int32[] sequence   — output akhir (deret lengkap)
 from example_interfaces.action import Fibonacci
 
 
 class ActionServerNode(Node):
+    # (5) Semua node ROS2 HARUS mewarisi class Node.
     """
     Sebuah action server node.
     
@@ -43,13 +45,19 @@ class ActionServerNode(Node):
     """
 
     def __init__(self):
+        # (6) Panggil constructor parent dengan nama node UNIK.
         super().__init__('action_server_node')
 
-        # Buat Action Server
+        # (7) MEMBUAT ACTION SERVER — menyediakan layanan action.
+        # Sintaks ROS2: ActionServer(self, TipeAction, 'nama_action', callback)
         # Parameter:
-        #   1. Tipe action: Fibonacci
-        #   2. Nama action: 'fibonacci'
-        #   3. Execute callback: fungsi yang memproses goal
+        #   1. Node reference: self (node tempat server berada)
+        #   2. Tipe action: Fibonacci — menentukan format goal/feedback/result
+        #   3. Nama action: 'fibonacci' — client menggunakan nama INI
+        #   4. Execute callback: fungsi async yang memproses goal
+        # Action berbeda dengan Service:
+        #   Service: request-response langsung, TIDAK ada feedback
+        #   Action: menerima goal, memberi feedback, mengembalikan result
         self.action_server = ActionServer(
             self,
             Fibonacci,
@@ -57,9 +65,18 @@ class ActionServerNode(Node):
             self.execute_callback
         )
 
+        # (8) Log bahwa server sudah siap menerima goal.
         self.get_logger().info('Action server /fibonacci siap!')
 
     async def execute_callback(self, goal_handle):
+        # (9) CALLBACK EKSEKUSI — fungsi ASYNC (harus pakai async/await).
+        # Dipanggil OTOMATIS saat client mengirim goal.
+        # goal_handle: objek untuk mengontrol eksekusi goal.
+        #   - goal_handle.request → goal dari client
+        #   - goal_handle.publish_feedback() → kirim progress
+        #   - goal_handle.is_cancel_requested → cek apakah client batalkan
+        #   - goal_handle.succeed() → tandai goal selesai
+        #   - goal_handle.canceled() → tandai goal dibatalkan
         """
         Fungsi ini dipanggil saat client mengirim goal.
         
@@ -72,55 +89,69 @@ class ActionServerNode(Node):
         - Mengembalikan result
         """
 
-        # Ambil goal request
+        # (10) Ambil goal dari client.
+        # goal_handle.request.order — field int32 dari Fibonacci.Goal.
         order = goal_handle.request.order
         self.get_logger().info(f'Menerima goal: Fibonacci ke-{order}')
 
-        # Kirim feedback: proses dimulai
+        # (11) Buat objek FEEDBACK untuk mengirim progress ke client.
+        # Fibonacci.Feedback memiliki field: sequence (int32[]).
         feedback_msg = Fibonacci.Feedback()
-        feedback_msg.sequence = [0, 1]
+        feedback_msg.sequence = [0, 1]  # (12) Dua angka pertama Fibonacci.
 
-        # Hitung deret Fibonacci
+        # (13) Loop untuk menghitung deret Fibonacci.
         for i in range(1, order):
-            # Cek apakah client meminta cancel
+            # (14) CEK CANCEL — apakah client membatalkan goal?
+            # Action bisa dibatalkan, Service TIDAK bisa.
             if goal_handle.is_cancel_requested:
                 self.get_logger().info('Goal dibatalkan oleh client')
-                goal_handle.canceled()
-                return Fibonacci.Result()
+                goal_handle.canceled()  # (15) Tandai sebagai dibatalkan.
+                return Fibonacci.Result()  # (16) Kembalikan result kosong.
 
-            # Hitung nilai Fibonacci berikutnya
+            # (17) Hitung nilai Fibonacci berikutnya.
             fib_n = feedback_msg.sequence[i] + feedback_msg.sequence[i - 1]
             feedback_msg.sequence.append(fib_n)
 
-            # Kirim feedback ke client (progress)
+            # (18) KIRIM FEEDBACK ke client — progress terkini.
+            # Ini fitur yang TIDAK dimiliki Service.
             self.get_logger().info(f'Feedback: {feedback_msg.sequence}')
             goal_handle.publish_feedback(feedback_msg)
 
-            # Simulasi proses yang memakan waktu
+            # (19) Simulasi proses yang memakan waktu.
+            # await asyncio.sleep() — jeda tanpa memblokir program.
             import asyncio
             await asyncio.sleep(0.5)
 
-        # Goal selesai — kirim result
+        # (20) Goal selesai — tandai sebagai berhasil.
         goal_handle.succeed()
+        # (21) Buat objek RESULT dengan deret Fibonacci lengkap.
         result = Fibonacci.Result()
         result.sequence = feedback_msg.sequence
 
+        # (22) Log result akhir.
         self.get_logger().info(f'Selesai! Result: {result.sequence}')
+        # (23) Kembalikan result ke client.
         return result
 
 
 def main():
+    # (24) rclpy.init() — inisialisasi ROS2 (WAJIB).
     rclpy.init()
+    # (25) Membuat instance node ActionServerNode.
     node = ActionServerNode()
     
     try:
+        # (26) rclpy.spin(node) — loop utama, tunggu goal dari client.
         rclpy.spin(node)
     except KeyboardInterrupt:
+        # (27) Tangani Ctrl+C.
         print("\nAction server dihentikan.")
     finally:
+        # (28) Bersihkan node dan shutdown ROS2.
         node.destroy_node()
         rclpy.shutdown()
 
 
 if __name__ == '__main__':
+    # (29) Entry point.
     main()

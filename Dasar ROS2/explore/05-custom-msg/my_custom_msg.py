@@ -20,13 +20,17 @@
 #   6. import dari package_name.msg import SensorData
 # ============================================================
 
-# Python dataclass — mensimulasikan custom message
+# (1) Python dataclass — mensimulasikan custom message ROS2.
+# Di ROS2 sesungguhnya, kita pakai file .msg + colcon build.
+# Tapi untuk pembelajaran, dataclass lebih sederhana.
 from dataclasses import dataclass
 from typing import List
 
 
 @dataclass
 class SensorData:
+    # (2) @dataclass — decorator Python yang otomatis membuat constructor.
+    # Field-field di bawah jadi parameter constructor secara otomatis.
     """
     Custom message: data sensor sederhana.
     
@@ -39,12 +43,14 @@ class SensorData:
     
     Lalu build dengan colcon.
     """
-    temperature: float    # Suhu dalam Celsius
-    humidity: float       # Kelembaban dalam %
-    pressure: float       # Tekanan dalam hPa
-    unit: str = "Celsius"
+    temperature: float    # (3) Suhu dalam Celsius, tipe float.
+    humidity: float       # (4) Kelembaban dalam %, tipe float.
+    pressure: float       # (5) Tekanan dalam hPa, tipe float.
+    unit: str = "Celsius" # (6) Satuan suhu, default "Celsius".
 
     def to_dict(self):
+        # (7) Method untuk mengubah objek ke dictionary (serialisasi).
+        # Berguna untuk dikirim sebagai JSON lewat topic String.
         """Ubah ke dictionary untuk serialisasi."""
         return {
             'temperature': self.temperature,
@@ -55,6 +61,9 @@ class SensorData:
 
     @classmethod
     def from_dict(cls, data: dict):
+        # (8) Class method untuk membuat objek dari dictionary (deserialisasi).
+        # @classmethod — method yang dipanggil langsung dari class, bukan instance.
+        # Berguna saat menerima JSON dari topic.
         """Buat dari dictionary."""
         return cls(
             temperature=data['temperature'],
@@ -64,6 +73,7 @@ class SensorData:
         )
 
     def __str__(self):
+        # (9) Method untuk representasi string yang rapi.
         return (f"SensorData("
                 f"temp={self.temperature:.1f}{self.unit}, "
                 f"hum={self.humidity:.1f}%, "
@@ -72,16 +82,18 @@ class SensorData:
 
 @dataclass
 class RobotStatus:
+    # (10) Class dataclass kedua — untuk status robot.
     """
     Custom message: status robot.
     """
-    battery_level: float       # Persentase baterai 0-100
-    is_moving: bool            # Apakah sedang bergerak
-    linear_speed: float        # Kecepatan linier (m/s)
-    angular_speed: float       # Kecepatan angular (rad/s)
-    error_codes: List[int] = None  # Daftar error (jika ada)
+    battery_level: float       # (11) Persentase baterai 0-100.
+    is_moving: bool            # (12) Apakah robot sedang bergerak.
+    linear_speed: float        # (13) Kecepatan linier (m/s).
+    angular_speed: float       # (14) Kecepatan angular (rad/s).
+    error_codes: List[int] = None  # (15) Daftar kode error (opsional).
 
     def __str__(self):
+        # (16) Representasi string.
         moving = "bergerak" if self.is_moving else "diam"
         errors = f", error={self.error_codes}" if self.error_codes else ""
         return (f"RobotStatus("
@@ -89,19 +101,21 @@ class RobotStatus:
                 f"status={moving}{errors})")
 
 
-# Contoh penggunaan (kalau di-run langsung)
+# (17) Contoh penggunaan — hanya jalan jika file dieksekusi langsung.
 if __name__ == '__main__':
+    # (18) Membuat objek SensorData dengan data contoh.
     sensor = SensorData(
         temperature=28.5,
         humidity=65.0,
         pressure=1013.2
     )
-    print(sensor)
+    print(sensor)  # (19) Cetak: SensorData(temp=28.5Celsius, hum=65.0%, press=1013.2hPa)
 
+    # (20) Membuat objek RobotStatus dengan data contoh.
     robot = RobotStatus(
         battery_level=85.0,
         is_moving=True,
         linear_speed=0.5,
         angular_speed=0.0
     )
-    print(robot)
+    print(robot)  # (21) Cetak: RobotStatus(baterai=85%, status=bergerak)

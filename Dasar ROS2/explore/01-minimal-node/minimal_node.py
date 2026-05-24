@@ -13,11 +13,12 @@
 # (Tidak perlu colcon build — langsung jalan)
 # ============================================================
 
-import rclpy
-from rclpy.node import Node
+import rclpy  # (1) Import library utama ROS2 untuk Python. WAJIB untuk semua program ROS2.
+from rclpy.node import Node  # (2) Import class Node — kelas dasar untuk membuat node ROS2.
 
 
 class MinimalNode(Node):
+    # (3) Semua node ROS2 harus mewarisi (inherit) dari class Node.
     """
     Sebuah node ROS2 sederhana.
     
@@ -28,28 +29,39 @@ class MinimalNode(Node):
     """
 
     def __init__(self):
+        # (4) Constructor dipanggil saat objek node dibuat.
         # Panggil constructor Node dengan nama 'minimal_node'
         # Nama ini yang akan muncul di ros2 node list
+        # Sintaks: super().__init__('nama_node') — nama_node harus UNIK.
         super().__init__('minimal_node')
 
-        # Timer akan memanggil self.callback_timer SETIAP 1 detik
-        # Parameter 1: interval dalam detik (float)
-        # Parameter 2: fungsi callback yang dipanggil
+        # (5) Timer periodik — memanggil callback setiap N detik.
+        # Sintaks: self.create_timer(interval_detik, callback_function)
+        # interval_detik: float, misal 1.0 = 1 detik, 0.5 = 500 ms.
+        # callback_function: fungsi yang dipanggil OTOMATIS oleh ROS2.
         self.timer = self.create_timer(1.0, self.callback_timer)
 
-        # Logger untuk mencetak pesan
+        # (6) Logging ROS2 — mencetak pesan ke terminal dengan format bawaan ROS2.
+        # Sintaks: self.get_logger().info('pesan')
+        # self.get_logger() mengembalikan objek logger milik node ini.
+        # info(), warn(), error() untuk level log berbeda.
         self.get_logger().info('Node minimal_node sudah hidup!')
 
     def callback_timer(self):
+        # (7) CALLBACK — fungsi yang dipanggil OTOMATIS oleh timer.
+        # Kita TIDAK perlu memanggil fungsi ini secara langsung.
+        # ROS2 memanggilnya setiap interval yang ditentukan.
         """
         Fungsi ini dipanggil otomatis oleh timer setiap 1 detik.
         Ini adalah CALLBACK — fungsi yang dipanggil oleh sistem,
         bukan oleh kode kita secara langsung.
         """
         self.get_logger().info('Halo dari node ROS2!')
+        # (8) Setiap kali timer aktif, pesan ini muncul di terminal.
 
 
 def main():
+    # (9) Fungsi utama — entry point program ROS2.
     """
     Fungsi utama — entry point program.
     
@@ -60,29 +72,37 @@ def main():
     4. (Ctrl+C untuk berhenti)
     """
 
-    # 1. Inisialisasi ROS2
-    # Wajib dipanggil SEBELUM membuat node
+    # (10) rclpy.init() — WAJIB dipanggil PERTAMA KALI.
+    # Fungsi ini menginisialisasi komunikasi ROS2 (DDS, middleware).
+    # Tanpa ini, node ROS2 tidak bisa berkomunikasi.
+    # Hanya dipanggil SEKALI dalam satu proses.
     rclpy.init()
 
-    # 2. Buat node
+    # (11) Membuat instance node — object dari class MinimalNode.
+    # Constructor(__init__) akan dijalankan secara otomatis.
     node = MinimalNode()
 
-    # 3. rclpy.spin() menjaga program tetap hidup
-    # Tanpa ini, program akan langsung selesai.
-    # spin() mendengarkan event (timer, topic, service)
-    # dan memanggil callback yang sesuai.
+    # (12) rclpy.spin(node) — loop tak terbatas (infinite loop).
+    # spin() mendengarkan event (timer, topic, service, action).
+    # Setiap event memicu callback yang sesuai.
+    # Tanpa spin(), program akan langsung selesai.
+    # spin() hanya keluar saat program dihentikan (Ctrl+C).
     print("Node berjalan. Tekan Ctrl+C untuk berhenti.")
     
     try:
-        rclpy.spin(node)
+        rclpy.spin(node)  # (13) Loop utama ROS2 — blokir di sini sampai dihentikan.
     except KeyboardInterrupt:
-        # Tangani Ctrl+C
+        # (14) Menangkap sinyal Ctrl+C dari pengguna.
         print("\nNode dihentikan oleh pengguna.")
     finally:
-        # Bersihkan resource
+        # (15) Membersihkan resource node — membebaskan memori.
         node.destroy_node()
+        # (16) rclpy.shutdown() — membersihkan koneksi ROS2.
+        # Harus dipanggil saat program selesai.
         rclpy.shutdown()
 
 
 if __name__ == '__main__':
+    # (17) Idiom Python: jalankan main() jika file ini dieksekusi langsung.
+    # Jika file di-import, main() TIDAK dijalankan otomatis.
     main()
