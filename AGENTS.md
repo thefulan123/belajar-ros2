@@ -31,14 +31,16 @@ Learn ROS2 from Scratch/
 │   │   ├── 04-create-package.md
 │   │   ├── 05-build-package.md
 │   │   ├── 06-source-workspace.md
-│   │   └── 07-callback-event-timer.md
+│   │   ├── 07-callback-event-timer.md
+│   │   └── 08-micro-ros-arduino.md
 │   ├── explore/           #   TRACK 1: Standalone Python files
 │   │   ├── 01-minimal-node/   # Run: python3 filename.py
 │   │   ├── 02-pub-sub/
 │   │   ├── 03-service/
 │   │   ├── 04-action/
 │   │   ├── 05-custom-msg/
-│   │   └── 06-launch-params/
+│   │   ├── 06-launch-params/
+│   │   └── 07-arduino-uno/
 │   ├── src/               #   TRACK 2: ROS2 colcon workspace
 │   ├── launch/            #   Launch files
 │   ├── config/            #   YAML config files

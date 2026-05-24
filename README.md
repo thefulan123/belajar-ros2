@@ -101,11 +101,13 @@ Fase 4: Integrasi penuh di workspace ✅ (kamu di sini / you are here) ✅
 | 05 | [Build Package](Dasar%20ROS2/modul/05-build-package.md) | colcon build dan apa yang terjadi |
 | 06 | [Source Workspace](Dasar%20ROS2/modul/06-source-workspace.md) | Kenapa harus source ulang setelah build |
 | 07 | [Callback & Timer](Dasar%20ROS2/modul/07-callback-event-timer.md) | Event-driven programming di ROS2 |
+| 08 | [micro-ROS Arduino](Dasar%20ROS2/modul/08-micro-ros-arduino.md) | ROS2 di Arduino UNO |
 
 **Hubungan modul dengan praktek:**
 ```
 Modul 01-06 → teori infrastruktur (baca dulu)
 Modul 07    → baca bersamaan dengan explore/01-minimal-node
+Modul 08    → baca sebelum explore/07-arduino-uno
 ```
 
 ---
@@ -128,14 +130,16 @@ Learn ROS2 from Scratch/
 │   │   ├── 04-create-package.md
 │   │   ├── 05-build-package.md
 │   │   ├── 06-source-workspace.md
-│   │   └── 07-callback-event-timer.md
+│   │   ├── 07-callback-event-timer.md
+│   │   └── 08-micro-ros-arduino.md
 │   ├── explore/           #   TRACK 1: Standalone Python files
 │   │   ├── 01-minimal-node/   # Run: python3 filename.py
 │   │   ├── 02-pub-sub/
 │   │   ├── 03-service/
 │   │   ├── 04-action/
 │   │   ├── 05-custom-msg/
-│   │   └── 06-launch-params/
+│   │   ├── 06-launch-params/
+│   │   └── 07-arduino-uno/
 │   ├── src/               #   TRACK 2: ROS2 colcon workspace
 │   ├── launch/            #   Launch files
 │   ├── config/            #   YAML config files

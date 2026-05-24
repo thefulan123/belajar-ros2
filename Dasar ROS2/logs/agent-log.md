@@ -256,3 +256,39 @@ Gunakan format di bawah ini.
 
 **Next Recommendation:**
 - Proyek Dasar ROS2 selesai. Lanjut ke Menengah ROS2 kapan saja.
+
+---
+
+## [2026-05-25]
+
+**Agent:** opencode
+
+**Task:**
+- Arduino UNO + micro-ROS: modul + explore/07
+
+**Files Changed:**
+- Dasar ROS2/modul/08-micro-ros-arduino.md — dibuat
+- Dasar ROS2/explore/07-arduino-uno/publisher_suhu/publisher_suhu.ino — dibuat
+- Dasar ROS2/explore/07-arduino-uno/subscriber_led/subscriber_led.ino — dibuat
+- Dasar ROS2/explore/07-arduino-uno/run-agent.sh — dibuat
+- Dasar ROS2/explore/07-arduino-uno/README.md — dibuat
+
+**Reason:**
+- User ingin belajar ROS2 dengan Arduino UNO
+- micro-ROS memungkinkan Arduino berkomunikasi dengan ROS2
+
+**Implementation Details:**
+- Modul 08: teori micro-ROS, instalasi, keterbatasan Arduino UNO
+- publisher_suhu: kirim data suhu ke /suhu tiap 2 detik
+- subscriber_led: terima perintah boolean untuk LED dari /led
+- run-agent.sh: script untuk jalankan micro-ROS agent
+
+**Result:** success
+
+**Testing:**
+- Tidak bisa diuji tanpa hardware Arduino
+- Kode diverifikasi secara logika (mirip contoh resmi micro-ROS)
+
+**Next Recommendation:**
+- Jika Arduino tersedia, ikuti panduan instalasi di modul 08
+- Setelah itu upload sketch dan coba komunikasi ROS2
