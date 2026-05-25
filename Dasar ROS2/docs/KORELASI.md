@@ -19,6 +19,7 @@ Dokumen ini memetakan setiap modul **Dasar ROS2** ke komponen **Penerapan ROS2 p
 | [09 — Launch](modul/09-launch.md) | 37-system-integration, 38-final-project (multi-node) |
 | [10 — Callback & Timer](modul/10-callback-timer.md) | **Semua 38 komponen** — setiap `.ino` punya callback |
 | [11 — micro-ROS](modul/11-micro-ros.md) | **Semua 38 komponen** — teknologi inti |
+| [12 — Custom Interfaces](modul/12-custom-interfaces.md) | 37-system-integration, 38-final-project (custom msg)
 
 ---
 

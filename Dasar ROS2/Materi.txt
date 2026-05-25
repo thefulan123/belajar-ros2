@@ -11,3 +11,4 @@ workspace    → modul 08, terminal (mkdir + colcon)
 launch       → modul 09, explore/06-launch-params
 callback     → modul 10, explore/01-minimal-node
 micro-ros    → modul 11, explore/07-arduino-uno
+interfaces   → modul 12, explore/05-custom-msg

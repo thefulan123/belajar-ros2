@@ -215,6 +215,10 @@ Coba jalankan tanpa `rclpy.spin()` — node akan langsung mati tanpa output.
 - **Modul 05** — Service (service callback dari request client)
 - **Lanjut ke Modul 11** — micro-ROS (callback di Arduino mirip dengan ROS2)
 - **Praktek: explore/01-minimal-node** — node pertama dengan timer callback
+- **Penerapan Praktik:** Semua [38 komponen penerapan](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/01-led/README.md) menggunakan callback:
+   — Timer callback untuk publish periodik (sensor)
+   — Subscription callback untuk terima perintah (aktuator)
+   Lihat [KORELASI.md](../docs/KORELASI.md) untuk mapping lengkap.
 
 ---
 

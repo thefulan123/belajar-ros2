@@ -726,5 +726,51 @@ Phase F: Fix referensi typo (kelembaban → kelembapan)
 - Formatting cleaned (double separator fix)
 
 **Next Recommendation:**
-- Re-generate .docx files from new .md structure
-- Consider adding Custom Interfaces module (matching explore/05-custom-msg)
+- Consider adding Menengah ROS2 (Level 2) content
+
+---
+
+## 2026-05-25 — Regenerate .docx + Custom Interfaces module cleanup
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+- Regenerate all .docx files from updated .md (100 files)
+- Delete orphaned old .docx files (12 files from old naming scheme)
+- Create Modul 12: Custom Interfaces (.msg/.srv/.action)
+- Update all references (Materi.txt, README.md, explore/README.txt, modul/README.txt, KORELASI.md)
+- Cleanup temporary files
+
+**Files Changed:**
+- `Dasar ROS2/modul/12-custom-interfaces.md` — NEW: Custom Interfaces theory module
+- `Dasar ROS2/modul/12-custom-interfaces.docx` — NEW: generated
+- All 11 existing modul .docx files — regenerated from updated .md
+- All 80+ Penerapan .docx files (README + wiring) — regenerated from updated .md
+- `Dasar ROS2/Materi.txt` — added interfaces entry
+- `Dasar ROS2/modul/README.txt` — added modul 12
+- `Dasar ROS2/explore/README.txt` — updated 05-custom-msg reference
+- `README.md` — added modul 12 to table + structure + explore mapping
+- `Dasar ROS2/docs/KORELASI.md` — added modul 12 row
+- 12 orphaned old-format .docx files in modul/ — deleted
+- `_scripts/md2docx.py` — NEW: markdown→docx converter tool
+- `_scripts/update_penerapan_links.py` — deleted (one-time use)
+
+**Reason:**
+- .docx files were stale (old module structure, missing Modul Terkait section)
+- Old .docx files had orphaned names (01-sourcing, 02-workspace, etc.)
+- Modul 12 was the last theory gap (matching explore/05-custom-msg)
+- References needed updating after adding new module
+
+**Implementation Details:**
+- Used python-docx to convert .md to .docx (no pandoc needed)
+- Fixed formatting: tables, code blocks, headings all render properly
+- Module 12 covers: .msg, .srv, .action definitions, build, and best practices
+
+**Result:** success
+
+**Testing:**
+- 100 .docx files regenerated, 12 orphaned deleted ✅
+- Modul 12 created with proper cross-references ✅
+- All reference files updated (README.md, Materi.txt, etc.) ✅
+- Build artifacts (build/install/log/) are gitignored ✅
+- Dasar ROS2/src/ Track 2 workspace is already complete (10 nodes + launch)

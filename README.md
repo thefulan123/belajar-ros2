@@ -105,6 +105,7 @@ Fase 4: Integrasi penuh di workspace ✅ (kamu di sini / you are here) ✅
 | 09 | [Launch](Dasar%20ROS2/modul/09-launch.md) | Menjalankan banyak node sekaligus |
 | 10 | [Callback & Timer](Dasar%20ROS2/modul/10-callback-timer.md) | Event-driven programming di ROS2 |
 | 11 | [micro-ROS](Dasar%20ROS2/modul/11-micro-ros.md) | ROS2 di Arduino UNO |
+| 12 | [Custom Interfaces](Dasar%20ROS2/modul/12-custom-interfaces.md) | .msg, .srv, .action buatan sendiri |
 
 **Hubungan modul dengan praktek:**
 ```
@@ -115,6 +116,7 @@ Modul 05    → baca sebelum explore/03-service
 Modul 07    → baca sebelum explore/04-action
 Modul 06,09→ baca sebelum explore/06-launch-params
 Modul 11    → baca sebelum explore/07-arduino-uno
+Modul 12    → baca sebelum explore/05-custom-msg
 ```
 
 ---
@@ -141,7 +143,8 @@ Learn ROS2 from Scratch/
 │   │   ├── 08-workspace-package.md
 │   │   ├── 09-launch.md
 │   │   ├── 10-callback-timer.md
-│   │   └── 11-micro-ros.md
+│   │   ├── 11-micro-ros.md
+│   │   └── 12-custom-interfaces.md
 │   ├── explore/           #   TRACK 1: Standalone Python files
 │   │   ├── 01-minimal-node/   # Run: python3 filename.py
 │   │   ├── 02-pub-sub/

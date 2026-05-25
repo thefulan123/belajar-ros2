@@ -322,6 +322,8 @@ ros2 topic pub /led std_msgs/msg/Bool "data: true" --once
 - **Modul 10** (callback/timer): timer dan callback di Arduino mirip dengan ROS2
 - **explore/02 (pub-sub)**: pola komunikasi yang sama, bedanya Arduino pakai C++
 - **explore/07**: praktek langsung dengan Arduino UNO
+- **Penerapan Praktik:** Semua [38 komponen penerapan](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/01-led/README.md) menggunakan micro-ROS sebagai teknologi inti
+   Lihat [KORELASI.md](../docs/KORELASI.md) untuk daftar lengkap komponen.
 
 ## KETERBATASAN ARDUINO UNO
 
