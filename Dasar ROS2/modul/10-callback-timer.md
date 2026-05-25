@@ -213,6 +213,7 @@ Coba jalankan tanpa `rclpy.spin()` — node akan langsung mati tanpa output.
 - **Modul 03** — Node (node adalah tempat callback berjalan)
 - **Modul 04** — Topic (subscriber callback dari data topic)
 - **Modul 05** — Service (service callback dari request client)
+- **Lanjut ke Modul 11** — micro-ROS (callback di Arduino mirip dengan ROS2)
 - **Praktek: explore/01-minimal-node** — node pertama dengan timer callback
 
 ---

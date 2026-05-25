@@ -182,6 +182,7 @@ ros2 service call /reset turtlesim/srv/Empty
 - **Lanjut ke Modul 03** — Node (turtlesim_node adalah contoh node ROS2)
 - **Modul 04** — Topic (komunikasi teleop → turtlesim via topic)
 - **Modul 05** — Service (perintah spawn, reset, teleport adalah service)
+- **Modul 06** — Parameter (`ros2 param set` untuk mengubah background turtlesim)
 - **Modul 07** — Action (belum ada di turtlesim dasar)
 
 ---

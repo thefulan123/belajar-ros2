@@ -220,6 +220,7 @@ Semakin besar order, semakin lama proses (lihat feedback).
 
 - **Sebelumnya: Modul 05** — Service (action = service + feedback + cancel)
 - **Sebelumnya: Modul 06** — Parameter (parameter digunakan untuk konfigurasi action)
+- **Lanjut ke Modul 08** — Workspace & Package (action server siap diintegrasi dalam package)
 - **Semua modul sebelumnya** — action memakai konsep node, callback, timer
 - **Praktek: explore/04-action** — implementasi action
 
