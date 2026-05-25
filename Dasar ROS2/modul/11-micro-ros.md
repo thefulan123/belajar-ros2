@@ -1,4 +1,4 @@
-# MODUL 08: micro-ROS — ROS2 di Arduino
+# MODUL 11: micro-ROS — ROS2 di Arduino
 
 **TAG:** hardware / mikrokontroler / embedded
 
@@ -318,8 +318,8 @@ ros2 topic pub /led std_msgs/msg/Bool "data: true" --once
 
 ## HUBUNGAN DENGAN MODUL LAIN
 
-- **Modul 01-06** (sourcing, workspace, package): tetap diperlukan untuk menjalankan agent
-- **Modul 07** (callback/timer): timer dan callback di Arduino mirip dengan ROS2
+- **Modul 01-09** (sourcing hingga launch): tetap diperlukan untuk menjalankan agent
+- **Modul 10** (callback/timer): timer dan callback di Arduino mirip dengan ROS2
 - **explore/02 (pub-sub)**: pola komunikasi yang sama, bedanya Arduino pakai C++
 - **explore/07**: praktek langsung dengan Arduino UNO
 
@@ -383,7 +383,7 @@ Praktik ini menjalankan **micro-ROS** dengan Arduino UNO dari folder explore.
 
 ### Langkah 1: Buka folder explore
 ```
-cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/07-arduino-uno/
+cd Dasar ROS2/explore/07-arduino-uno/
 ```
 
 ### Langkah 2: Buka folder kode Arduino
@@ -438,3 +438,11 @@ ros2 topic pub /led std_msgs/msg/Bool "data: true" --once
 LED di Arduino akan menyala.
 
 **Kesimpulan:** Dengan micro-ROS, Arduino UNO bisa menjadi node ROS2 yang mempublish sensor dan menerima perintah.
+
+---
+
+## REFERENSI
+
+- [micro-ROS Official Documentation](https://micro.ros.org/)
+- [micro-ROS Arduino: Getting Started](https://github.com/micro-ROS/micro_ros_arduino)
+- [ROS2 Humble: Understanding topics](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)

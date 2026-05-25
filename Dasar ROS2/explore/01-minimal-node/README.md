@@ -35,4 +35,4 @@ python3 minimal_node.py
 
 ## Hubungan dengan Modul
 
-Sebelum menjalankan, baca [Modul 07: Callback & Timer](../../modul/07-callback-event-timer.md) untuk memahami konsep callback dan event-driven.
+Sebelum menjalankan, baca [Modul 10: Callback & Timer](../../modul/10-callback-timer.md) untuk memahami konsep callback dan event-driven.

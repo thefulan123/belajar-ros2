@@ -1,4 +1,4 @@
-# MODUL 11: Service
+# MODUL 05: Service
 
 **TAG:** komunikasi / request-response / sinkron
 
@@ -198,8 +198,8 @@ ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 99, b: 1}
 
 ## HUBUNGAN DENGAN MODUL LAIN
 
-- **Sebelumnya: Modul 10** — Topic (beda dengan service)
-- **Lanjut ke Modul 12** — Action (service + feedback)
+- **Sebelumnya: Modul 04** — Topic (beda dengan service)
+- **Lanjut ke Modul 07** — Action (service + feedback)
 - **Praktek: explore/03-service** — implementasi service
 
 ---
@@ -249,7 +249,7 @@ Praktik ini menjalankan **Service Server dan Client** ROS2 dari folder explore.
 
 ### Langkah 1: Buka folder explore
 ```
-cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/03-service/
+cd Dasar ROS2/explore/03-service/
 ```
 
 Folder ini berisi dua file:
@@ -309,3 +309,10 @@ example_interfaces.srv.AddTwoInts_Response(sum=30)
 ```
 
 **Kesimpulan:** Service adalah komunikasi **request-response** — client mengirim request, server mengirim response. Cocok untuk tugas yang sekali jalan.
+
+---
+
+## REFERENSI
+
+- [ROS2 Humble: Understanding services](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html)
+- [ROS2 Humble: Writing a simple service and client (Python)](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html)

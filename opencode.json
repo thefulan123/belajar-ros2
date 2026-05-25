@@ -2,7 +2,7 @@
   "$schema": "https://opencode.ai/config.json",
   "lsp": {
     "pyright": {
-      "command": ["/home/soke/.npm-global/bin/pyright-langserver", "--stdio"],
+      "command": ["pyright-langserver", "--stdio"],
       "extensions": [".py", ".pyi"],
       "initialization": {
         "settings": {

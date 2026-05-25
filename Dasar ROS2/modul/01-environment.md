@@ -1,4 +1,4 @@
-# MODUL 01: Sourcing
+# MODUL 01: Environment — Sourcing ROS2
 
 **TAG:** infrastruktur / dasar / wajib
 
@@ -157,8 +157,8 @@ Perhatikan baris `/opt/ros/humble/bin` yang muncul setelah source.
 
 ## HUBUNGAN DENGAN MODUL LAIN
 
-- **Lanjut ke Modul 02** — Workspace: sourcing juga dipakai untuk workspace lokal
-- **Lanjut ke Modul 06** — Source Workspace: kenapa harus source ulang setelah build
+- **Lanjut ke Modul 02** — turtlesim: pengenalan ROS2 CLI dengan simulator
+- **Lanjut ke Modul 08** — Workspace: sourcing workspace lokal setelah build
 
 ---
 
@@ -237,3 +237,10 @@ humble
 ```
 
 **Kesimpulan:** Setelah `source /opt/ros/humble/setup.bash`, terminal kamu bisa menemukan semua command dan library ROS2. Setiap terminal BARU harus di-source ulang.
+
+---
+
+## REFERENSI
+
+- [ROS2 Humble: Configuring environment](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment.html)
+- [ROS2 Humble: Understanding ROS2 nodes](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)

@@ -1,4 +1,4 @@
-# MODUL 12: Action
+# MODUL 07: Action
 
 **TAG:** komunikasi / long-running / feedback
 
@@ -218,7 +218,8 @@ Semakin besar order, semakin lama proses (lihat feedback).
 
 ## HUBUNGAN DENGAN MODUL LAIN
 
-- **Sebelumnya: Modul 11** — Service (action = service + feedback + cancel)
+- **Sebelumnya: Modul 05** — Service (action = service + feedback + cancel)
+- **Sebelumnya: Modul 06** — Parameter (parameter digunakan untuk konfigurasi action)
 - **Semua modul sebelumnya** — action memakai konsep node, callback, timer
 - **Praktek: explore/04-action** — implementasi action
 
@@ -289,7 +290,7 @@ Praktik ini menjalankan **Action Server dan Client** ROS2 dari folder explore.
 
 ### Langkah 1: Buka folder explore
 ```
-cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/04-action/
+cd Dasar ROS2/explore/04-action/
 ```
 
 Folder ini berisi dua file:
@@ -359,3 +360,10 @@ Result:
 ```
 
 **Kesimpulan:** Action adalah komunikasi **goal-feedback-result** — cocok untuk tugas yang butuh waktu lama dan perlu feedback selama proses.
+
+---
+
+## REFERENSI
+
+- [ROS2 Humble: Understanding actions](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions.html)
+- [ROS2 Humble: Writing a simple action server and client (Python)](https://docs.ros.org/en/humble/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.html)

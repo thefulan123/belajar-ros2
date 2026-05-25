@@ -108,6 +108,6 @@ ros2 topic pub /suhu std_msgs/msg/Float32 "data: 28.5" --once
 
 ## Hubungan dengan Modul
 
-- **[Modul 08](../../modul/08-micro-ros-arduino.md)** — Penjelasan lengkap micro-ROS
+- **[Modul 11](../../modul/11-micro-ros.md)** — Penjelasan lengkap micro-ROS
 - **explore/02** — Pub/sub di PC (bandingkan dengan pub/sub di Arduino)
-- **Modul 07** — Callback dan timer di Arduino juga pakai konsep yang sama
+- **Modul 10** — Callback dan timer di Arduino juga pakai konsep yang sama

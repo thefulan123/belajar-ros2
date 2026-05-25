@@ -1,4 +1,4 @@
-# MODUL 09: Node
+# MODUL 03: Node
 
 **TAG:** arsitektur / dasar / komponen utama
 
@@ -183,8 +183,8 @@ Jalankan ulang, cek `ros2 node list`.
 
 ## HUBUNGAN DENGAN MODUL LAIN
 
-- **Sebelumnya: Modul 01-08** — infrastruktur ROS2
-- **Lanjut ke Modul 10** — Topic, Publisher, Subscriber (node ngobrol)
+- **Sebelumnya: Modul 01-02** — environment + turtlesim (pengenalan ROS2)
+- **Lanjut ke Modul 04** — Topic, Publisher, Subscriber (node ngobrol)
 - **Praktek: explore/01-minimal-node** — node pertamamu
 
 ---
@@ -239,7 +239,7 @@ Praktik ini menjalankan **node ROS2** dan melihatnya di daftar node.
 
 ### Langkah 1: Buka folder explore
 ```
-cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/01-minimal-node/
+cd Dasar ROS2/explore/01-minimal-node/
 ```
 
 ### Langkah 2: Buka file `minimal_node.py`
@@ -285,3 +285,10 @@ ros2 node info /minimal_node
 ```
 
 **Kesimpulan:** Node `minimal_node` terdaftar di ROS2 graph dan bisa dideteksi dengan `ros2 node list`.
+
+---
+
+## REFERENSI
+
+- [ROS2 Humble: Understanding nodes](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)
+- [ROS2 Humble: Using parameters in a class (Python)](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)

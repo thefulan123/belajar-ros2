@@ -1,6 +1,13 @@
-node         → modul 09, explore/01-minimal-node
-topic        → modul 10, explore/02-pub-sub
-publisher    → modul 10, explore/02-pub-sub
-subscriber   → modul 10, explore/02-pub-sub
-service      → modul 11, explore/03-service
-action       → modul 12, explore/04-action
+environment  → modul 01, terminal
+turtlesim    → modul 02, terminal (ros2 CLI)
+node         → modul 03, explore/01-minimal-node
+topic        → modul 04, explore/02-pub-sub
+publisher    → modul 04, explore/02-pub-sub
+subscriber   → modul 04, explore/02-pub-sub
+service      → modul 05, explore/03-service
+parameter    → modul 06, explore/06-launch-params
+action       → modul 07, explore/04-action
+workspace    → modul 08, terminal (mkdir + colcon)
+launch       → modul 09, explore/06-launch-params
+callback     → modul 10, explore/01-minimal-node
+micro-ros    → modul 11, explore/07-arduino-uno

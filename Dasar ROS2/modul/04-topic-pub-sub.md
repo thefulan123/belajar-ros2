@@ -1,4 +1,4 @@
-# MODUL 10: Topic, Publisher, dan Subscriber
+# MODUL 04: Topic, Publisher, dan Subscriber
 
 **TAG:** komunikasi / dasar / pub-sub
 
@@ -231,8 +231,8 @@ ros2 topic pub /chatter std_msgs/msg/String "data: 'Test dari CLI'" --once
 
 ## HUBUNGAN DENGAN MODUL LAIN
 
-- **Sebelumnya: Modul 09** — Node (node adalah pelaku pub/sub)
-- **Lanjut ke Modul 11** — Service (request-response)
+- **Sebelumnya: Modul 03** — Node (node adalah pelaku pub/sub)
+- **Lanjut ke Modul 05** — Service (request-response)
 - **Praktek: explore/02-pub-sub** — implementasi pub/sub
 
 ---
@@ -284,7 +284,7 @@ Praktik ini menjalankan **Publisher dan Subscriber** ROS2 dari folder explore.
 
 ### Langkah 1: Buka folder explore
 ```
-cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/02-pub-sub/
+cd Dasar ROS2/explore/02-pub-sub/
 ```
 
 Folder ini berisi dua file:
@@ -352,3 +352,10 @@ ros2 topic pub /chatter std_msgs/msg/String "data: 'Test dari CLI'" --once
 ```
 
 **Kesimpulan:** Publisher mengirim data ke topic, subscriber menerima data dari topic yang sama. Topic bersifat **decoupled** — publisher dan subscriber tidak saling kenal.
+
+---
+
+## REFERENSI
+
+- [ROS2 Humble: Understanding topics](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html)
+- [ROS2 Humble: Writing a simple publisher and subscriber (Python)](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html)

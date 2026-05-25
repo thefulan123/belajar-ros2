@@ -32,7 +32,8 @@ fi
 source /opt/ros/humble/setup.bash
 
 # Source workspace lokal (kalau sudah ada)
-LOCAL_WS="/mnt/e/Learn ROS2 from Scratch/Dasar ROS2/src"
+SCRIPT_DIR="$(dirname "$(realpath "$0")")"
+LOCAL_WS="$SCRIPT_DIR/../src"
 if [ -f "$LOCAL_WS/install/setup.bash" ]; then
     source "$LOCAL_WS/install/setup.bash"
     echo " Workspace lokal: $LOCAL_WS"

@@ -1,4 +1,4 @@
-# MODUL 07: Callback, Event-Driven, dan Timer
+# MODUL 10: Callback, Event-Driven, dan Timer
 
 **TAG:** pemrograman / konsep / arsitektur
 
@@ -210,10 +210,10 @@ Coba jalankan tanpa `rclpy.spin()` — node akan langsung mati tanpa output.
 
 ## HUBUNGAN DENGAN MODUL LAIN
 
+- **Modul 03** — Node (node adalah tempat callback berjalan)
+- **Modul 04** — Topic (subscriber callback dari data topic)
+- **Modul 05** — Service (service callback dari request client)
 - **Praktek: explore/01-minimal-node** — node pertama dengan timer callback
-- **Praktek: explore/02-pub-sub** — subscriber callback (dari data topic)
-- **Praktek: explore/03-service** — service callback (dari request client)
-- **Lanjut ke explore/01** setelah modul ini
 
 ---
 
@@ -257,7 +257,7 @@ Praktik ini menjalankan node ROS2 dengan **timer callback** dari folder explore.
 
 ### Langkah 1: Buka folder explore
 ```
-cd /mnt/e/Learn ROS2 from Scratch/Dasar ROS2/explore/01-minimal-node/
+cd Dasar ROS2/explore/01-minimal-node/
 ```
 
 ### Langkah 2: Buka file kode
@@ -288,3 +288,10 @@ Pesan `Halo dari node ROS2 minimal_node` muncul **setiap 2 detik** — ini adala
 Tekan **Ctrl+C** untuk menghentikan program.
 
 **Kesimpulan:** Timer callback memungkinkan fungsi berjalan periodik tanpa bloking. Ini adalah fondasi event-driven programming di ROS2.
+
+---
+
+## REFERENSI
+
+- [ROS2 Humble: Understanding nodes](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html)
+- [ROS2 Humble: Using callbacks groups](https://docs.ros.org/en/humble/Tutorials/Intermediate/Using-Callback-Groups.html)
