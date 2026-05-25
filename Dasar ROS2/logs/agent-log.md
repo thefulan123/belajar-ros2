@@ -605,3 +605,36 @@ Pembelajar newbie sering bertanya: "Kenapa harus ribet pake ROS2? Arduino aja cu
 - Add explore/README.txt with modul-explore mapping
 - Create docx versions from updated .md files (if needed)
 - Consider adding 2 more modules: Custom Interfaces (explore/05) and ROS2 Tools (ros2doctor, ros2bag)
+
+---
+
+## 2026-05-25 — Fix cross-reference gaps + update explore/README.txt
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+1. Run consistency audit on all 11 modul files
+2. Fix 2 missing forward references (Modul 07 → 08, Modul 10 → 11)
+3. Add Modul 06 reference to Modul 02 (parameter in turtlesim)
+4. Update explore/README.txt with modul-explore mapping
+
+**Files Changed:**
+- `Dasar ROS2/modul/02-turtlesim.md` — add Modul 06 (Parameter) reference
+- `Dasar ROS2/modul/07-action.md` — add "Lanjut ke Modul 08"
+- `Dasar ROS2/modul/10-callback-timer.md` — add "Lanjut ke Modul 11"
+- `Dasar ROS2/explore/README.txt` — add modul mapping table + recommended learning order
+
+**Reason:**
+- Consistency audit revealed minor gaps: 07 didn't point forward to 08, 10 didn't point to 11
+- turtlesim uses `ros2 param` commands but didn't reference the Parameter module
+- explore/README.txt lacked modul references for learners
+
+**Result:** success
+
+**Testing:**
+- `git commit f95f042` — pushed to main
+- All 11 modul cross-references now form a complete chain (01→02→03→04→05→06→07→08→09→10→11)
+
+**Next Recommendation:**
+- Re-generate .docx files from new .md structure
+- Consider adding Custom Interfaces module (matching explore/05-custom-msg)
