@@ -7,7 +7,15 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   Red (VCC)      | 5V               | 5V (Vin)      (Merah)
+ *   Black (GND)    | GND              | GND           (Hitam)
+ *   Yellow (Signal) | D2 (interrupt)   | D14 (interrupt)  (Kuning)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * Rumus: Setiap pulse = 2.25 mL
  *        Frekuensi (Hz) / 7.5 = L/min

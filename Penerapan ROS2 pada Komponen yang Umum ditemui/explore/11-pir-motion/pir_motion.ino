@@ -7,7 +7,15 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 5V (via Vin)  (Merah)
+ *   OUT            | D9               | D12           (Kuning)
+ *   GND            | GND              | GND           (Hitam)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * CATATAN: PIR butuh stabilisasi 30-60 detik setelah power ON
  */

@@ -7,7 +7,15 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   LDR kaki 1     | 5V               | 3.3V          (Merah)
+ *   LDR kaki 2     | A1               | GPIO39        (Kuning)
+ *   —              | GND via 10kΩ resistor | GND via 10kΩ resistor  (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

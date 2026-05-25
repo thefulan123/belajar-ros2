@@ -7,7 +7,16 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 5V (via Vin)  (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   AOUT (analog)  | A3               | GPIO35        (Kuning)
+ *   DOUT (digital) | —                | —             (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * CATATAN: Sensor butuh warm-up ~30 detik setelah power ON
  */

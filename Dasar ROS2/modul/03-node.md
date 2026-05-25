@@ -186,6 +186,8 @@ Jalankan ulang, cek `ros2 node list`.
 - **Sebelumnya: Modul 01-02** — environment + turtlesim (pengenalan ROS2)
 - **Lanjut ke Modul 04** — Topic, Publisher, Subscriber (node ngobrol)
 - **Praktek: explore/01-minimal-node** — node pertamamu
+- **Penerapan Praktik:** Setiap [komponen penerapan](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/01-led/README.md) adalah ROS2 node — diawali `rclc_node_init_default()` di .ino
+   Lihat [KORELASI.md](../docs/KORELASI.md) untuk mapping lengkap.
 
 ---
 

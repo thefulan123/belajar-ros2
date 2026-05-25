@@ -7,7 +7,14 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   (+) positif    | D5 (PWM)         | D27 (PWM)     (Merah →)
+ *   (-) negatif    | GND              | GND           (Hitam)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

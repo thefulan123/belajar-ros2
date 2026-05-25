@@ -8,7 +8,16 @@
  * 
  * BUTUH LIBRARY: LiquidCrystal I2C by Frank de Brabander
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 5V (Vin)      (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   SDA            | A4 (SDA)         | D21           (Hijau)
+ *   SCL            | A5 (SCL)         | D22           (Biru)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

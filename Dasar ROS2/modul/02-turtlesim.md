@@ -184,6 +184,8 @@ ros2 service call /reset turtlesim/srv/Empty
 - **Modul 05** — Service (perintah spawn, reset, teleport adalah service)
 - **Modul 06** — Parameter (`ros2 param set` untuk mengubah background turtlesim)
 - **Modul 07** — Action (belum ada di turtlesim dasar)
+- **Penerapan Praktik:** turtlesim adalah simulasi; konsep yang sama (topic, service, parameter) dipakai di [38 komponen penerapan](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/01-led/README.md)
+   Lihat [KORELASI.md](../docs/KORELASI.md) untuk mapping lengkap.
 
 ---
 

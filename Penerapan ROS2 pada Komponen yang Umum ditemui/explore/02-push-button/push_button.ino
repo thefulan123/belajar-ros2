@@ -7,7 +7,14 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   Button pin 1   | D4 (input)       | D26 (input)   (—)
+ *   Button pin 2   | GND              | GND           (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

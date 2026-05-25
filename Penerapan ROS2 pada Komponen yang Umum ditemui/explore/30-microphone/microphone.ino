@@ -5,7 +5,16 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 3.3V          (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   AOUT (analog)  | A0               | GPIO36        (Kuning)
+ *   DOUT (digital) | —                | —             (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * Cara kerja:
  * - Mikrofon electret dengan amplifier LM393 menghasilkan tegangan analog

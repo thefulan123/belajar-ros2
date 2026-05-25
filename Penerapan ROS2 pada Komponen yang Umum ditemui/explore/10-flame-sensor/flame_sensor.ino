@@ -7,7 +7,16 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 3.3V          (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   DOUT (digital) | D8               | D14           (Kuning)
+ *   AOUT (analog)  | —                | —             (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

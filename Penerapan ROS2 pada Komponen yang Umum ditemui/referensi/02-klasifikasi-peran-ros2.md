@@ -13,7 +13,7 @@ Komponen yang **mengirim data** dari dunia nyata ke ROS2.
 | Push Button | `std_msgs/Bool` | `/tombol` | On change |
 | Potensiometer | `std_msgs/Int32` | `/potensiometer` | 10 Hz |
 | LDR | `std_msgs/Int32` | `/cahaya` | 5 Hz |
-| DHT11/DHT22 | `std_msgs/Float32` (2x) | `/suhu`, `/kelembaban` | 1 Hz |
+| DHT11/DHT22 | `std_msgs/Float32` (2x) | `/suhu`, `/kelembapan` | 1 Hz |
 | DS18B20 | `std_msgs/Float32` | `/suhu_air` | 1 Hz |
 | HC-SR04 | `std_msgs/Float32` | `/jarak` | 5 Hz |
 | VL53L0X | `std_msgs/Float32` | `/jarak_akurat` | 10 Hz |

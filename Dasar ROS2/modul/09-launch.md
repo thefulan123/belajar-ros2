@@ -217,6 +217,8 @@ Jalankan: `ros2 launch launch/hello.launch.py`
 - **Sebelumnya: Modul 08** — Workspace & Package (launch ada di dalam package)
 - **Modul 06** — Parameter (launch file sering digunakan untuk set parameter)
 - **Praktek: explore/06-launch-params** — contoh launch file dengan parameter
+- **Penerapan Praktik:** [37-system-integration](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/37-system-integration/README.md) dan [38-final-project](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/38-final-project/README.md) menggunakan launch untuk multi-node
+   Lihat [KORELASI.md](../docs/KORELASI.md) untuk mapping lengkap.
 
 ---
 

@@ -326,6 +326,8 @@ ros2 pkg list | grep package_coba
 - **Lanjut ke Modul 09** — Launch (menjalankan banyak node sekaligus)
 - **Praktek: explore/01 hingga 06** — tidak perlu build karena standalone Python
 - **Praktek: src/** — WAJIB melalui proses workspace → package → build → source
+- **Penerapan Praktik:** Setup `microros_ws` (workspace micro-ROS) diperlukan untuk [semua 38 komponen penerapan](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/01-led/README.md)
+   Lihat [KORELASI.md](../docs/KORELASI.md) untuk mapping lengkap.
 
 ---
 

@@ -667,3 +667,64 @@ Review all 14 code files in explore/ and fix any issues found.
 **Next Recommendation:**
 - Re-generate .docx files from new .md structure
 - Consider adding Custom Interfaces module (matching explore/05-custom-msg)
+
+---
+
+## 2026-05-25 — Korelasi Dasar ROS2 ↔ Penerapan Komponen
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+Membangun korelasi dua arah antara Dasar ROS2 (modul teori) dan Penerapan ROS2 pada Komponen (38 komponen).
+
+Phase A: Mapping table (KORELASI.md)
+Phase B: Penerapan component links in 11 Dasar ROS2 modul HUBUNGAN sections
+Phase C: Modul link section in 38 Penerapan READMEs
+Phase D: Pinout KONEKSI comment in all .ino files
+Phase E: Fix AGENTS.md modul reference (modul 08 → modul 11)
+Phase F: Fix referensi typo (kelembaban → kelembapan)
+
+**Files Changed:**
+- `Dasar ROS2/docs/KORELASI.md` — NEW: mapping table modul ↔ komponen
+- `Dasar ROS2/modul/01-environment.md` — added Penerapan praktik link
+- `Dasar ROS2/modul/02-turtlesim.md` — added Penerapan praktik link
+- `Dasar ROS2/modul/03-node.md` — added Penerapan praktik link
+- `Dasar ROS2/modul/04-topic-pub-sub.md` — added Penerapan praktik link  
+- `Dasar ROS2/modul/05-service.md` — added Penerapan praktik link
+- `Dasar ROS2/modul/06-parameter.md` — added Penerapan praktik link
+- `Dasar ROS2/modul/07-action.md` — added Penerapan praktik link
+- `Dasar ROS2/modul/08-workspace-package.md` — added Penerapan praktik link
+- `Dasar ROS2/modul/09-launch.md` — added Penerapan praktik link
+- `Dasar ROS2/modul/10-callback-timer.md` — added Penerapan praktik link
+- `Dasar ROS2/modul/11-micro-ros.md` — added Penerapan praktik link
+- `Penerapan .../AGENTS.md` — updated modul reference (08→11) + added Modul Terkait table
+- `Penerapan .../referensi/02-klasifikasi-peran-ros2.md` — fixed kelembaban→kelembapan
+- `Penerapan .../explore/*/README.md` (×38) — added Modul Terkait section
+- `Penerapan .../explore/*/*.ino` (×36) — replaced "Koneksi: lihat wiring.md" with pinout table
+- `Penerapan .../explore/34-esp32-wifi/esp32_wifi.ino` — added WiFi KONEKSI comment
+- `Penerapan .../explore/38-final-project/robot_monitor.ino` — added consolidated pinout
+
+**Reason:**
+- No links existed between Dasar ROS2 theory and Penerapan practical components
+- Learners couldn't easily find which module to study before working on a component
+- .ino files only said "Koneksi: lihat wiring.md" without inline pinout info
+- User requirement: "minimal kode harus ada penjelasan pinout yang dipakai"
+
+**Implementation Details:**
+- Phase A: Created structured mapping table (modul → komponen, komponen → modul)
+- Phase B: Added "Penerapan Praktik" bullet to each modul's HUBUNGAN section
+- Phase C: Added "## Modul Terkait" with 4 linked modules + KORELASI.md reference
+- Phase D: Extracted pin data from wiring.md, formatted as ASCII table comment block
+- Phase E+F: Simple text fixes
+
+**Result:** success
+
+**Testing:**
+- All 38 READMEs now have "## Modul Terkait" section ✅
+- All 36 .ino files now have inline pinout table ✅
+- 2 special cases handled (esp32_wifi WiFi-only, robot_monitor integrated)
+- Formatting cleaned (double separator fix)
+
+**Next Recommendation:**
+- Re-generate .docx files from new .md structure
+- Consider adding Custom Interfaces module (matching explore/05-custom-msg)

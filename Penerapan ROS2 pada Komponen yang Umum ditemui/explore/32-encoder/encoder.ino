@@ -7,7 +7,17 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   CLK            | D2 (interrupt)   | D14           (Kuning)
+ *   DT             | D3 (interrupt)   | D27           (Hijau)
+ *   SW             | D4               | D26           (Biru)
+ *   +              | 5V               | 3.3V          (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * Cara kerja rotary encoder:
  * - CLK (clock) dan DT (data) adalah dua pin output quadrature

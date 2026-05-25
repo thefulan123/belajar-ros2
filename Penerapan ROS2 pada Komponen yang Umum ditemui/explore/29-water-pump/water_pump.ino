@@ -7,7 +7,15 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   IN             | D6               | D33           (Kuning)
+ *   VCC            | 5V               | 3.3V          (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * Catatan:
  * - Pompa DC dikontrol via relay module

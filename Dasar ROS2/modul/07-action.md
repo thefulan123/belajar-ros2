@@ -223,6 +223,8 @@ Semakin besar order, semakin lama proses (lihat feedback).
 - **Lanjut ke Modul 08** — Workspace & Package (action server siap diintegrasi dalam package)
 - **Semua modul sebelumnya** — action memakai konsep node, callback, timer
 - **Praktek: explore/04-action** — implementasi action
+- **Penerapan Praktik:** [38-final-project](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/38-final-project/README.md) — action untuk navigasi robot ke titik tujuan
+   Lihat [KORELASI.md](../docs/KORELASI.md) untuk mapping lengkap.
 
 ---
 

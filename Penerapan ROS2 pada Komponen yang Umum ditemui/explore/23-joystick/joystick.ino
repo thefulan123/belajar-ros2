@@ -8,7 +8,17 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   GND            | GND              | GND           (Hitam)
+ *   +5V            | 5V               | 3.3V          (Merah)
+ *   VRx            | A0               | GPIO36        (Kuning)
+ *   VRy            | A1               | GPIO39        (Hijau)
+ *   SW             | D4 (input)       | D26           (Biru)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

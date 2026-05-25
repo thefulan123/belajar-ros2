@@ -8,6 +8,11 @@
  * 
  * Board: ESP32 (tidak support Arduino UNO)
  * 
+ * KONEKSI:
+ *   ESP32 WiFi — tidak ada komponen fisik tambahan
+ *   Pastikan ESP32 terhubung ke WiFi yang sama dengan agent
+ *   Lihat variabel SSID, PASSWORD, AGENT_IP di bawah
+ * 
  * Prasyarat:
  * - ESP32 harus terhubung ke WiFi yang sama dengan ROS2 agent
  * - Jalankan micro-ROS agent di PC: ros2 run micro_ros_agent micro_ros_agent udp4 --port 8888

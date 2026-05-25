@@ -8,7 +8,16 @@
  * 
  * BUTUH LIBRARY: Adafruit SSD1306 + Adafruit GFX
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 3.3V          (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   SCL            | A5 (SCL)         | D22           (Biru)
+ *   SDA            | A4 (SDA)         | D21           (Hijau)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

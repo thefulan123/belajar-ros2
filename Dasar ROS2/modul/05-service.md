@@ -201,6 +201,8 @@ ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 99, b: 1}
 - **Sebelumnya: Modul 04** — Topic (beda dengan service)
 - **Lanjut ke Modul 07** — Action (service + feedback)
 - **Praktek: explore/03-service** — implementasi service
+- **Penerapan Praktik:** [37-system-integration](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/37-system-integration/README.md) — service untuk trigger penyiraman tanaman
+   Lihat [KORELASI.md](../docs/KORELASI.md) untuk mapping lengkap.
 
 ---
 

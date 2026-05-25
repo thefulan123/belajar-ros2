@@ -8,7 +8,17 @@
  * 
  * Board: Arduino UNO (SoftwareSerial) / ESP32 (UART2)
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 3.3V          (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   TX             | D2 (SoftwareSerial RX) | D16 (RX2)     (Hijau)
+ *   RX             | D3 (SoftwareSerial TX) | D17 (TX2)     (Kuning)
+ *   EN (optional)  | —                | —             (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * Alur data:
  *   ROS2 → topic /bluetooth_out → Arduino → HC-05 → device Bluetooth

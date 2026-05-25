@@ -11,7 +11,16 @@
  * 
  * BUTUH LIBRARY: TinyGPSPlus
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 3.3V          (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   TX             | D2 (SoftwareSerial RX) | D16 (RX2)     (Hijau)
+ *   RX             | D3 (SoftwareSerial TX) | D17 (TX2)     (Kuning)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * GPS NEO-6M mengirim data NMEA 0183 via UART pada 9600 baud
  * Library TinyGPSPlus memparse data NMEA menjadi koordinat yang mudah dibaca

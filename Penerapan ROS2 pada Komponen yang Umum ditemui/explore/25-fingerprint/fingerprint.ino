@@ -9,7 +9,16 @@
  * 
  * BUTUH LIBRARY: Adafruit Fingerprint Sensor Library
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 3.3V          (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   TX             | D2 (SoftwareSerial RX) | D16 (RX2)     (Hijau)
+ *   RX             | D3 (SoftwareSerial TX) | D17 (TX2)     (Kuning)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * ENROLL: Upload contoh File→Examples→Adafruit Fingerprint→enroll
  *         Sebelum pakai sketch ini

@@ -6,7 +6,15 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   Kiri (GND)     | GND              | GND           (Hitam)
+ *   Tengah (Wiper) | A0               | GPIO36 (ADC)  (Kuning)
+ *   Kanan (VCC)    | 5V               | 3.3V          (Merah)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

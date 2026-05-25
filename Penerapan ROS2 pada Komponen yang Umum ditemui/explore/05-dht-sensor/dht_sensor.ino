@@ -7,7 +7,18 @@
  * 
  * BUTUH LIBRARY: DHT sensor library by Adafruit
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC (pin 1)    | 5V               | 3.3V          (Merah)
+ *   DATA (pin 2)   | D7               | D32           (Kuning)
+ *   NC (pin 3)     | —                | —             (—)
+ *   GND (pin 4)    | GND              | GND           (Hitam)
+ *
+ *   Catatan: PERHATIAN:** Pasang resistor pull-up 4.7kΩ - 10kΩ antara VCC dan DATA.
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

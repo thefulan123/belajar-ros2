@@ -8,7 +8,15 @@
  * 
  * BUTUH LIBRARY: Built-in Servo.h
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   Orange (Signal) | D9               | D13           (Kuning)
+ *   Red (VCC)      | 5V               | 5V (Vin)      (Merah)
+ *   Brown (GND)    | GND              | GND           (Hitam)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

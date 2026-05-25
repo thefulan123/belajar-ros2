@@ -7,7 +7,18 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   IN1            | D7               | D32           (Kuning)
+ *   IN2            | D6               | D33           (Hijau)
+ *   ENA (PWM)      | D5 (PWM)         | D25           (Biru)
+ *   VCC (12V)      | —                | —             (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   5V output      | (optional)       | (optional)    (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

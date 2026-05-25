@@ -8,7 +8,20 @@
  * 
  * BUTUH LIBRARY: Keypad by Mark Stanley
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   R1 (row 1)     | D7               | D13           (—)
+ *   R2 (row 2)     | D6               | D12           (—)
+ *   R3 (row 3)     | D5               | D14           (—)
+ *   R4 (row 4)     | D4               | D27           (—)
+ *   C1 (col 1)     | D3               | D26           (—)
+ *   C2 (col 2)     | D2               | D25           (—)
+ *   C3 (col 3)     | D1               | D33           (—)
+ *   C4 (col 4)     | D0               | D32           (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

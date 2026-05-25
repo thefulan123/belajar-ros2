@@ -44,7 +44,18 @@
  * 
  * BUTUH LIBRARY: DHT, LiquidCrystal_I2C
  * 
- * Koneksi: lihat wiring di masing-masing explore
+ * KONEKSI FISIK (gabungan dari explore 01-38):
+ * 
+ *   HC-SR04   | TRIG=D2, ECHO=D3
+ *   DHT11     | DATA=D7
+ *   MQ-2      | AOUT=A0
+ *   Flame     | DOUT=D4
+ *   Buzzer    | SIG=D5
+ *   Motor DC  | ENA=D9, IN1=D10, IN2=D11
+ *   LCD I2C   | SDA=A4, SCL=A5
+ *   
+ *   Catatan: Sesuaikan pin jika terjadi konflik.
+ *            Untuk ESP32, pin dapat dikustomisasi.
  * 
  * CATATAN:
  * - Kode ini PADUAN dari semua explore sebelumnya

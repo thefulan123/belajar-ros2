@@ -7,7 +7,16 @@
  * 
  * BUTUH LIBRARY: HX711 by Bogdan Necula
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 3.3V          (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   DT (data)      | D3               | D14           (Kuning)
+ *   SCK (clock)    | D2               | D12           (Hijau)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * KALIBRASI: Ganti KALIBRASI_FAKTOR setelah kalibrasi
  * Cara: letakkan beban 100g, hitung faktor = raw / 100

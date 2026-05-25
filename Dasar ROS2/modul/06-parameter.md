@@ -208,6 +208,8 @@ ros2 param load /turtlesim turtlesim.yaml
 - **Lanjut ke Modul 07** — Action (node sering pakai parameter untuk konfigurasi action)
 - **Praktek: explore/06-launch-params** — parameter + launch file
 - **Integrasi dengan Modul 09** — Launch (parameter sering di-set dari launch file)
+- **Penerapan Praktik:** [37-system-integration](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/37-system-integration/README.md) — menggunakan parameter untuk threshold suhu/kelembaban
+   Lihat [KORELASI.md](../docs/KORELASI.md) untuk mapping lengkap.
 
 ---
 

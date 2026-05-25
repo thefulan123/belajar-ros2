@@ -7,7 +7,16 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 5V (Vin)      (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   DO (digital)   | D4               | D14           (Kuning)
+ *   AO (analog)    | —                | —             (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * Cara kerja sensor hujan:
  * - Sensor mengeluarkan LOW jika ada air (konduktif)

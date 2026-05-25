@@ -8,7 +8,20 @@
  * 
  * BUTUH LIBRARY: MFRC522 by GithubCommunity
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   SDA (SS)       | D10              | D5            (Abu-abu)
+ *   SCK            | D13              | D18           (Biru)
+ *   MOSI           | D11              | D23           (Hijau)
+ *   MISO           | D12              | D19           (Kuning)
+ *   IRQ            | —                | —             (—)
+ *   GND            | GND              | GND           (Hitam)
+ *   RST            | D9               | D4            (Putih)
+ *   3.3V           | 3.3V             | 3.3V          (Merah)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

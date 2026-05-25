@@ -13,7 +13,18 @@
  * 
  * BUTUH LIBRARY: DFRobotDFPlayerMini
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC            | 5V               | 5V (Vin)      (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   TX             | D2 (SoftwareSerial RX) | D16 (RX2)     (Hijau)
+ *   RX             | D3 (SoftwareSerial TX) | D17 (TX2)     (Kuning)
+ *   SPK_1          | —                | Speaker (+)   (—)
+ *   SPK_2          | —                | Speaker (-)   (—)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  * 
  * DFPlayer Mini adalah modul MP3 player yang membaca file dari microSD
  * Komunikasi via UART (Serial) — di UNO pakai SoftwareSerial

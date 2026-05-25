@@ -234,6 +234,10 @@ ros2 topic pub /chatter std_msgs/msg/String "data: 'Test dari CLI'" --once
 - **Sebelumnya: Modul 03** — Node (node adalah pelaku pub/sub)
 - **Lanjut ke Modul 05** — Service (request-response)
 - **Praktek: explore/02-pub-sub** — implementasi pub/sub
+- **Penerapan Praktik:** Semua [38 komponen penerapan](../../Penerapan%20ROS2%20pada%20Komponen%20yang%20Umum%20ditemui/explore/01-led/README.md) menggunakan topic:
+   — 23 Publisher (sensor: DHT, Ultrasonic, GPS, dll)
+   — 13 Subscriber (aktuator: LED, Relay, Motor DC, dll)
+   — Lihat [KORELASI.md](../docs/KORELASI.md) untuk daftar lengkap.
 
 ---
 

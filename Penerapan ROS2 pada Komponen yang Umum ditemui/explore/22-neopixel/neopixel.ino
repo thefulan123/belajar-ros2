@@ -11,7 +11,15 @@
  * 
  * BUTUH LIBRARY: Adafruit NeoPixel
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   VCC (5V)       | 5V               | 5V (Vin)      (Merah)
+ *   GND            | GND              | GND           (Hitam)
+ *   DIN (data)     | D6               | D14           (Kuning)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════

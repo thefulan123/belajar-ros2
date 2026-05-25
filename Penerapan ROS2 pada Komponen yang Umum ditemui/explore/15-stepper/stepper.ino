@@ -7,7 +7,18 @@
  * 
  * Board: Arduino UNO / ESP32
  * 
- * Koneksi: lihat wiring.md
+ * KONEKSI FISIK:
+ *
+ *   Komponen       | Arduino UNO      | ESP32       
+ *   ------------------------------------------------
+ *   IN1 (Blue)     | D8               | D14           (Biru)
+ *   IN2 (Pink)     | D9               | D27           (Merah Muda)
+ *   IN3 (Yellow)   | D10              | D26           (Kuning)
+ *   IN4 (Orange)   | D11              | D25           (Orange)
+ *   GND            | GND              | GND           (Hitam)
+ *   VCC            | 5V               | 5V (Vin)      (Merah)
+ *
+ *   Lihat wiring.md untuk diagram lengkap.
  */
 
 // ═══════════════════════════════════════════════════════════════
