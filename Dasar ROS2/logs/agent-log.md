@@ -638,3 +638,32 @@ Pembelajar newbie sering bertanya: "Kenapa harus ribet pake ROS2? Arduino aja cu
 **Next Recommendation:**
 - Re-generate .docx files from new .md structure
 - Consider adding Custom Interfaces module (matching explore/05-custom-msg)
+
+---
+
+## 2026-05-25 — Fix type hints in explore code + pyright 0 errors
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+Review all 14 code files in explore/ and fix any issues found.
+
+**Files Changed:**
+- `Dasar ROS2/explore/05-custom-msg/my_custom_msg.py` — `List[int]` → `Optional[List[int]]` for error_codes
+- `Dasar ROS2/explore/06-launch-params/param_node.py` — add None guards for publish_rate, max_count
+- `Dasar ROS2/explore/03-service/service_client.py` — add type: ignore for rclpy dynamic type
+- `Dasar ROS2/explore/04-action/action_client.py` — add type: ignore for rclpy dynamic type
+
+**Reason:**
+- Review request from user: ensure all explore code is clean and consistent
+- pyright was reporting 4 type errors (1 genuine, 3 rclpy stub limitations)
+
+**Result:** success
+
+**Testing:**
+- `npx pyright Dasar ROS2/explore/` → **0 errors, 0 warnings, 0 informations**
+- All 14 code files (.py + .ino) have: shebang, banner, PENJELASAN DATA STRUCTURE, docstrings, inline comments, KeyboardInterrupt handling, proper cleanup
+
+**Next Recommendation:**
+- Re-generate .docx files from new .md structure
+- Consider adding Custom Interfaces module (matching explore/05-custom-msg)
