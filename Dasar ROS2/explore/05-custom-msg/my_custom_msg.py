@@ -53,7 +53,7 @@
 # Di ROS2 sesungguhnya, kita pakai file .msg + colcon build.
 # Tapi untuk pembelajaran, dataclass lebih sederhana.
 from dataclasses import dataclass
-from typing import List
+from typing import List, Optional
 
 
 @dataclass
@@ -119,7 +119,7 @@ class RobotStatus:
     is_moving: bool            # (12) Apakah robot sedang bergerak.
     linear_speed: float        # (13) Kecepatan linier (m/s).
     angular_speed: float       # (14) Kecepatan angular (rad/s).
-    error_codes: List[int] = None  # (15) Daftar kode error (opsional).
+    error_codes: Optional[List[int]] = None  # (15) Daftar kode error (opsional).
 
     def __str__(self):
         # (16) Representasi string.

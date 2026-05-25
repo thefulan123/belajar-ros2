@@ -94,6 +94,9 @@ class ParamNode(Node):
         self._count = 0  # (13) Counter internal (bukan parameter).
 
         # (14) Timer dengan interval dari parameter publish_rate.
+        # get_parameter().value bisa None — kita pake nilai default sebagai fallback.
+        if publish_rate is None:
+            publish_rate = 1.0
         self.timer = self.create_timer(publish_rate, self.timer_callback)
 
         # (15) Log informasi node jika verbose = True.
@@ -114,7 +117,7 @@ class ParamNode(Node):
             )
 
         # (18) Berhenti setelah mencapai max_count.
-        if self._count >= self._max_count:
+        if self._count >= (self._max_count or 0):
             self.get_logger().info('Mencapai max count. Berhenti.')
             self.timer.cancel()  # (19) Hentikan timer.
             rclpy.shutdown()     # (20) Hentikan ROS2.
