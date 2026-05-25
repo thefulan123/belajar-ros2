@@ -56,8 +56,7 @@ Di track explore Python: `rclpy.spin(node)` di setiap `*_node.py`.
 18-Keypad → `/keypad`,
 19-GPS → `/gps`,
 20-Encoder → `/encoder`,
-21-Microphone → `/suara`,
-22-Potentiometer → `/potensiometer`
+21-Microphone → `/suara`
 
 **Subscriber** (13 komponen aktuator/output):
 01-LED → `/led`,

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rclpy  # (1) Library utama ROS2 Python.
 from rclpy.node import Node  # (2) Kelas dasar Node.
 
@@ -27,7 +28,7 @@ class ParamNode(Node):
         self._count = 0  # (11) Counter internal.
 
         # (12) Timer dengan interval dari parameter.
-        self.timer = self.create_timer(rate, self.timer_callback)
+        self.timer = self.create_timer(rate or 1.0, self.timer_callback)
 
         if self._verbose:
             self.get_logger().info(f'Rate: {rate}s, Max: {self._max_count}')
@@ -40,7 +41,7 @@ class ParamNode(Node):
                 f'[{self._count}/{self._max_count}] {self._message}'
             )
         # (14) Berhenti setelah mencapai max_count.
-        if self._count >= self._max_count:
+        if self._max_count and self._count >= self._max_count:
             self.get_logger().info('Selesai.')
             self.timer.cancel()  # (15) Hentikan timer.
             rclpy.shutdown()     # (16) Hentikan ROS2.

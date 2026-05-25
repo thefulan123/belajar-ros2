@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rclpy  # (1) Library utama ROS2 Python.
 from rclpy.node import Node  # (2) Kelas dasar Node.
 from rclpy.action import ActionServer  # (3) Class untuk membuat Action Server.

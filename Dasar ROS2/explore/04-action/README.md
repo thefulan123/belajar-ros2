@@ -71,7 +71,6 @@ ros2 action info /fibonacci         # Info action
 ### 3. Canceling
 Action bisa di-cancel. Coba tekan Ctrl+C di server saat sedang proses.
 
-## Hubungan dengan explore lain
+## Hubungan dengan Modul
 
-- **explore/03-service**: service tanpa feedback — action punya feedback
-- **explore/02**: topic (broadcast) vs action (goal-based)
+- [Modul 07: Action](../../modul/07-action.md) — long-running task dengan feedback

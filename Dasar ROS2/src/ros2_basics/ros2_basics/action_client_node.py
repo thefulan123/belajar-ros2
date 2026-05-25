@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rclpy  # (1) Library utama ROS2 Python.
 from rclpy.node import Node  # (2) Kelas dasar Node.
 from rclpy.action import ActionClient  # (3) Class untuk membuat Action Client.
@@ -34,10 +35,10 @@ class ActionClientNode(Node):
         # (15) CALLBACK TIMER — cek apakah server sudah merespon goal.
         if self.send_goal_future.done():
             goal_handle = self.send_goal_future.result()
-            if goal_handle.accepted:  # (16) Goal diterima?
+            if goal_handle and goal_handle.accepted:  # (16) Goal diterima?
                 self.get_logger().info('Goal diterima!')
                 # (17) Minta result secara async.
-                self.result_future = goal_handle.get_result_async()
+                self.result_future = goal_handle.get_result_async()  # type: ignore
                 self.result_future.add_done_callback(self.result_callback)
             else:
                 self.get_logger().error('Goal ditolak!')

@@ -35,4 +35,5 @@ python3 minimal_node.py
 
 ## Hubungan dengan Modul
 
-Sebelum menjalankan, baca [Modul 10: Callback & Timer](../../modul/10-callback-timer.md) untuk memahami konsep callback dan event-driven.
+- [Modul 03: Node](../../modul/03-node.md) — konsep node ROS2
+- [Modul 10: Callback & Timer](../../modul/10-callback-timer.md) — callback dan timer periodik

@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rclpy  # (1) Library utama ROS2 Python. Wajib untuk semua node.
 from rclpy.node import Node  # (2) Kelas dasar Node untuk membuat node ROS2.
 from std_msgs.msg import String  # (3) Tipe pesan standar String.

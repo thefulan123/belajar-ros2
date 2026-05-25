@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import json  # (1) Library JSON — parsing string ke Python dict.
 import rclpy  # (2) Library utama ROS2 Python.
 from rclpy.node import Node  # (3) Kelas dasar Node.

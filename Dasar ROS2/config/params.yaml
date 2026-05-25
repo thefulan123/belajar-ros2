@@ -1,0 +1,15 @@
+# Dasar ROS2 — Parameter Configuration
+#
+# File ini berisi konfigurasi parameter default untuk node-node
+# di explore/06-launch-params dan src/ros2_basics.
+#
+# Cara pakai:
+#   ros2 run ros2_basics param_node --ros-args --params-file params.yaml
+#
+
+param_node:
+  ros__parameters:
+    publish_rate: 1.0
+    message: "Halo dari YAML config!"
+    verbose: true
+    max_count: 10

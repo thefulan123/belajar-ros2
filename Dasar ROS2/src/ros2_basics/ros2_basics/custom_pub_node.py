@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import json  # (1) Library JSON — serialisasi data ke string.
 import random  # (2) Library random — untuk data sensor acak.
 import rclpy  # (3) Library utama ROS2 Python.

@@ -68,7 +68,6 @@ python3 sub_custom.py
 2. **Ubah threshold suhu** di `sub_custom.py` — ganti `30.0` jadi angka lain
 3. **Cek topic**: `ros2 topic echo /sensor_data` — lihat data mentah (JSON string)
 
-## Hubungan dengan explore lain
+## Hubungan dengan Modul
 
-- **explore/02-pub-sub**: pakai std_msgs/String — di sini pakai custom message
-- **src/**: nanti semua custom message akan didefinisikan sebagai .msg file dan dibuild
+- [Modul 12: Custom Interfaces](../../modul/12-custom-interfaces.md) — .msg, .srv, .action buatan sendiri

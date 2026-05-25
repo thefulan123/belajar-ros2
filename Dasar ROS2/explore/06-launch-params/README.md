@@ -97,7 +97,7 @@ ros2 node list                     # Lihat node yang jalan
 ros2 param describe /param_node publish_rate  # Detail parameter
 ```
 
-## Hubungan dengan explore lain
+## Hubungan dengan Modul
 
-- **Semua explore sebelumnya**: setiap node bisa pakai parameter
-- **src/**: semua node akan dijalankan dengan launch file
+- [Modul 06: Parameter](../../modul/06-parameter.md) — konfigurasi node runtime
+- [Modul 09: Launch](../../modul/09-launch.md) — menjalankan banyak node sekaligus

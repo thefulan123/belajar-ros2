@@ -4,6 +4,8 @@
 
 Menggabungkan **beberapa komponen** dalam satu sistem yang terintegrasi via ROS2.
 
+> **CATATAN:** Berbeda dengan explore 01-36, folder ini **PC-side only** — tidak ada file `.ino` karena semua node berjalan di PC sebagai Python node. Komponen Arduino tetap jalan sebagai node terpisah dengan micro-ROS.
+
 Berbeda dengan explore sebelumnya (1 komponen per folder), di sini kita jalankan **banyak node secara bersamaan** yang saling berkomunikasi via topic ROS2.
 
 ## Arsitektur

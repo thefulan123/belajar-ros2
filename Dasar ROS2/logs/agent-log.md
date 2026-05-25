@@ -774,3 +774,58 @@ Phase F: Fix referensi typo (kelembaban → kelembapan)
 - All reference files updated (README.md, Materi.txt, etc.) ✅
 - Build artifacts (build/install/log/) are gitignored ✅
 - Dasar ROS2/src/ Track 2 workspace is already complete (10 nodes + launch)
+
+**Next Recommendation:**
+- Consider adding Menengah ROS2 (Level 2) content
+
+---
+
+## 2026-05-25 — Audit & fix: shebang, README refs, wiring.md, empty dirs
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+Comprehensive project audit and fixes for all issues found:
+- Add missing shebang to 9 src/ Python files
+- Fix explore README module references (6/7 were wrong)
+- Create missing wiring.md for 34-esp32-wifi and 38-final-project
+- Create Dasar ROS2/README.md (was missing, only .txt existed)
+- Update AGENTS.md module filenames (old names → current)
+- Fix docs/README.txt (missing KORELASI.md entry)
+- Fix KORELASI.md duplicate potentiometer entry
+- Fill empty dirs: config/ (params.yaml), launch/ (explore_nodes.launch.py), tests/ (test_imports.py)
+- Mark 37-system-integration as Python-only (no .ino)
+- Fix pyright errors: 5 → 0 errors in src/ code
+
+**Files Changed:**
+- All 9 src node .py files — added shebang + None guards for pyright
+- `Dasar ROS2/explore/01-minimal-node/README.md` — added Modul 03 ref
+- `Dasar ROS2/explore/02-pub-sub/README.md` — fixed: Modul 10 → Modul 04
+- `Dasar ROS2/explore/03-service/README.md` — added Modul 05 ref
+- `Dasar ROS2/explore/04-action/README.md` — added Modul 07 ref
+- `Dasar ROS2/explore/05-custom-msg/README.md` — added Modul 12 ref
+- `Dasar ROS2/explore/06-launch-params/README.md` — added Modul 06+09 refs
+- `Penerapan .../explore/34-esp32-wifi/wiring.md` — NEW: ESP32 WiFi wiring
+- `Penerapan .../explore/38-final-project/wiring.md` — NEW: integrated robot wiring
+- `Penerapan .../explore/37-system-integration/README.md` — marked as Python-only
+- `Dasar ROS2/README.md` — NEW: level overview
+- `Dasar ROS2/config/params.yaml` — NEW: YAML config example
+- `Dasar ROS2/launch/explore_nodes.launch.py` — NEW: launch file
+- `Dasar ROS2/tests/test_imports.py` — NEW: import tests
+- `AGENTS.md` — updated module filenames in tree
+- `Dasar ROS2/docs/README.txt` — added KORELASI.md entry
+- `Dasar ROS2/docs/KORELASI.md` — removed duplicate potentiometer entry
+
+**Reason:**
+- Comprehensive audit revealed multiple gaps and inconsistencies
+- User request: "pastikan sudah bagus"
+
+**Result:** success
+
+**Testing:**
+- `npx pyright Dasar ROS2/` → **0 errors, 0 warnings, 0 informations** ✅
+- `colcon build` → **0 errors** ✅
+- All explore READMEs now correctly reference their module(s) ✅
+- All 38 Penerapan components now have wiring.md ✅
+- Empty directories (config, launch, tests) now have content
+- AGENTS.md reflects actual file structure

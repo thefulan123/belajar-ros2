@@ -68,7 +68,6 @@ Ini karena service client menunggu sampai server siap.
 ### 4. Matikan server, panggil client
 Server mati → client gagal karena tidak ada yang melayani.
 
-## Hubungan dengan explore lain
+## Hubungan dengan Modul
 
-- **explore/01**: node dasar (service client di sini juga pake node)
-- **explore/02**: topic (beda konsep dengan service — topic broadcast, service request-response)
+- [Modul 05: Service](../../modul/05-service.md) — request-response pattern di ROS2

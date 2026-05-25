@@ -77,5 +77,5 @@ Edit `create_timer(1.0, ...)` di talker jadi `0.2` (5x per detik) atau `2.0`.
 
 ## Hubungan dengan Modul
 
-- Baca [Modul 10: Callback & Timer](../../modul/10-callback-timer.md)  
-  (subscriber callback di listener.py persis seperti yang dijelaskan)
+- [Modul 04: Topic, Pub, Sub](../../modul/04-topic-pub-sub.md) — komunikasi antar node via topic
+- [Modul 10: Callback & Timer](../../modul/10-callback-timer.md) — subscriber callback di listener.py

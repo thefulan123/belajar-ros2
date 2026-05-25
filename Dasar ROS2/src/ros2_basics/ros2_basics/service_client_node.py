@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import rclpy  # (1) Library utama ROS2 Python.
 from rclpy.node import Node  # (2) Kelas dasar Node.
 from example_interfaces.srv import AddTwoInts  # (3) Tipe service AddTwoInts.
@@ -31,8 +32,11 @@ class ServiceClientNode(Node):
         # (12) CALLBACK TIMER — cek apakah response sudah diterima.
         if self.future.done():
             try:
-                response = self.future.result()  # (13) Ambil response.
-                self.get_logger().info(f'Response: {response.sum}')
+                response = self.future.result()
+                if response:
+                    self.get_logger().info(f'Response: {response.sum}')
+                else:
+                    self.get_logger().error('Response kosong')
             except Exception as e:
                 self.get_logger().error(f'Gagal: {e}')
             finally:
