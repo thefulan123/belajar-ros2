@@ -7,11 +7,11 @@ Aturan khusus untuk folder ini.
 ```
 Penerapan ROS2 pada Komponen yang Umum Ditemui/
 ├── referensi/                 ← Panduan instalasi, daftar komponen, wiring
-├── explore/01-38/             ← Setiap komponen = 1 folder
-│   ├── komponen.ino           ← micro-ROS sketch
-│   ├── komponen_node.py       ← (opsional) PC-side node
-│   ├── wiring.md              ← Tabel koneksi
-│   └── README.md              ← Cara jalankan + troubleshoot
+├── explore/01-38/             ← Setiap komponen = 1 folder (01-led, 02-push-button, ...)
+│   ├── *.ino                  ← micro-ROS sketch (nama_komponen.ino)
+│   ├── *_node.py              ← (opsional) PC-side Python node
+│   ├── wiring.md              ← Tabel koneksi pin + diagram
+│   └── README.md              ← Cara jalankan + konsep ROS2
 ├── docs/
 │   ├── disclaimer.md
 │   └── ERRORS.md
