@@ -555,3 +555,53 @@ Pembelajar newbie sering bertanya: "Kenapa harus ribet pake ROS2? Arduino aja cu
 **Next Recommendation:**
 - Review referensi/ folder di Penerapan ROS2
 - Tambah modul praktikum untuk final project
+
+---
+
+## 2026-05-25 — Re-align modul order with ROS2 Humble docs + fix portability
+
+**Agent:** big-pickle (main)
+
+**Task Description:**
+1. Fix hardcoded machine-specific paths (portability)
+2. Re-align all modul order + naming to match official ROS2 Humble Beginner tutorials
+3. Consolidate workspace/package/build/source modules
+4. Add 3 new modules (turtlesim, parameter, launch)
+
+**Files Changed (24 files):**
+
+| Change | Files |
+|--------|-------|
+| **Portability fix** | `opencode.json`, `Dasar ROS2/scripts/source_ros.sh` |
+| **Portability fix (paths)** | `07-callback-event-timer.md` (now `10-callback-timer.md`), `08-micro-ros-arduino.md` (now `11-micro-ros.md`), `09-node.md` (now `03-node.md`), `10-topic-pub-sub.md` (now `04-topic-pub-sub.md`), `11-service.md` (now `05-service.md`), `12-action.md` (now `07-action.md`) |
+| **Git mv rename (7)** | `01-sourcing→01-environment`, `09-node→03-node`, `10-topic-pub-sub→04-topic-pub-sub`, `11-service→05-service`, `12-action→07-action`, `07-callback-event-timer→10-callback-timer`, `08-micro-ros-arduino→11-micro-ros` |
+| **Git rm delete (5)** | `02-workspace`, `03-package`, `04-create-package`, `05-build-package`, `06-source-workspace` (merged into 08) |
+| **Create new (4)** | `02-turtlesim.md`, `06-parameter.md`, `08-workspace-package.md`, `09-launch.md` |
+| **Update references** | `README.md`, `Materi.txt`, `modul/README.txt`, `explore/01-minimal-node/README.md`, `explore/02-pub-sub/README.md`, `explore/07-arduino-uno/README.md` |
+
+**Reason:**
+- Hardcoded `/home/soke/` and `/mnt/e/` paths made repo non-portable for anyone cloning
+- Learning order didn't match official ROS2 Humble docs (https://docs.ros.org/en/humble/)
+- Workspace/package/build/source were 5 separate files but conceptually 1 workflow
+- Missing modules for turtlesim (CLI intro), parameters, and launch files
+
+**Implementation Details:**
+- New order: Environment → turtlesim → Node → Topic → Service → Parameter → Action → Workspace-Package → Launch → Callback-Timer → micro-ROS
+- Consolidated `08-workspace-package.md` covers: workspace structure, package anatomy, `ros2 pkg create`, `colcon build`, sourcing workspace — one end-to-end workflow
+- Each renamed file updated: MODUL number, HUBUNGAN DENGAN MODUL LAIN cross-refs, added REFERENSI section linking to official docs
+- REFERENSI added to all 11 modules (new + renamed) — links to docs.ros.org
+- Portability: `opencode.json` uses bare `pyright-langserver` command; `source_ros.sh` uses `$(dirname "$(realpath "$0")")/../src` instead of hardcoded path
+
+**Result:** success
+
+**Testing:**
+- `git status` → 24 files staged, 4 untracked created, 5 deleted, 7 renamed
+- `git log --oneline -1` → commit `47c7e7c`
+- `git push` → successful to origin/main
+- Cross-references verified: all explore READMEs point to correct new modul numbers
+- Modul files checked: titles, HUBUNGAN sections, and REFERENSI all use new numbering
+
+**Next Recommendation:**
+- Add explore/README.txt with modul-explore mapping
+- Create docx versions from updated .md files (if needed)
+- Consider adding 2 more modules: Custom Interfaces (explore/05) and ROS2 Tools (ros2doctor, ros2bag)
