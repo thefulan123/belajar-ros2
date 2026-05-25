@@ -121,10 +121,10 @@ class ActionClientNode(Node):
             # (19) Ambil goal_handle dari future.
             goal_handle = self.send_goal_future.result()
             # (20) goal_handle.accepted — True jika goal diterima.
-            if goal_handle.accepted:
+            if goal_handle.accepted:  # type: ignore[union-attr]
                 self.get_logger().info('Goal diterima oleh server!')
                 # (21) Minta result secara async.
-                self.result_future = goal_handle.get_result_async()
+                self.result_future = goal_handle.get_result_async()  # type: ignore[union-attr]
                 # (22) Daftarkan callback untuk result.
                 self.result_future.add_done_callback(self.result_callback)
             else:

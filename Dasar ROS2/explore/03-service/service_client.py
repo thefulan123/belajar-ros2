@@ -128,7 +128,7 @@ class ServiceClientNode(Node):
                 # response.sum berisi hasil penjumlahan.
                 response = self.future.result()
                 self.get_logger().info(
-                    f'Response: {response.sum}'
+                    f'Response: {response.sum}'  # type: ignore[union-attr]
                 )
             except Exception as e:
                 # (18) Tangani error jika panggilan gagal.
